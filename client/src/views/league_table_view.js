@@ -4,7 +4,12 @@ var LeagueTableView = function(){
 
 LeagueTableView.prototype = {
 
-  render: 
+  render: function(table){
+    console.log("rendering")
+    var dummyP = document.createElement("p")
+    dummyP.innerText = "Table will go in here"
+    this.element.appendChild(dummyP)
+  }
 
 }
 
