@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 var path = require('path')
 
-router.use('/api/favourites', require('./favouritesRouter'))
+router.use('/api/favourites', require('./favourites_router'))
 
 router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + "/../client/index.html"))
