@@ -1,7 +1,7 @@
 // var MapWrapper = require('./map_wrapper.js')
 var UpcomingGames = require('./upcoming_games.js')
 
-// var UpcomingGamesView = require('./upcoming_games_view.js')
+var UpcomingGamesView = require('./upcoming_games_view.js')
 
 window.onload = function(){
 
@@ -12,8 +12,8 @@ window.onload = function(){
     console.log(games)
   })
 
-  // var upcomingGamesView = new UpcomingGamesView(list, games)
+  var upcomingGamesView = new UpcomingGamesView(list, games)
 
-  // UpcomingGamesView.populate();
+  UpcomingGamesView.populate();
 
 }
