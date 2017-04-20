@@ -3,7 +3,7 @@ var router = express.Router()
 var path = require('path')
 
 router.get('/', function(req, res) {
-  res.json({data: 'Hi Brogrammers!'})
+  res.sendFile(path.join(__dirname + "/../client/index.html"))
 })
 
 module.exports = router
