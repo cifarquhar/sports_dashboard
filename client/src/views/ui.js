@@ -17,7 +17,6 @@ var UI = function(link){
     this.objectView = new LeagueTableView()
   }
 
-  console.log('object:', this.object)
   this.object.getData(function(objectParam){
     this.objectView.render(objectParam)
   }.bind(this))
