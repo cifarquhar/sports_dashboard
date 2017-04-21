@@ -7,7 +7,10 @@ FixturesView.prototype = {
   render: function(fixtures) {
     console.log('favs: ', fixtures)
     var fixturesArray = fixtures.fixtures
-    for (var fixture of fixturesArray) {
+    var scheduledFixtures = fixturesArray.filter(function(fixture) {
+      return (fixture.status === 'SCHEDULED')
+    })
+    for (var fixture of scheduledFixtures) {
       var li = document.createElement('li')
       this.populateList(fixture, li)
       this.element.appendChild(li)
