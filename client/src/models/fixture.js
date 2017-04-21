@@ -6,6 +6,7 @@ var Fixture = function(options) {
   this.homeTeamName = options.homeTeamName
   this.awayTeamName = options.awayTeamName
   this.result = options.result
+  this.odds = options.odds
 }
 
 module.exports = Fixture

@@ -82,4 +82,12 @@ describe('Fixture', function() {
       }, fixture.result)
     })
 
+    it('should have odds', function() {
+      assert.deepEqual({
+        "homeWin": 3.25,
+        "draw": 3.25,
+        "awayWin": 2.2
+      }, fixture.odds)
+    })
+
 })
