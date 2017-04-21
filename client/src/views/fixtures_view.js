@@ -23,11 +23,11 @@ FixturesView.prototype = {
   },
 
   populateList: function(fixture, li) {
-    var pDate = this.createPtag('date', li, 'Date: ', fixture.date)
-    var pHomeTeam = this.createPtag('home-team', li, 'Home: ', fixture.homeTeamName)
-    var pAwayTeam = this.createPtag('away-team', li, 'Away: ', fixture.awayTeamName)
     var result = this.formatResult(fixture)
-    var pResult = this.createPtag('result', li, 'Result: ', result)
+    this.createPtag('date', li, 'Date: ', fixture.date)
+    this.createPtag('home-team', li, 'Home: ', fixture.homeTeamName)
+    this.createPtag('away-team', li, 'Away: ', fixture.awayTeamName)
+    this.createPtag('result', li, 'Result: ', result)
   },
 
   formatResult: function(fixture) {
