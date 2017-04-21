@@ -12,6 +12,7 @@ TeamStatsView.prototype = {
   render: function(league){
 
     this.teamSelector = document.querySelector("#team-selector")
+    var playerElement = this.playerElement
     
     var teams = league.teams.sort()
 
@@ -22,13 +23,13 @@ TeamStatsView.prototype = {
       this.teamSelector.appendChild(teamOption)
     }.bind(this))
 
-    teamPlayerURL = teams[0]._links.players.href
+    var teamPlayerURL = teams[0]._links.players.href
 
-    teamPlayers = new PlayerList(teamPlayerURL)
-    teamPlayerView = new PlayerListView()
+    var teamPlayers = new PlayerList(teamPlayerURL)
+    var teamPlayerView = new PlayerListView()
 
     teamPlayers.getData(function(squadList){
-      teamPlayerView.render(squadList,this.playerElement)
+      teamPlayerView.render(squadList,playerElement)
     }.bind(this))
 
 
@@ -36,6 +37,11 @@ TeamStatsView.prototype = {
 
     this.teamSelector.addEventListener("change",function(){
       console.log("changed")
+      var teamPlayerURL = teams[this.value]._links.players.href
+      var teamPlayers = new PlayerList(teamPlayerURL)
+      teamPlayers.getData(function(squadList){
+        teamPlayerView.render(squadList,playerElement)
+      }.bind(this))
     })
 
 

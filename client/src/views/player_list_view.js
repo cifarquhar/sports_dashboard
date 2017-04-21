@@ -9,6 +9,10 @@ PlayerListView.prototype = {
     var players = squadList.players
     console.log(players)
 
+    while (element.hasChildNodes()) {
+      element.removeChild(element.lastChild);
+    }
+
     var table = document.createElement("table")
     table.border = "1"
     var tableHeaders = document.createElement("tr")
