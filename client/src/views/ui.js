@@ -6,6 +6,8 @@ var FavouritesList = require('../models/favourites_list.js')
 var FavouritesView = require('./favourites_view.js')
 var FixturesView = require('./fixtures_view.js')
 var FixturesList = require('../models/fixtures_list.js')
+var MapInit = require('../models/map_init.js')
+
 
 var UI = function(link){
   if (object === "favourites"){
