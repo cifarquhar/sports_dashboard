@@ -16,7 +16,6 @@ FavouritesQuery.prototype = {
       }
     })
   }
-
 }
 
 module.exports = FavouritesQuery

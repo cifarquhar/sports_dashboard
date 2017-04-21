@@ -6,6 +6,7 @@ var UpcomingGamesQuery = function(){
 
 UpcomingGamesQuery.prototype = {
 
+<<<<<<< HEAD
   scheduledGamesDB: function(){
     MongoClient.connect(this.url, function(err, db){
       if(db) {
@@ -18,5 +19,4 @@ UpcomingGamesQuery.prototype = {
   }
 }
 
-
-module.exports = UpcomingGamesQuery;
+module.exports = UpcomingGamesQuery

@@ -9,16 +9,16 @@
 
 //   addMarker: function(coords){
 //     var marker = new google.maps.Marker({
-//       position: coords,
+//       position: coords,           // stadium coords
 //       mpa: this.googleMap
 //     });
 //   },
 
-//   addClickEvent: function(){
+//   onClickEventInfoBox: function(){
 //     google.maps.event.addListener(this.googleMap, 'click', function(event){
 //       var position = {
-//         lat: event.latLng.lat(),
-//         lng: event.latLng.lng()
+//         lat: event.latLng.lat(),  // stadium coords
+//         lng: event.latLng.lng()   // stadium coords
 //       }
 //       this.addMarker(position);
 //     }.bind(this));
