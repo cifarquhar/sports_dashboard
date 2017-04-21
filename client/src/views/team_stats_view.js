@@ -11,21 +11,48 @@ TeamStatsView.prototype = {
 
   render: function(league){
     console.log(league)
+
+    this.teamSelector = document.querySelector("#team-selector")
     
-    var teams = league.teams
+    var teams = league.teams.sort()
     console.log(teams)
 
+    teams.forEach(function(team,index){
+      var teamOption = document.createElement("option")
+      teamOption.innerText = team.name
+      teamOption.value = index
+      this.teamSelector.appendChild(teamOption)
+    }.bind(this))
+
+    teamPlayerURL = teams[0]._links.players.href
+    console.log(teamPlayerURL)
+
+    teamPlayers = new PlayerList(teamPlayerURL)
+    console.log(teamPlayers)
+    teamPlayerView = new PlayerListView()
+
+    teamPlayers.getData(function(squadList){
+      teamPlayerView.render(squadList,this.playerElement)
+    }.bind(this))
 
 
-    var playerP = document.createElement("p")
+
+
+    this.teamSelector.addEventListener("change",function(){
+      console.log("changed")
+    })
+
+
+
+    // var playerP = document.createElement("p")
     var formP = document.createElement("p")
     var matchP = document.createElement("p")
 
-    playerP.innerText = "Player stuff here"
+    // playerP.innerText = "Player stuff here"
     formP.innerText = "Form stuff here"
     matchP.innerText = "Match stuff here"
 
-    this.playerElement.appendChild(playerP)
+    // this.playerElement.appendChild(playerP)
     this.formElement.appendChild(formP)
     this.matchElement.appendChild(matchP)
   }
