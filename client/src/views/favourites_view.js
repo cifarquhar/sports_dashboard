@@ -4,19 +4,19 @@ var FavouritesView = function() {
 
 FavouritesView.prototype = {
 
-  render: function(fixtures) {
-    console.log("this is favourites render")
-    // for (var fixtures of fixtures) {
-    //   var li = this.element.createElement('li')
-    //   console.log('favourites li', li)
-    //   var pDate = createPtag('date')
-    //   pDate.innerText = 'hi Brogrammers, this is a favourite'
-    //   li.appendChild(pDate)
-    //   this.element.appendChild(li)
-    },
+  render: function(favourites) {
+    console.log('favs: ', favourites)
+    for (var favourite of favourites) {
+      var li = document.createElement('li')
+      var pDate = this.createPtag('date')
+      pDate.innerText = 'hi Brogrammers, this is a favourite'
+      li.appendChild(pDate)
+      this.element.appendChild(li)
+    }
+  },
 
   createPtag: function(id) {
-    var pTag = this.element.createElement('p')
+    var pTag = document.createElement('p')
     pTag.id = id
     return pTag
   }
