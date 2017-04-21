@@ -1,3 +1,5 @@
+var MatchView = require("./match_view")
+
 var FormListView = function(){
 
 }
@@ -11,6 +13,8 @@ FormListView.prototype = {
     while (element.hasChildNodes()) {
       element.removeChild(element.lastChild);
     }
+
+    var matchElement = document.querySelector("#match-div")
 
     fixtures.forEach(function(fixture){
       var homeGoals = fixture.result.goalsHomeTeam
@@ -29,6 +33,14 @@ FormListView.prototype = {
       else if (((teamName === fixture.homeTeamName) && homeGoals < awayGoals) || ((teamName === fixture.awayTeamName) && homeGoals > awayGoals)){
         resultBox.classList.add("loss")
       }
+
+
+      resultBox.addEventListener("click",function(){
+        var matchView = new MatchView(fixture,matchElement)
+        matchView.render()
+        // console.log(fixture)
+      })
+      
       element.appendChild(resultBox)
     })
   }

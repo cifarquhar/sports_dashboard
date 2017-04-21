@@ -66,11 +66,11 @@ TeamStatsView.prototype = {
 
     
     
-    var matchP = document.createElement("p")
+    // var matchP = document.createElement("p")
 
-    matchP.innerText = "Match stuff here"
+    // matchP.innerText = "Match stuff here"
 
-    matchElement.appendChild(matchP)
+    // matchElement.appendChild(matchP)
   }
 
 }
