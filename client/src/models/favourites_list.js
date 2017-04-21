@@ -9,12 +9,14 @@ FavouritesList.prototype = {
         request.send()
   },
 
-  all: function() {
+  getData: function(callback) {
     this.makeRequest('GET', 'http://localhost:3000/api/favourites', function(){
-      if(this.status !==200) return
+      if(this.status !== 200) return
       var jsonFavs = this.responseText
       var favourites = JSON.parse(jsonFavs)
       callback(favourites)
     })
   }
 }
+
+module.exports = FavouritesList

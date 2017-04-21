@@ -14,11 +14,14 @@ var UI = function(link){
   this.object = null
   this.objectView = null
 
-  if (link === "table"){
+  if (link === "favourites") {
+    this.object = new FavouritesList()
+    this.objectView = new FavouritesView()
+  } else if (link === "table"){
     this.object = new LeagueTable()
     this.objectView = new LeagueTableView()
   }
-
+  
   this.object.getData(function(objectParam){
     this.objectView.render(objectParam)
   }.bind(this))
