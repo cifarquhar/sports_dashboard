@@ -7,10 +7,7 @@ FixturesView.prototype = {
   render: function(fixtures) {
     console.log('favs: ', fixtures)
     var fixturesArray = fixtures.fixtures
-    this.findUpcomingGames()
-    var scheduledFixtures = fixturesArray.filter(function(fixture) {
-      return (fixture.status === 'SCHEDULED')
-    })
+    var scheduledFixtures = this.findUpcomingGames(fixturesArray)
     for (var fixture of scheduledFixtures) {
       var li = document.createElement('li')
       this.populateList(fixture, li)
@@ -44,7 +41,10 @@ FixturesView.prototype = {
 
   findUpcomingGames: function(allFixtures) {
     var dateToday = new Date()
-    console.log(dateToday)
+    var nextWeek = new Date(dateToday.getTime() + 7 * 24 * 60 * 60 * 1000)
+    return allFixtures.filter(function(fixture) {
+      return (new Date(fixture.date) > dateToday) && (new Date(fixture.date) < nextWeek)
+    })
   }
 }
 
