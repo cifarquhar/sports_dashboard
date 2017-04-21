@@ -11,6 +11,8 @@ FixturesView.prototype = {
     for (var fixture of scheduledFixtures) {
       var li = document.createElement('li')
       this.populateList(fixture, li)
+      var button = this.createAddButton()
+      li.appendChild(button)
       this.element.appendChild(li)
     }
   },
@@ -48,7 +50,9 @@ FixturesView.prototype = {
   },
 
   createAddButton: function() {
-    
+    var button = document.createElement('button')
+    button.innerText = 'Add to favourites'
+    return button
   }
 
 }
