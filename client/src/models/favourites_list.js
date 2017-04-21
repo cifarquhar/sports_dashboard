@@ -11,7 +11,7 @@ FavouritesList.prototype = {
       }
   },
 
-  all: function() {
+  getData: function() {
     this.makeRequest('GET', 'http://localhost:3000/api/favourites', function(){
       if(this.status !==200) return
       var jsonFavs = this.responseText
