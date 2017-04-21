@@ -11,6 +11,7 @@ LeagueTable.prototype = {
         if (request.status === 200){
           var jsonString = request.responseText
           this.table = JSON.parse(jsonString)
+          console.log(this)
           callback(this.table)
         }
       }.bind(this)

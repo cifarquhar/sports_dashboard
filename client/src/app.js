@@ -8,6 +8,7 @@ var app = function(){
   var leagueTableView = new LeagueTableView()
 
   leagueTable.getData(function(table){
+    console.log(table.standing[0].position)
     leagueTableView.render(table)
   })
 
