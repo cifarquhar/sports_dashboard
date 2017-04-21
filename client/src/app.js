@@ -10,10 +10,9 @@ window.onload = function(){
 
   upcomingGames.getData(function(games){
     console.log(games)
+    var list = document.querySelector('ul')
+    var upcomingGamesView = new UpcomingGamesView(list, games)
+    upcomingGamesView.populate();
   })
-
-  var upcomingGamesView = new UpcomingGamesView(list, games)
-
-  UpcomingGamesView.populate();
 
 }
