@@ -1,0 +1,22 @@
+.box{
+  width:10px;
+  height:10px;
+  border:1px 
+  solid #000;
+}
+
+.win{
+  background: #30AA49
+}
+
+.draw{
+  background: #E5C100
+}
+
+.loss{
+  background: #C61A10
+}
+
+.unplayed{
+  background: #808080
+}
