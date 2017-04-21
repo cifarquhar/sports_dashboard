@@ -75,4 +75,11 @@ describe('Fixture', function() {
       assert.strictEqual("Leicester City FC", fixture.awayTeamName)
     })
 
+    it('should have a result', function() {
+      assert.deepEqual({
+        "goalsHomeTeam": 2,
+        "goalsAwayTeam": 1
+      }, fixture.result)
+    })
+
 })
