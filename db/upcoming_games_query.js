@@ -6,5 +6,17 @@ var UpcomingGamesQuery = function(){
 
 UpcomingGamesQuery.prototype = {
 
-  scheduledGamesDB: function()
+  scheduledGamesDB: function(){
+    MongoClient.connect(this.url, function(err, db){
+      if(db) {
+        var collection = db.collection('upcomingGames')
+        collection.find().toArray(function(err, db){
+          onQueryFinished(data)
+        })
+      }
+    })
+  }
 }
+
+
+module.exports = UpcomingGamesQuery;
