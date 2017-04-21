@@ -5,6 +5,5 @@ var UpcomingGamesQuery = function(){
 }
 
 UpcomingGamesQuery.prototype = {
-
   
 }
