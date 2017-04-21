@@ -7,27 +7,30 @@ FixturesView.prototype = {
   render: function(fixtures) {
     console.log('favs: ', fixtures)
     var fixturesArray = fixtures.fixtures
-    for (var fixture of fixturesArray) {
+    var scheduledFixtures = fixturesArray.filter(function(fixture) {
+      return (fixture.status === 'SCHEDULED')
+    })
+    for (var fixture of scheduledFixtures) {
       var li = document.createElement('li')
       this.populateList(fixture, li)
       this.element.appendChild(li)
     }
   },
 
-  createPtag: function(id, li, text) {
+  createPtag: function(id, li, label, text) {
     var pTag = document.createElement('p')
     pTag.id = id
-    pTag.innerText = text
+    pTag.innerText = label + text
     li.appendChild(pTag)
     return pTag
   },
 
   populateList: function(fixture, li) {
-    var pDate = this.createPtag('date', li, fixture.date)
-    var pHomeTeam = this.createPtag('home-team', li, fixture.homeTeamName)
-    var pAwayTeam = this.createPtag('away-team', li, fixture.awayTeamName)
     var result = this.formatResult(fixture)
-    var pResult = this.createPtag('result', li, result)
+    this.createPtag('date', li, 'Date: ', fixture.date)
+    this.createPtag('home-team', li, 'Home: ', fixture.homeTeamName)
+    this.createPtag('away-team', li, 'Away: ', fixture.awayTeamName)
+    this.createPtag('result', li, 'Result: ', result)
   },
 
   formatResult: function(fixture) {
