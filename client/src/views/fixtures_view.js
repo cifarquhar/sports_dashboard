@@ -52,6 +52,9 @@ FixturesView.prototype = {
   createAddButton: function() {
     var button = document.createElement('button')
     button.innerText = 'Add to favourites'
+    button.addEventListener('click', function(e) {
+      console.log('clicky clicky')
+    })
     return button
   }
 
