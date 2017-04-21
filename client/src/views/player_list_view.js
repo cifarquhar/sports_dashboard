@@ -6,6 +6,8 @@ PlayerListView.prototype = {
 
   render: function(squadList,element){
     console.log("Stuff happening in the player view")
+    var players = squadList.players
+    console.log(players)
 
     var table = document.createElement("table")
     table.border = "1"
@@ -22,6 +24,21 @@ PlayerListView.prototype = {
     tableHeaders.appendChild(numberHeader)
 
     table.appendChild(tableHeaders)
+
+
+    players.forEach(function(player){
+      var playerEntry = document.createElement("tr")
+      var nameEntry = document.createElement("td")
+      nameEntry.innerText = player.name
+      var positionEntry = document.createElement("td")
+      positionEntry.innerText = player.position
+      var numberEntry = document.createElement("td")
+      numberEntry.innerText = player.jerseyNumber
+      playerEntry.appendChild(nameEntry)
+      playerEntry.appendChild(positionEntry)
+      playerEntry.appendChild(numberEntry)
+      table.appendChild(playerEntry)
+    })
 
 
     element.appendChild(table)

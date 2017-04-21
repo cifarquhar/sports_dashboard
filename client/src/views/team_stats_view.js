@@ -10,12 +10,10 @@ var TeamStatsView = function(){
 TeamStatsView.prototype = {
 
   render: function(league){
-    console.log(league)
 
     this.teamSelector = document.querySelector("#team-selector")
     
     var teams = league.teams.sort()
-    console.log(teams)
 
     teams.forEach(function(team,index){
       var teamOption = document.createElement("option")
@@ -25,10 +23,8 @@ TeamStatsView.prototype = {
     }.bind(this))
 
     teamPlayerURL = teams[0]._links.players.href
-    console.log(teamPlayerURL)
 
     teamPlayers = new PlayerList(teamPlayerURL)
-    console.log(teamPlayers)
     teamPlayerView = new PlayerListView()
 
     teamPlayers.getData(function(squadList){
@@ -44,15 +40,13 @@ TeamStatsView.prototype = {
 
 
 
-    // var playerP = document.createElement("p")
+    
     var formP = document.createElement("p")
     var matchP = document.createElement("p")
 
-    // playerP.innerText = "Player stuff here"
     formP.innerText = "Form stuff here"
     matchP.innerText = "Match stuff here"
 
-    // this.playerElement.appendChild(playerP)
     this.formElement.appendChild(formP)
     this.matchElement.appendChild(matchP)
   }
