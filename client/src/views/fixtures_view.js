@@ -10,29 +10,26 @@ FixturesView.prototype = {
     for (var fixture of fixturesArray) {
       var li = document.createElement('li')
       
-      var pDate = this.createPtag('date')
+      var pDate = this.createPtag('date', li)
       pDate.innerText = fixture.date
 
-      var pHomeTeam = this.createPtag('home-team')
+      var pHomeTeam = this.createPtag('home-team', li)
       pHomeTeam.innerText = fixture.homeTeamName
 
-      var pAwayTeam = this.createPtag('away-team')
+      var pAwayTeam = this.createPtag('away-team', li)
       pAwayTeam.innerText = fixture.awayTeamName
 
-      var pResult = this.createPtag('result')
+      var pResult = this.createPtag('result', li)
       pResult.innerText = this.formatResult(fixture)
 
-      li.appendChild(pDate)
-      li.appendChild(pHomeTeam)
-      li.appendChild(pAwayTeam)
-      li.appendChild(pResult)
       this.element.appendChild(li)
     }
   },
 
-  createPtag: function(id) {
+  createPtag: function(id, li) {
     var pTag = document.createElement('p')
     pTag.id = id
+    li.appendChild(pTag)
     return pTag
   },
 
