@@ -1,9 +1,9 @@
-var UpcomingGames = function(url){
-  this.url = url
+var UpcomingGamesList = function(){
+  this.url = 'http://api.football-data.org/v1/competitions/426/fixtures'
 }
 
 
-UpcomingGames.prototype = {
+UpcomingGamesList.prototype = {
 
   getData: function(callback){
 

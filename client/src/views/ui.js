@@ -6,6 +6,8 @@ var FavouritesList = require('../models/favourites_list.js')
 var FavouritesView = require('./favourites_view.js')
 var FixturesView = require('./fixtures_view.js')
 var FixturesList = require('../models/fixtures_list.js')
+var MapInit = require('../models/map_init.js')
+
 
 var UI = function(link){
   if (object === "favourites"){
@@ -25,7 +27,11 @@ var UI = function(link){
   } else if (link === "map") {
     this.object = new FixturesList()
     this.objectView = new FixturesView()
+  } else if (link === "upcoming_games")
+    this.object = new UpcomingGamesList()
+    this.object = new upcoming_games_view()
   }
+
 
   this.object.getData(function(objectParam){
     this.objectView.render(objectParam)
