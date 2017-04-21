@@ -7,6 +7,7 @@ FixturesView.prototype = {
   render: function(fixtures) {
     console.log('favs: ', fixtures)
     var fixturesArray = fixtures.fixtures
+    findUpcomingGames()
     var scheduledFixtures = fixturesArray.filter(function(fixture) {
       return (fixture.status === 'SCHEDULED')
     })
@@ -39,6 +40,11 @@ FixturesView.prototype = {
     }
     resultString = fixture.result.goalsHomeTeam + " - " + fixture.result.goalsAwayTeam
     return resultString
+  },
+
+  findUpcomingGames: function(allFixtures) {
+    var dateToday = new Date()
+    console.log(dateToday)
   }
 }
 
