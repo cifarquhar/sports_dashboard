@@ -14,7 +14,9 @@ FixturesList.prototype = {
       this.makeRequest('GET', 'http://api.football-data.org/v1/competitions/426/fixtures', function(){
         if(this.status !== 200) return
         var jsonFavs = this.responseText
-        var favourites = JSON.parse(jsonFavs)
+        var fixtures = JSON.parse(jsonFavs)
+
+
         callback(favourites)
       })
     }
