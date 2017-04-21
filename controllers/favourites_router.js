@@ -9,8 +9,8 @@ favouritesRouter.get('/', function(req, res){
   })
 })
 
-// favouritesRouter.post('/', function(req, res) {
-//   favouritesQuery.add()
-// })
+favouritesRouter.post('/', function(req, res) {
+  favouritesQuery.add()
+})
 
 module.exports = favouritesRouter

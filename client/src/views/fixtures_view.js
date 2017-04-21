@@ -45,7 +45,12 @@ FixturesView.prototype = {
     return allFixtures.filter(function(fixture) {
       return (new Date(fixture.date) > dateToday) && (new Date(fixture.date) < nextWeek)
     })
+  },
+
+  createAddButton: function() {
+    
   }
+
 }
 
 

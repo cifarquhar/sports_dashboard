@@ -15,6 +15,17 @@ FavouritesQuery.prototype = {
         })
       }
     })
+  },
+
+  add: function(onQueryFinished) {
+    MongoClient.connect(this.url, function(err, db) {
+      if (db) {
+        var collection = db.collection('favourites')
+        collection.insert({
+          
+        })
+      }
+    })
   }
 }
 
