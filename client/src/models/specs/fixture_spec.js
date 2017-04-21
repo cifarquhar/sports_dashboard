@@ -63,4 +63,8 @@ describe('Fixture', function() {
       assert.strictEqual("FINISHED", fixture.status)
     })
 
+    it('should have a matchday', function() {
+      assert.strictEqual(1, fixture.matchday)
+    })
+
 })
