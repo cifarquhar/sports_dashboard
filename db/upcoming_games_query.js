@@ -6,11 +6,11 @@ var UpcomingGamesQuery = function(){
 
 UpcomingGamesQuery.prototype = {
 
-  scheduledGamesDB: function() {
-    MongoClient.connect(this.url, function(err, db) {
+  scheduledGamesDB: function(){
+    MongoClient.connect(this.url, function(err, db){
       if(db) {
         var collection = db.collection('upcomingGames')
-        collection.find().toArray(function(err, data) {
+        collection.find().toArray(function(err, db){
           onQueryFinished(data)
         })
       }

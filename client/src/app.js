@@ -8,6 +8,4 @@ var app = function(){
   new UI(base)
 }
 
-
 window.onload = app
-
