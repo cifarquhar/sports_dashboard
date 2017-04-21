@@ -8,6 +8,10 @@ router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + "/../client/index.html"))
 })
 
+router.get('/table', function(req, res) {
+  res.sendFile(path.join(__dirname + "/../client/league_table.html"))
+})
+
 router.get('/favourites', function(req, res) {
   res.sendFile(path.join(__dirname + "/../client/favourites.html"))
 })
