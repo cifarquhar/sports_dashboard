@@ -1,3 +1,6 @@
+var PlayerList = require("../models/player_list")
+var PlayerListView = require("./player_list_view")
+
 var TeamStatsView = function(){
   this.playerElement = document.querySelector("#player-div")
   this.formElement = document.querySelector("#form-div")
@@ -6,7 +9,14 @@ var TeamStatsView = function(){
 
 TeamStatsView.prototype = {
 
-  render: function(){
+  render: function(league){
+    console.log(league)
+    
+    var teams = league.teams
+    console.log(teams)
+
+
+
     var playerP = document.createElement("p")
     var formP = document.createElement("p")
     var matchP = document.createElement("p")

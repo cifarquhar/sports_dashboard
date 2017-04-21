@@ -1,8 +1,8 @@
-var TeamStats = function(){
-  this.url = "http://api.football-data.org/v1/competitions/426/teams"
+var PlayerList = function(url){
+  this.url = url
 }
 
-TeamStats.prototype = {
+PlayerList.prototype = {
     getData: function(callback){
       var request = new XMLHttpRequest()
       request.open("GET",this.url)
@@ -10,8 +10,8 @@ TeamStats.prototype = {
       request.onload = function(){
         if (request.status === 200){
           var jsonString = request.responseText
-          this.teamList = JSON.parse(jsonString)
-          callback(this.teamList)
+          this.squadList = JSON.parse(jsonString)
+          callback(this.squadList)
         }
       }.bind(this)
       request.send()
@@ -19,4 +19,4 @@ TeamStats.prototype = {
 }
 
 
-module.exports = TeamStats
+module.exports = PlayerList
