@@ -4,6 +4,7 @@ var Fixture = function(options) {
   this.status = options.status
   this.matchday = options.matchday
   this.homeTeamName = options.homeTeamName
+  this.awayTeamName = options.awayTeamName
 }
 
 module.exports = Fixture

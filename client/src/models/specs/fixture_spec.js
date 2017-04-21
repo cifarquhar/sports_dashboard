@@ -71,4 +71,8 @@ describe('Fixture', function() {
       assert.strictEqual("Hull City FC", fixture.homeTeamName)
     })
 
+    it('should have an awayTeamName', function() {
+      assert.strictEqual("Leicester City FC", fixture.awayTeamName)
+    })
+
 })
