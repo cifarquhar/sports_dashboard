@@ -3,6 +3,7 @@ var Fixture = function(options) {
   this.date = options.date
   this.status = options.status
   this.matchday = options.matchday
+  this.homeTeamName = options.homeTeamName
 }
 
 module.exports = Fixture
