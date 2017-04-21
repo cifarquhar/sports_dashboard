@@ -5,10 +5,8 @@ var PlayerListView = function(){
 PlayerListView.prototype = {
 
   render: function(squadList,element){
-    console.log("Stuff happening in the player view")
     var players = squadList.players
-    console.log(players)
-
+    
     while (element.hasChildNodes()) {
       element.removeChild(element.lastChild);
     }

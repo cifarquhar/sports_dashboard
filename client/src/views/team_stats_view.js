@@ -1,5 +1,7 @@
 var PlayerList = require("../models/player_list")
 var PlayerListView = require("./player_list_view")
+var FormList = require("../models/form_list")
+var FormListView = require("./form_list_view")
 
 var TeamStatsView = function(){
   this.playerElement = document.querySelector("#player-div")
@@ -17,6 +19,7 @@ TeamStatsView.prototype = {
     var matchElement = this.matchElement
     
     var teams = league.teams.sort()
+    console.log(teams[0])
 
     teams.forEach(function(team,index){
       var teamOption = document.createElement("option")
@@ -30,7 +33,19 @@ TeamStatsView.prototype = {
     var teamPlayerView = new PlayerListView()
     teamPlayers.getData(function(squadList){
       teamPlayerView.render(squadList,playerElement)
-    }.bind(this))
+    })
+
+
+    var teamFormURL = teams[0]._links.fixtures.href
+    var teamForm = new FormList(teamFormURL)
+    var teamFormView = new FormListView()
+    teamForm.getData(function(fixtures){
+      teamFormView.render(fixtures,formElement)
+    })
+
+
+
+
 
 
    this.teamSelector.addEventListener("change",function(){
@@ -45,13 +60,13 @@ TeamStatsView.prototype = {
 
 
     
-    var formP = document.createElement("p")
+    // var formP = document.createElement("p")
     var matchP = document.createElement("p")
 
-    formP.innerText = "Form stuff here"
+    // formP.innerText = "Form stuff here"
     matchP.innerText = "Match stuff here"
 
-    formElement.appendChild(formP)
+    // formElement.appendChild(formP)
     matchElement.appendChild(matchP)
   }
 
