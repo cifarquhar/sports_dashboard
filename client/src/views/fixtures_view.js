@@ -1,11 +1,13 @@
-var FixturesView = function() {
+var FavouritesQuery
+
+var FixturesView = function(favouritesList) {
   this.element = document.querySelector('#fixtures')
+  this.favouritesList = favouritesList
 }
 
 FixturesView.prototype = {
 
   render: function(fixtures) {
-    console.log('favs: ', fixtures)
     var fixturesArray = fixtures.fixtures
     var scheduledFixtures = this.findUpcomingGames(fixturesArray)
     for (var fixture of scheduledFixtures) {
@@ -53,8 +55,8 @@ FixturesView.prototype = {
     var button = document.createElement('button')
     button.innerText = 'Add to favourites'
     button.addEventListener('click', function(e) {
-      console.log('clicky clicky')
-    })
+      this.favouritesList.add
+    }.bind(this))
     return button
   }
 

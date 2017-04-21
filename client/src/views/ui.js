@@ -13,13 +13,13 @@ var UI = function(link){
 
   if (link === "favourites") {
     this.object = new FavouritesList()
-    this.objectView = new FixturesView()
+    this.objectView = new FavouritesView()
   } else if (link === "table"){
     this.object = new LeagueTable()
     this.objectView = new LeagueTableView()
   } else if (link === "map") {
     this.object = new FixturesList()
-    this.objectView = new FixturesView()
+    this.objectView = new FixturesView(new FavouritesList)
   } 
 
   this.object.getData(function(objectParam){

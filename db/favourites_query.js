@@ -17,12 +17,13 @@ FavouritesQuery.prototype = {
     })
   },
 
-  add: function(onQueryFinished) {
+  add: function(fixture, onQueryFinished) {
     MongoClient.connect(this.url, function(err, db) {
       if (db) {
         var collection = db.collection('favourites')
-        collection.insert({
-          
+        collection.insert(fixture)
+        collection.find().toArray(function(err, data) {
+          onQueryFinished(data)
         })
       }
     })

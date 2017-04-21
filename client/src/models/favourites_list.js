@@ -2,11 +2,17 @@ var FavouritesList = function() {}
 
 FavouritesList.prototype = {
 
-  makeRequest: function(requestType, url, callback){
+  makeRequest: function(requestType, url, callback, payload){
         var request = new XMLHttpRequest()
         request.open(requestType, url)
-        request.onload = callback
-        request.send()
+        if (payload) { 
+          request.setRequestHeader('Content-Type','application/json')
+          request.onload = callback
+          request.send(payload)
+        } else {
+          request.onload = callback
+          request.send()
+        }
   },
 
   getData: function(callback) {
@@ -16,7 +22,11 @@ FavouritesList.prototype = {
       var favourites = JSON.parse(jsonFavs)
       callback(favourites)
     })
+  },
+
+  add: function(fixture, callback) {
+    this.makeRequest('POST', 'http://localhost:3000/api/favourites', callback, JSON.stringify(fixture))
+    }
   }
-}
 
 module.exports = FavouritesList
