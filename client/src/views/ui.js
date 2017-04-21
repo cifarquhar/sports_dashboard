@@ -13,7 +13,7 @@ var UI = function(link){
 
   if (link === "favourites") {
     this.object = new FavouritesList()
-    this.objectView = new FavouritesView()
+    this.objectView = new FixturesView()
   } else if (link === "table"){
     this.object = new LeagueTable()
     this.objectView = new LeagueTableView()
