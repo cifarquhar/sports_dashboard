@@ -5,7 +5,7 @@ var UpcomingGamesView = function(list, games){
 
 UpcomingGamesView.prototype = {
 
-  populate: function() {
+  render: function() {
     this.games.fixtures.forEach(function(games){
       if (games.status === 'FINISHED') return
       var ul = document.createElement('ul')
