@@ -13,6 +13,8 @@ TeamStatsView.prototype = {
 
     this.teamSelector = document.querySelector("#team-selector")
     var playerElement = this.playerElement
+    var formElement = this.formElement
+    var matchElement = this.matchElement
     
     var teams = league.teams.sort()
 
@@ -24,18 +26,14 @@ TeamStatsView.prototype = {
     }.bind(this))
 
     var teamPlayerURL = teams[0]._links.players.href
-
     var teamPlayers = new PlayerList(teamPlayerURL)
     var teamPlayerView = new PlayerListView()
-
     teamPlayers.getData(function(squadList){
       teamPlayerView.render(squadList,playerElement)
     }.bind(this))
 
 
-
-
-    this.teamSelector.addEventListener("change",function(){
+   this.teamSelector.addEventListener("change",function(){
       console.log("changed")
       var teamPlayerURL = teams[this.value]._links.players.href
       var teamPlayers = new PlayerList(teamPlayerURL)
@@ -53,8 +51,8 @@ TeamStatsView.prototype = {
     formP.innerText = "Form stuff here"
     matchP.innerText = "Match stuff here"
 
-    this.formElement.appendChild(formP)
-    this.matchElement.appendChild(matchP)
+    formElement.appendChild(formP)
+    matchElement.appendChild(matchP)
   }
 
 }
