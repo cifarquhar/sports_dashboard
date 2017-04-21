@@ -13,8 +13,7 @@ FavouritesView.prototype = {
     //   pDate.innerText = 'hi Brogrammers, this is a favourite'
     //   li.appendChild(pDate)
     //   this.element.appendChild(li)
-    }
-  },
+    },
 
   createPtag: function(id) {
     var pTag = this.element.createElement('p')
@@ -22,5 +21,6 @@ FavouritesView.prototype = {
     return pTag
   }
 }
+
 
 module.exports = FavouritesView
