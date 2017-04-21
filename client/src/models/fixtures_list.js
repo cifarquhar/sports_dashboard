@@ -15,9 +15,7 @@ FixturesList.prototype = {
         if(this.status !== 200) return
         var jsonFavs = this.responseText
         var fixtures = JSON.parse(jsonFavs)
-
-
-        callback(favourites)
+        callback(fixtures)
       })
     }
 

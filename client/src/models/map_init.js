@@ -1,15 +1,16 @@
+var MapWrapper = require('../views/map_wrapper.js')
+
 var MapInit = function() {
-  this.url = new google.maps.Map(document.getElementById('map')
+  
 }
 
-MapInitView.prototype = {
+MapInit.prototype = {
 
-  initializeMap: function() {
-      var center = {lat: 53.3029819, lng: -0.8};
-        var container = document.getElementById('map');
-        var mainMap = new MapWrapper(container, center, 10);
-        mainMap.addMarker(center);
-        mainMap.onClickEventInfoBox();
+  renderMap: function() {
+      var coords = {lat: 0, lng: 0};
+      var mainMap = new MapWrapper(coords, 10);
+        // mainMap.addMarker(center);
+        // mainMap.onClickEventInfoBox();
     }
 }
 

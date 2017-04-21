@@ -1,26 +1,31 @@
-// var MapWrapper = function (container, coords, zoom) {
-//   this.googleMap = new google.maps.Map(container, {
-//     center: coords, 
-//     zoom: 12
-//   });
-// }
+var MapWrapper = function (coords, zoom) {
+  var container = document.getElementById('map');
 
-// MapWrapper.prototype = {
+  //this.container = document.getElementById('map')
+  this.googleMap = new google.maps.Map(container, {
+    coords: coords, 
+    zoom: 12
+  });
+}
 
-//   addMarker: function(coords){
-//     var marker = new google.maps.Marker({
-//       position: coords,           // stadium coords
-//       mpa: this.googleMap
-//     });
-//   },
+MapWrapper.prototype = {
 
-//   onClickEventInfoBox: function(){
-//     google.maps.event.addListener(this.googleMap, 'click', function(event){
-//       var position = {
-//         lat: event.latLng.lat(),  // stadium coords
-//         lng: event.latLng.lng()   // stadium coords
-//       }
-//       this.addMarker(position);
-//     }.bind(this));
-//   }
-// }
+  // addMarker: function(coords){
+  //   var marker = new google.maps.Marker({
+  //     position: coords,           // uk coords
+  //     mpa: this.googleMap
+  //   });
+  // },
+
+  // onClickEventInfoBox: function(coords) {
+  //   google.maps.event.addListener(this.googleMap, 'click', function(event){
+  //     var position = {
+  //             lat: event.latLng.lat(),  // uk coords
+  //             lng: event.latLng.lng()   // uk coords
+  //           }
+  //           this.addMarker(position);
+  //   }.bind(this));
+  // }
+}
+
+module.exports = MapWrapper

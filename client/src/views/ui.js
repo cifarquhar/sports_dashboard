@@ -5,32 +5,33 @@ var FavouritesView = require('./favourites_view.js')
 var FixturesView = require('./fixtures_view.js')
 var FixturesList = require('../models/fixtures_list.js')
 var MapInit = require('../models/map_init.js')
+var MapWrapper = require('./map_wrapper.js')
 
 
 var UI = function(link){
-  if (object === "favourites"){
-    this.object = new Favourites()
-    this.objectView = new FavouritesView()
-  }
-
   this.object = null
   this.objectView = null
+  this.map = null
+  this.mapWrapper = null
 
   if (link === "favourites") {
     this.object = new FavouritesList()
-    this.objectView = new FavouritesView()
+    this.objectView = new FixturesView()
   } else if (link === "table"){
     this.object = new LeagueTable()
     this.objectView = new LeagueTableView()
   } else if (link === "map") {
-    this.object = new FixturesList()
-    this.objectView = new FixturesView()
+   this.object = new FixturesList()
+   this.objectView = new FixturesView()
+    this.map = new MapInit()
+    this.mapWrapper = new MapWrapper()
   }
 
 
   this.object.getData(function(objectParam){
     this.objectView.render(objectParam)
   }.bind(this))
+
 }
 
 module.exports = UI
