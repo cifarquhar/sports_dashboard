@@ -5,5 +5,6 @@ var UpcomingGamesQuery = function(){
 }
 
 UpcomingGamesQuery.prototype = {
-  
+
+  scheduledGamesDB: function()
 }

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // var MapWrapper = require('./map_wrapper.js')
 var UpcomingGames = require('./upcoming_games.js')
 
@@ -17,7 +17,7 @@ window.onload = function(){
   })
 
 }
-=======
+
 var LeagueTable = require("./models/league_table")
 var LeagueTableView = require("./views/league_table_view")
 
@@ -38,4 +38,4 @@ var app = function(){
 }
 
 window.onload = app
->>>>>>> 4b1ebbf64381c4d552f736d7d7786139dee5b6ec
+
