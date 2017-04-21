@@ -14,20 +14,20 @@ FixturesView.prototype = {
     }
   },
 
-  createPtag: function(id, li, text) {
+  createPtag: function(id, li, label, text) {
     var pTag = document.createElement('p')
     pTag.id = id
-    pTag.innerText = text
+    pTag.innerText = label + text
     li.appendChild(pTag)
     return pTag
   },
 
   populateList: function(fixture, li) {
-    var pDate = this.createPtag('date', li, fixture.date)
-    var pHomeTeam = this.createPtag('home-team', li, fixture.homeTeamName)
-    var pAwayTeam = this.createPtag('away-team', li, fixture.awayTeamName)
+    var pDate = this.createPtag('date', li, 'Date: ', fixture.date)
+    var pHomeTeam = this.createPtag('home-team', li, 'Home: ', fixture.homeTeamName)
+    var pAwayTeam = this.createPtag('away-team', li, 'Away: ', fixture.awayTeamName)
     var result = this.formatResult(fixture)
-    var pResult = this.createPtag('result', li, result)
+    var pResult = this.createPtag('result', li, 'Result: ', result)
   },
 
   formatResult: function(fixture) {
