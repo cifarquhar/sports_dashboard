@@ -1,13 +1,15 @@
-var UpcomingGamesView = function(list, games){
-  this.list = list
+var UpcomingGamesView = function(){
+  this.list = document.querySelector()
   this.games = games
 }
 
 UpcomingGamesView.prototype = {
 
-  populate: function() {
+  render: function() {
+    console.log('rendering scheduled games')
+
     this.games.fixtures.forEach(function(games){
-      if (games.status === 'FINISHED') return
+      if (games.status === 'SCHEDULED') return
       var ul = document.createElement('ul')
       ul.innerText = games.homeTeamName;
       this.list.appendChild(ul)
