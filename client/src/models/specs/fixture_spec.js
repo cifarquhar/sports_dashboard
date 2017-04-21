@@ -59,6 +59,8 @@ describe('Fixture', function() {
       assert.strictEqual("2016-08-13T11:30:00Z", fixture.date)
     })
 
-  
+    it('should have a status', function() {
+      assert.strictEqual("FINISHED", fixture.status)
+    })
 
 })
