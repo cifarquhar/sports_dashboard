@@ -4,7 +4,8 @@ var UpcomingGames = require('../models/upcoming_games.js')
 var UpcomingGamesView = require('./upcoming_games_view.js')
 var FavouritesList = require('../models/favourites_list.js')
 var FavouritesView = require('./favourites_view.js')
-var FixturesView = require('./fixturess_view.js')
+var FixturesView = require('./fixtures_view.js')
+var FixturesList = require('../models/fixtures_list.js')
 
 var UI = function(link){
   this.object = null
