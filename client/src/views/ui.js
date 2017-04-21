@@ -36,6 +36,5 @@ var UI = function(link){
   this.object.getData(function(objectParam){
     this.objectView.render(objectParam)
   }.bind(this))
-}
 
 module.exports = UI

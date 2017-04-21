@@ -13,7 +13,6 @@ UpcomingGamesView.prototype = {
       var ul = document.createElement('ul')
       ul.innerText = games.homeTeamName;
       this.list.appendChild(ul)
-      
     }.bind(this))
   }
 
