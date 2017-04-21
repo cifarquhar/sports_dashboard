@@ -16,4 +16,8 @@ router.get('/favourites', function(req, res) {
   res.sendFile(path.join(__dirname + "/../client/favourites.html"))
 })
 
+router.get('/map', function(req, res) {
+  res.sendFile(path.join(__dirname + "/../client/map.html"))
+})
+
 module.exports = router
