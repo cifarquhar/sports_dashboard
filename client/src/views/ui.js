@@ -1,8 +1,8 @@
 var LeagueTable = require("../models/league_table")
 var LeagueTableView = require("./league_table_view")
 var UpcomingGames = require('../models/upcoming_games.js')
-var UpcomingGamesView = require('../models/upcoming_games_view.js')
-var Favourites = require('../models/favourites_list.js')
+var UpcomingGamesView = require('./upcoming_games_view.js')
+var FavouritesList = require('../models/favourites_list.js')
 var FavouritesView = require('./favourites_view.js')
 
 var UI = function(link){
