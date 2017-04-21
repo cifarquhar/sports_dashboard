@@ -5,12 +5,14 @@ var FavouritesView = function() {
 FavouritesView.prototype = {
 
   render: function(fixtures) {
-    for (var fixtures of fixtures) {
-      var li = this.element.createElement('li')
-      var pDate = createPtag('date')
-      pDate.innerText = 'hi Brogrammers, this is a favourite'
-      li.appendChild(pDate)
-      this.element.appendChild(li)
+    console.log("this is favourites render")
+    // for (var fixtures of fixtures) {
+    //   var li = this.element.createElement('li')
+    //   console.log('favourites li', li)
+    //   var pDate = createPtag('date')
+    //   pDate.innerText = 'hi Brogrammers, this is a favourite'
+    //   li.appendChild(pDate)
+    //   this.element.appendChild(li)
     }
   },
 
