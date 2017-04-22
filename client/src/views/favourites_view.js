@@ -1,5 +1,7 @@
-var FavouritesView = function() {
+var FavouritesView = function(favouritesList) {
   this.element = document.querySelector('#favourites')
+  this.favouritesList = favouritesList
+  this.favourites = null
 }
 
 FavouritesView.prototype = {
@@ -9,6 +11,8 @@ FavouritesView.prototype = {
       console.log(fixture)
       var li = document.createElement('li')
       this.populateList(fixture, li)
+      var button = this.createDeleteButton()
+      li.appendChild(button)
       this.element.appendChild(li)
     }
   },
@@ -36,6 +40,15 @@ FavouritesView.prototype = {
     resultString = fixture.result.goalsHomeTeam + " - " + fixture.result.goalsAwayTeam
     return resultString
   },
+
+  createDeleteButton: function(index) {
+    var button = document.createElement('button')
+    button.innerText = 'Delete favourite'
+    button.addEventListener('click', function(e) {
+      this.favouritesList.delete(this.scheduledFixtures[index])
+    }.bind(this))
+    return button
+  }
 }
 
 
