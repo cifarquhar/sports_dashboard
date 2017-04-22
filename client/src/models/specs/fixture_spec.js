@@ -1,5 +1,6 @@
 var assert = require('assert')
 var Fixture = require('../fixture.js')
+var ObjectId = require('mongodb').ObjectId
 
 describe('Fixture', function() {
 
@@ -7,6 +8,7 @@ describe('Fixture', function() {
 
   beforeEach(function() {
     fixture = new Fixture({
+      "_id" : ObjectId("58fa209f94a9e26b3fb1897c"),
       "_links": {
         "self": {
           "href": "http://api.football-data.org/v1/fixtures/150841"
@@ -88,6 +90,10 @@ describe('Fixture', function() {
         "draw": 3.25,
         "awayWin": 2.2
       }, fixture.odds)
+    })
+
+    it('has an objectID', function() {
+      assert.deepEqual(ObjectId("58fa209f94a9e26b3fb1897c"), fixture._id)
     })
 
 })

@@ -1,4 +1,5 @@
 var Fixture = function(options) {
+  this._id = options._id
   this._links = options._links
   this.date = options.date
   this.status = options.status
