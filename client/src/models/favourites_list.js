@@ -1,4 +1,8 @@
-var FavouritesList = function() {}
+var Fixture = require('./fixture')
+
+var FavouritesList = function() {
+  this.favourites = []
+}
 
 FavouritesList.prototype = {
 
@@ -20,12 +24,20 @@ FavouritesList.prototype = {
       if(this.status !== 200) return
       var jsonFavs = this.responseText
       var favourites = JSON.parse(jsonFavs)
-      callback(favourites)
+      var favouritesFixtures = this.createFixtures(favourites)
+      callback(favouritesFixtures)
     })
   },
 
   add: function(fixture, callback) {
     this.makeRequest('POST', 'http://localhost:3000/api/favourites', callback, JSON.stringify(fixture))
+    }
+  },
+
+  createFixtures: function(favourites) {
+    
+    for (var favourite of favourites) {
+      this.favourites.push(new Fixture(favourite))
     }
   }
 

@@ -20,7 +20,7 @@ var UI = function(link){
     this.objectView = new LeagueTableView()
   } else if (link === "map") {
     this.object = new FixturesList()
-    this.objectView = new FixturesView()
+    this.objectView = new FixturesView(new FavouritesList)
   } else if (link ==="team") {
     this.object = new TeamStats()
     this.objectView = new TeamStatsView()
