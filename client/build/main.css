@@ -1,18 +1,18 @@
 /*****Nav bar*****/
 
-#nav-list {
-  display: flex;
-  background-color: #ddd;  
-  align-items: center;
-  width: 100%;
+nav {
+  text-align: center;
+  padding: 10px 0;
+  margin: 20px 0 0;
 }
 
 .nav-item {
-  flex: 1;
   list-style-type: none;
-  display: inline-block;  
-  overflow: hidden;
-  padding: 5px;
+  display: inline;
+  text-align: center;  
+  padding: 10px;
+  margin: 1% auto;
+  background-color: #eee
 }
 
 .nav-item a {
