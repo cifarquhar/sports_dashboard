@@ -1,7 +1,8 @@
 /*****Nav bar*****/
-./*nav-item {
-  
-}*/
+.nav-item {
+  list-style-type: none;
+  font-size: 500px;  
+}
 
 
 /*****Colin's cool results boxes*****/
