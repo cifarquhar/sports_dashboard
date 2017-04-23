@@ -9,6 +9,7 @@ NavBar.prototype = {
   createNavBar: function() {
     var nav = document.createElement('nav')
     var ol = document.createElement('ol')
+    ol.id = 'nav-list'
     var homeLi = this.createLi('Home', 'http://localhost:3000')
     var fixturesLi = this.createLi('Fixtures', 'http://localhost:3000/map')
     var favouritesLi = this.createLi('Favourites', 'http://localhost:3000/favourites')

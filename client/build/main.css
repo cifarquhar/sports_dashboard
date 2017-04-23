@@ -1,7 +1,7 @@
 /*****Nav bar*****/
 .nav-item {
   list-style-type: none;
-  font-size: 500px;  
+  display: inline;  
 }
 
 
