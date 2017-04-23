@@ -1,3 +1,43 @@
+/*****Nav bar*****/
+
+nav {
+  padding: 10px 0;
+  margin: 20px 0 0;
+  width: 100%;
+  background-color: #ccc;
+  align-items: left;
+}
+
+.nav-item {
+  list-style-type: none;
+  display: inline;
+  text-align: center;  
+  padding: 10px;
+  margin: 20px 0 0;
+  background-color: #eee
+}
+
+.nav-item a {
+  color: #000;
+  padding: 10px;
+  margin: 0;
+}
+
+.nav-link:hover {
+  background-color: hotpink;
+}
+
+.nav-item a, .nav-item a:visited {
+  text-decoration: none;
+}
+
+nav a.selected, nav a:hover {
+  background-color: hotpink;
+}
+
+
+
+/*****Colin's cool results boxes*****/
 .box{
   width:10px;
   height:10px;
