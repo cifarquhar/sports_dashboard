@@ -12,6 +12,7 @@
   list-style-type: none;
   display: inline-block;  
   overflow: hidden;
+  padding: 5px;
 }
 
 .nav-item a {
