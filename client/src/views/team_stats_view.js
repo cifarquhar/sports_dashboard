@@ -42,7 +42,7 @@ TeamStatsView.prototype = {
     var teamForm = new FormList(teamFormURL)
     var teamFormView = new FormListView()
     teamForm.getData(function(fixtures){
-      teamFormView.render(fixtures,formElement,teamName)
+      teamFormView.render(fixtures,formElement,teamName,formOption)
     })
 
 
@@ -60,9 +60,11 @@ TeamStatsView.prototype = {
       var teamFormURL = teams[this.value]._links.fixtures.href
       var teamForm = new FormList(teamFormURL)
       teamForm.getData(function(fixtures){
-        teamFormView.render(fixtures,formElement,newTeamName)
+        teamFormView.render(fixtures,formElement,newTeamName,formOption)
       })
     })
+
+   
 
 
 

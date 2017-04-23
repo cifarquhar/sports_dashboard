@@ -1,4 +1,5 @@
 var MatchView = require("./match_view")
+var path = require("path")
 
 var FormListView = function(){
 
@@ -6,15 +7,48 @@ var FormListView = function(){
 
 FormListView.prototype = {
 
-  render: function(formList,element,teamName){
+  render: function(formList,element,teamName,formOption){
     
     var fixtures = formList.fixtures
+
+    console.log(fixtures)
+
+
+    console.log(formOption)
+
+    if (formOption == 1){
+      console.log("in if loop")
+      var completedFixtures = fixtures.filter(function(fixture){
+        console.log(fixture.status)
+        console.log(fixture)
+        fixture.status === "FINISHED"
+      })
+      console.log(completedFixtures)
+      var startPoint = fixtures.length - 10
+      console.log(startPoint)
+      var fixtures = fixtures.slice(startPoint, 10)
+      console.log(fixtures)
+    }
+    else if (formOption == 2){
+      console.log("in if loop")
+      var competitionID = 426
+      fixtures = fixtures.map(function(fixture){
+        var fixtureCompetitionURL = fixture._links.competition.href
+        var fixtureCompetitionID = path.basename(fixtureCompetitionURL)
+        fixtureCompetitionID === competitionID
+      })
+      console.log(fixtures)
+    }
+
+    console.log("after if loop")
+
 
     while (element.hasChildNodes()) {
       element.removeChild(element.lastChild);
     }
 
     var matchElement = document.querySelector("#match-div")
+
 
     fixtures.forEach(function(fixture){
       var homeGoals = fixture.result.goalsHomeTeam
@@ -43,6 +77,13 @@ FormListView.prototype = {
       
       element.appendChild(resultBox)
     })
+
+
+    var formSelector = document.querySelector("#form-selector")
+    formSelector.addEventListener("change",function(){
+      this.render(formList,element,teamName,formSelector.value)
+    }.bind(this))
+
   }
 
 }
