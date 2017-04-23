@@ -16,6 +16,7 @@ var UI = function(link){
   this.object = null
   this.objectView = null
 
+  console.log('this is link: ', link)
   if (link === "favourites") {
     this.object = new FavouritesList()
     this.objectView = new FavouritesView(this.object)
@@ -28,14 +29,15 @@ var UI = function(link){
   } else if (link === "team") {
     this.object = new TeamStats()
     this.objectView = new TeamStatsView()
-  } else if (link === "") {
+  } else if (link === "localhost:3000") {
     this.objectView = new IndexView()
   }
 
-
-  this.object.getData(function(objectParam){
-    this.objectView.render(objectParam)
-  }.bind(this))
+  if (this.object) {
+    this.object.getData(function(objectParam){
+      this.objectView.render(objectParam)
+    }.bind(this))
+  }
 }
 
 module.exports = UI
