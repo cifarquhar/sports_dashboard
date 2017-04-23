@@ -48,6 +48,7 @@ TeamStatsView.prototype = {
 
 
 
+
    this.teamSelector.addEventListener("change",function(){
       var teamPlayerURL = teams[this.value]._links.players.href
       var teamPlayers = new PlayerList(teamPlayerURL)
@@ -60,17 +61,16 @@ TeamStatsView.prototype = {
       teamForm.getData(function(fixtures){
         teamFormView.render(fixtures,formElement,newTeamName)
       })
+      while (matchElement.hasChildNodes()) {
+        matchElement.removeChild(matchElement.lastChild);
+      }
     })
 
 
 
     
     
-    // var matchP = document.createElement("p")
 
-    // matchP.innerText = "Match stuff here"
-
-    // matchElement.appendChild(matchP)
   }
 
 }
