@@ -7,15 +7,17 @@ var FavouritesView = function(favouritesList) {
 FavouritesView.prototype = {
 
   render: function(fixtures) {
+    console.log(fixtures)
     this.favourites = fixtures
-    console.log(this.favouritesList)
+    console.log('favs: ', this.favourites)
     for (var i = 0; i < this.favourites.length; i++) {
       var li = document.createElement('li')
       this.populateList(this.favourites[i], li)
-      var button = this.createDeleteButton()
+      var button = this.createDeleteButton(i)
       li.appendChild(button)
       this.element.appendChild(li)
     }
+    console.log('favs: ', this.favourites)
   },
 
   createPtag: function(id, li, label, text) {
@@ -46,7 +48,8 @@ FavouritesView.prototype = {
     var button = document.createElement('button')
     button.innerText = 'Delete favourite'
     button.addEventListener('click', function(e) {
-      this.favouritesList.delete(this.favourites[index])
+      console.log(this.favourites[index])
+      this.favouritesList.delete(this.favourites[index], function() {})
     }.bind(this))
     return button
   }

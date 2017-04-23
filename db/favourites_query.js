@@ -29,11 +29,15 @@ FavouritesQuery.prototype = {
     })
   },
   
-  delete: function(fixture, onQueryFinished) {
+  delete: function(id, onQueryFinished) {
     MongoClient.connect(this.url, function(err, db) {
       if (db) {
+        console.log(id)
         var collection = db.collection('favourites')
-        collection.remove(fixture)
+        collection.remove(id)
+        collection.find().toArray(function(err, data) {
+          onQueryFinished(data)
+        })
       }
     })
   }

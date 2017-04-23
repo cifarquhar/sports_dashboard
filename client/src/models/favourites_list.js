@@ -33,7 +33,8 @@ FavouritesList.prototype = {
   },
 
   delete: function(fixture, callback) {
-
+    var url = 'http://localhost:3000/api/favourites/' + fixture._id
+    this.makeRequest('DELETE', url, callback, JSON.stringify(fixture))
   }
 }
 
