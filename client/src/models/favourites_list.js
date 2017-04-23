@@ -34,7 +34,13 @@ FavouritesList.prototype = {
 
   delete: function(fixture, callback) {
     var url = 'http://localhost:3000/api/favourites/' + fixture._id
-    this.makeRequest('DELETE', url, callback, JSON.stringify(fixture))
+    this.makeRequest('DELETE', url, function() {
+      if (this.status !== 200) return
+      var jsonFavs = this.responseText
+      var favourites = JSON.parse(jsonFavs)
+      callback(favourites)
+    }, JSON.stringify(fixture))
+    
   }
 }
 

@@ -20,7 +20,7 @@ favouritesRouter.post('/', function(req, res) {
 
 favouritesRouter.delete('/:id', function(req, res) {
   var objectId = ObjectId(req.body._id)
-  var id = { _id: objectId}
+  var id = {_id: objectId}
   favouritesQuery.delete(id, function(data) {
     res.json(data)
   })
