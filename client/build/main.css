@@ -1,8 +1,25 @@
 /*****Nav bar*****/
-.nav-item {
-  list-style-type: none;
-  display: inline;  
+
+#nav-list {
+  display: flex;
+  background-color: #ddd;  
+  align-items: center;
+  width: 100%;
 }
+
+.nav-item {
+  flex: 1;
+  list-style-type: none;
+  display: inline-block;  
+  overflow: hidden;
+}
+
+.nav-item a {
+  color: #000;
+  padding: auto;
+  margin: auto;
+}
+
 
 
 /*****Colin's cool results boxes*****/
