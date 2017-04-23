@@ -7,6 +7,7 @@ var FixturesList = require('../models/fixtures_list.js')
 var TeamStats = require("../models/team_stats")
 var TeamStatsView = require("../views/team_stats_view")
 var NavBar = require("../views/nav_bar")
+var IndexView = require("../views/index_view")
 
 
 var UI = function(link){
@@ -24,9 +25,11 @@ var UI = function(link){
   } else if (link === "map") {
     this.object = new FixturesList()
     this.objectView = new FixturesView(new FavouritesList)
-  } else if (link ==="team") {
+  } else if (link === "team") {
     this.object = new TeamStats()
     this.objectView = new TeamStatsView()
+  } else if (link === "") {
+    this.objectView = new IndexView()
   }
 
 

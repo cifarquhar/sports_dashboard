@@ -1,5 +1,5 @@
 var IndexView = function() {
-
+  this.render()
 }
 
 IndexView.prototype = {
