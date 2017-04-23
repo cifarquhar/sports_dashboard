@@ -16,11 +16,18 @@ MatchView.prototype = {
     this.element.appendChild(teamsP)
 
     var scoreP = document.createElement("p")
+    if (this.fixture.result.goalsHomeTeam === null){
+      scoreP.innerText = "Scheduled for: "
+    }
+    else {
     scoreP.innerText = this.fixture.result.goalsHomeTeam.toString() + " - " + this.fixture.result.goalsAwayTeam.toString()
+    }
     this.element.appendChild(scoreP)
 
     var dateP = document.createElement("p")
-    dateP.innerText = this.fixture.date
+    var fixtureDate = this.fixture.date
+    var formattedDate = new Date(fixtureDate)
+    dateP.innerText = formattedDate.toDateString()
     this.element.appendChild(dateP)
 
   }
