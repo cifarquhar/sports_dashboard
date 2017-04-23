@@ -1,9 +1,11 @@
 /*****Nav bar*****/
 
 nav {
-  text-align: center;
   padding: 10px 0;
   margin: 20px 0 0;
+  width: 100%;
+  background-color: #ccc;
+  align-items: left;
 }
 
 .nav-item {
@@ -11,14 +13,26 @@ nav {
   display: inline;
   text-align: center;  
   padding: 10px;
-  margin: 1% auto;
+  margin: 20px 0 0;
   background-color: #eee
 }
 
 .nav-item a {
   color: #000;
-  padding: auto;
-  margin: auto;
+  padding: 10px;
+  margin: 0;
+}
+
+.nav-link:hover {
+  background-color: hotpink;
+}
+
+.nav-item a, .nav-item a:visited {
+  text-decoration: none;
+}
+
+nav a.selected, nav a:hover {
+  background-color: hotpink;
 }
 
 
