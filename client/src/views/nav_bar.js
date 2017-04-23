@@ -21,6 +21,7 @@ NavBar.prototype = {
 
   createLi: function(label, link) {
     var li = document.createElement('li')
+    li.className = 'nav-item'
     var a = document.createElement('a')
     a.href = link
     a.innerText = label
