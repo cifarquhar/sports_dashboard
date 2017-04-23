@@ -1,5 +1,7 @@
 var NavBar = function() {
   this.div = document.querySelector('#nav-bar')
+
+  this.createNavBar()
 }
 
 NavBar.prototype = {
@@ -7,8 +9,8 @@ NavBar.prototype = {
   createNavBar: function() {
     var nav = document.createElement('nav')
     var ol = document.createElement('ol')
-    var fixturesLi = createLi('Fixtures', 'http://localhost:3000/map')
-    var favouritesLi = createLi('Favourites', 'http://localhost:3000/favourites')
+    var fixturesLi = this.createLi('Fixtures', 'http://localhost:3000/map')
+    var favouritesLi = this.createLi('Favourites', 'http://localhost:3000/favourites')
     ol.appendChild(fixturesLi)
     ol.appendChild(favouritesLi)
     nav.appendChild(ol)
