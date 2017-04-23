@@ -7,6 +7,7 @@ var TeamStatsView = function(){
   this.playerElement = document.querySelector("#player-div")
   this.formElement = document.querySelector("#form-div")
   this.matchElement = document.querySelector("#match-div")
+  this.formOption = document.querySelector("#form-selector").value
 }
 
 TeamStatsView.prototype = {
@@ -17,6 +18,7 @@ TeamStatsView.prototype = {
     var playerElement = this.playerElement
     var formElement = this.formElement
     var matchElement = this.matchElement
+    var formOption = this.formOption
     
     var teams = league.teams.sort()
     var teamName = teams[0].name
