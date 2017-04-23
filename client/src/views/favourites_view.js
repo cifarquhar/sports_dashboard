@@ -7,6 +7,7 @@ var FavouritesView = function(favouritesList) {
 FavouritesView.prototype = {
 
   render: function(fixtures) {
+    this.clearList()
     this.favourites = fixtures
     for (var i = 0; i < this.favourites.length; i++) {
       var li = document.createElement('li')
@@ -50,6 +51,12 @@ FavouritesView.prototype = {
       }.bind(this))
     }.bind(this))
     return button
+  },
+
+  clearList: function() {
+    while (this.element.firstChild) {
+        this.element.removeChild(this.element.firstChild)
+    }
   }
 }
 
