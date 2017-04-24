@@ -47,6 +47,7 @@ TeamStatsView.prototype = {
       var teamOption = document.createElement("option")
       teamOption.innerText = team.name
       teamOption.value = index
+      if (team.name === teamName) teamOption.selected = "selected"
       this.teamSelector.appendChild(teamOption)
     }.bind(this))
 
