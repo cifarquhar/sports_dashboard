@@ -27,10 +27,16 @@ TeamStatsView.prototype = {
     // Gets name of team clicked on league table view
     var teamNameLinkedFrom = window.name
 
+    console.log('window name', window.name)
+
     var teamIndexLinkedTo = teams.findIndex(function(team){
       return team.name === teamNameLinkedFrom
     })
 
+    if (teamIndexLinkedTo === -1) {
+      teamIndexLinkedTo = 0
+    }
+    
     var teamName = teams[teamIndexLinkedTo].name
 
     this.addChooseTeamText('Select a team:')
