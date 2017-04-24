@@ -88,6 +88,10 @@ nav a.selected, nav a:hover {
 
 
 /***** Table *****/
+#table-div {
+  overflow-x: auto;
+}
+
 table, th, td {
   border: 1px solid black;
 }
@@ -109,7 +113,6 @@ tr:nth-child(odd) {
 table {
   border-collapse: collapse;
   max-width: 100%;
-  vertical-align: center;
 }
 
 th {
