@@ -20,17 +20,17 @@ MapWrapper.prototype = {
     });
   },
 
-  onClickEventInfoBox: function() {
-    google.maps.event.addListener(this.googleMap, 'click', function(event){
-      var position = {
-              lat: 56.0, 
-              lng: -4.0
-              // lat: event.latLng.lat(), 
-              // lng: event.latLng.lng()
-            }
-            this.addMarker(position);
-    }.bind(this));
-  }
+  // onClickEventInfoBox: function() {
+  //   google.maps.event.addListener(this.googleMap, 'click', function(event){
+  //     var position = {
+  //             lat: 56.0, 
+  //             lng: -4.0
+  //             // lat: event.latLng.lat(), 
+  //             // lng: event.latLng.lng()
+  //           }
+  //           this.addMarker(position);
+  //   }.bind(this));
+  // }
 }
 
 

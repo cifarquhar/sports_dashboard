@@ -5,12 +5,13 @@ var FixturesView = function() {
 FixturesView.prototype = {
 
   render: function(fixtures) {
-    console.log('favs: ', fixtures)
+    // console.log('fixtures: ', fixtures)
     var fixturesArray = fixtures.fixtures
     this.findUpcomingGames()
     var scheduledFixtures = fixturesArray.filter(function(fixture) {
       return (fixture.status === 'SCHEDULED')
     })
+    console.log('fixtures: ', scheduledFixtures)
     for (var fixture of scheduledFixtures) {
       var li = document.createElement('li')
       this.populateList(fixture, li)
