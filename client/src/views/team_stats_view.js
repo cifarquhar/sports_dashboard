@@ -66,7 +66,11 @@ TeamStatsView.prototype = {
 
       this.renderTeamForm(this.formElement, teams[this.teamSelector.value].name, this.formOption, teams[this.teamSelector.value]._links.fixtures.href)
 
-      this.renderGraph(storedTeams[storedTeamIndex])
+      var newStoredIndex = storedTeams.findIndex(function(team){
+      return team.teamName === teams[this.teamSelector.value].name
+    }.bind(this))
+
+      this.renderGraph(storedTeams[newStoredIndex])
 
       while (matchElement.hasChildNodes()) {
         matchElement.removeChild(matchElement.lastChild);
