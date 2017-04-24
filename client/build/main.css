@@ -1,4 +1,13 @@
-<<<<<<< HEAD
+/***** Main Layout *****/
+#flex-wrap {
+  border: 5px solid lightcoral;
+}
+
+.flex-child {
+  background: deepskyblue;
+  color: #fff;
+}
+
 /*****Nav bar*****/
 
 nav {
