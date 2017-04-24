@@ -8,6 +8,7 @@ var TeamStats = require("../models/team_stats")
 var TeamStatsView = require("../views/team_stats_view")
 var NavBar = require("../views/nav_bar")
 var IndexView = require("../views/index_view")
+var MapWrapper = require('./map_wrapper.js')
 
 
 var UI = function(link){
@@ -15,6 +16,7 @@ var UI = function(link){
 
   this.object = null
   this.objectView = null
+  this.mapWrapper = null
 
   console.log('this is link: ', link)
   if (link === "favourites") {
@@ -25,6 +27,9 @@ var UI = function(link){
     this.objectView = new LeagueTableView()
   } else if (link === "map") {
     this.object = new FixturesList()
+    this.objectView = new FixturesView()
+    this.mapWrapper = new MapWrapper()
+    this.mapWrapper.addBouncingMarker();
     this.objectView = new FixturesView(new FavouritesList)
   } else if (link === "team") {
     this.object = new TeamStats()
@@ -38,6 +43,8 @@ var UI = function(link){
       this.objectView.render(objectParam)
     }.bind(this))
   }
+
+  // this.mapWrapper.onClickEventInfoBox();
 }
 
 module.exports = UI

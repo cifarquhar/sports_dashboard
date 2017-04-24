@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*****Nav bar*****/
 
 nav {
@@ -59,4 +60,16 @@ nav a.selected, nav a:hover {
 
 .unplayed{
   background: #808080
+}
+
+
+
+/****Map***/
+#map {
+  width: 500px;
+  height: 550px;
+  -moz-border-radius: 50%; 
+  -webkit-border-radius: 50%; 
+  border-radius: 100%;
+  background: #4679BD;
 }
