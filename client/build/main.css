@@ -87,6 +87,20 @@ nav a.selected, nav a:hover {
 }
 
 
+/***** Table *****/
+table, th, td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 50px;
+}
+
 
 /****Map***/
 #map {
