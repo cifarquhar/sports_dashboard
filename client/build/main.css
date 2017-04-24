@@ -53,12 +53,14 @@ nav a.selected, nav a:hover {
 
 
 
-/*****Colin's cool results boxes*****/
+/*****Results boxes*****/
 #result-box-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin: 10px;
+  margin-left: 0;
 }
 
 .box{
