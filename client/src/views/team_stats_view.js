@@ -46,6 +46,8 @@ TeamStatsView.prototype = {
     
 
     this.teamSelector.addEventListener("change",function(){
+
+      window.name = teams[this.teamSelector.value].name
       
       this.renderSquadList(teams[this.teamSelector.value]._links.players.href, this.playerElement)
 
