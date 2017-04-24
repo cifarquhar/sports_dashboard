@@ -1,4 +1,5 @@
 var PieChart = require("../models/pieChart")
+var ColumnChart = require("../models/column_chart")
 
 var GraphView = function(typeOption,filterOption){
   this.typeOption = typeOption
@@ -7,13 +8,16 @@ var GraphView = function(typeOption,filterOption){
 
 GraphView.prototype = {
 
-  render: function(team,){
+  render: function(team){
+    var graphElement = document.querySelector("#graph-div")
+
+    if (this.typeOption == 0){
+
     var wins = team.wins
     var draws = team.draws
     var losses = team.losses
-    var graphElement = document.querySelector("#graph-div")
     var graphTitle = "Results for " + team.teamName
-    console.log(team)
+    
     var data = [{
       name: "Results",
 
@@ -39,6 +43,24 @@ GraphView.prototype = {
 
     new PieChart(graphElement, graphTitle, data)
   }
+
+  else if (this.typeOption == 1){
+
+    var goalsFor = team.goals
+    var goalsAgainst = team.goalsAgainst
+    var goalDifference = team.goalDifference
+
+    var graphTitle = "Goals For/Against " + team.teamName
+    var colSeries = [{
+      name: "Goals",
+      data: [goalsFor,goalsAgainst,goalDifference]
+    }]
+    var colCategories = ["For","Against","Difference"]
+
+    new ColumnChart(graphElement,graphTitle,colSeries,colCategories)
+
+  }
+}
 
 }
 

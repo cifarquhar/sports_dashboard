@@ -77,6 +77,14 @@ TeamStatsView.prototype = {
       }
     }.bind(this))
 
+
+    var typeOptionSelector = document.querySelector("#type-selector")
+    typeOptionSelector.addEventListener("change",function(){
+      this.renderGraph(storedTeams[storedTeamIndex])
+    }.bind(this))
+
+
+
   },
 
   addChooseTeamText: function(fillerText) {
@@ -114,7 +122,9 @@ TeamStatsView.prototype = {
   },
 
   renderGraph: function(team){
-      var graphView = new GraphView(0,0)
+      var typeOption = document.querySelector("#type-selector").value
+      console.log(typeOption)
+      var graphView = new GraphView(typeOption,0)
       graphView.render(team)
     }
    
