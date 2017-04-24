@@ -60,7 +60,10 @@ LeagueTableView.prototype = {
       var positionEntry = document.createElement("td")
       positionEntry.innerText = team.position
       var nameEntry = document.createElement("td")
-      nameEntry.innerText = team.teamName
+      var nameLink = document.createElement("a")
+      nameLink.innerText = team.teamName
+      nameLink.href = "http://localhost:3000/team"
+      nameEntry.appendChild(nameLink)
       var playedEntry = document.createElement("td")
       playedEntry.innerText = team.playedGames
       var winEntry = document.createElement("td")
