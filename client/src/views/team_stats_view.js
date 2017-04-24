@@ -71,6 +71,7 @@ TeamStatsView.prototype = {
 
     // Team selector event listener
    this.teamSelector.addEventListener("change",function(){
+    window.name = teams[this.value].name
       var teamPlayerURL = teams[this.value]._links.players.href
       var teamPlayers = new PlayerList(teamPlayerURL)
       teamPlayers.getData(function(squadList){
