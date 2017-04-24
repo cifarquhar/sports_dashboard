@@ -1,7 +1,8 @@
-/***** Main Layout *****/
+/***** Main Map/Fixture Layout *****/
 body {
   background-color: #ddd  ;
   color: #000;
+  font-family: 'Play', sans-serif;
 }
 
 h1 {
@@ -9,18 +10,23 @@ h1 {
 }
 
 #flex-wrap {
-  border: 5px solid lightcoral;
+  border: none;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0;
 }
 
 .flex-child {
-  background: deepskyblue;
+  background-color: #92ADC3;
   color: #fff;
-  margin: 2.5%;
+  margin-left: 2.5%;
   width: 500px;
+}
+
+#map-wrapper {
+  height: 600px;
 }
 
 /*****Nav bar*****/
@@ -132,6 +138,23 @@ td {
 
 td a {
   text-decoration: none;  
+  color: #000;
+}
+
+tr:nth-child(even) a:hover {
+  background-color: #5F8DB0;
+}
+
+tr:nth-child(odd) a:hover {
+  background-color: #92ADC3;
+}
+
+.nav-item a, .nav-item a:visited {
+  text-decoration: none;
+}
+
+nav a.selected, nav a:hover {
+  background-color: #5F8DB0;
 }
 
 /***** Player View *****/
