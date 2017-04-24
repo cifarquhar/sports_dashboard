@@ -1,4 +1,4 @@
-/***** Main Map/Fixture Layout *****/
+/***** Map/Fixture Layout *****/
 body {
   background-color: #ddd  ;
   color: #000;
@@ -31,6 +31,10 @@ h1 {
 
 .fixture-list-item {
   list-style: none;
+}
+
+.fixture-list-item button {
+  margin: 2%;
 }
 
 /*****Nav bar*****/
@@ -161,11 +165,6 @@ nav a.selected, nav a:hover {
   background-color: #5F8DB0;
 }
 
-/***** Player View *****/
-#player-view-title {
-  text-align: center;
-}
-
 /****Map***/
 #map {
   max-width: 500px;
@@ -176,3 +175,12 @@ nav a.selected, nav a:hover {
   border-radius: 100%;
   background: #4679BD;
 }
+
+/***** Index *****/
+h2 {
+  margin: 1%;
+}
+p {
+  margin: 1%;
+}
+
