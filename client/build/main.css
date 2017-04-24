@@ -54,6 +54,13 @@ nav a.selected, nav a:hover {
 
 
 /*****Colin's cool results boxes*****/
+#result-box-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
 .box{
   width:10px;
   height:10px;
