@@ -2,6 +2,8 @@ var PlayerList = require("../models/player_list")
 var PlayerListView = require("./player_list_view")
 var FormList = require("../models/form_list")
 var FormListView = require("./form_list_view")
+var LeagueTable = require("../models/league_Table")
+var LeagueTableView = require("./league_table_view")
 
 var TeamStatsView = function(){
   this.playerElement = document.querySelector("#player-div")
