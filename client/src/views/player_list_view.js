@@ -6,7 +6,6 @@ PlayerListView.prototype = {
 
   render: function(squadList,element){
     var players = squadList.players
-    var titleTag = this.createTitle('Squad')
     
     while (element.hasChildNodes()) {
       element.removeChild(element.lastChild);
@@ -43,7 +42,6 @@ PlayerListView.prototype = {
       table.appendChild(playerEntry)
     })
 
-    element.appendChild(titleTag)
     element.appendChild(table)
 
   },
