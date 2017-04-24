@@ -1,4 +1,5 @@
 var MatchView = require("./match_view")
+var path = require("path")
 
 var FormListView = function(){
 
@@ -6,15 +7,48 @@ var FormListView = function(){
 
 FormListView.prototype = {
 
-  render: function(formList,element,teamName){
+  render: function(formList,element,teamName,formOption){
     
     var fixtures = formList.fixtures
+
+    var matchElement = document.querySelector("#match-div")
+
+    if (formOption == 1){
+
+      while (matchElement.hasChildNodes()) {
+        matchElement.removeChild(matchElement.lastChild);
+      }
+
+      var completedFixtures = fixtures.filter(function(fixture){
+        if (fixture.status === "FINISHED") return fixture
+      })
+      var startPoint = completedFixtures.length - 10
+      var fixtures = completedFixtures.slice(startPoint)
+    }
+    else if (formOption == 2){
+
+      while (matchElement.hasChildNodes()) {
+        matchElement.removeChild(matchElement.lastChild);
+      }
+      
+      var competitionID = 426
+      fixtures = fixtures.filter(function(fixture){
+        var fixtureCompetitionURL = fixture._links.competition.href
+        var fixtureCompetitionID = path.basename(fixtureCompetitionURL)
+        if (fixtureCompetitionID == competitionID) return fixture
+      })
+    }
+
+
 
     while (element.hasChildNodes()) {
       element.removeChild(element.lastChild);
     }
 
     var matchElement = document.querySelector("#match-div")
+
+    var resultWrapper = document.createElement('div')
+    resultWrapper.id = 'result-box-wrapper'
 
     fixtures.forEach(function(fixture){
       var homeGoals = fixture.result.goalsHomeTeam
@@ -38,11 +72,18 @@ FormListView.prototype = {
       resultBox.addEventListener("click",function(){
         var matchView = new MatchView(fixture,matchElement)
         matchView.render()
-        // console.log(fixture)
       })
       
-      element.appendChild(resultBox)
+      resultWrapper.appendChild(resultBox)
     })
+
+    element.appendChild(resultWrapper)
+
+    var formSelector = document.querySelector("#form-selector")
+    formSelector.addEventListener("change",function(){
+      this.render(formList,element,teamName,formSelector.value)
+    }.bind(this))
+
   }
 
 }
