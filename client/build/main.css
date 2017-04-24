@@ -1,4 +1,13 @@
 /***** Main Layout *****/
+body {
+  background-color: #ddd  ;
+  color: #000;
+}
+
+h1 {
+  margin: 1%;
+}
+
 #flex-wrap {
   border: 5px solid lightcoral;
   display: flex;
@@ -17,30 +26,30 @@
 /*****Nav bar*****/
 
 nav {
-  padding: 10px 0;
-  margin: 20px 0 0;
-  width: 100%;
-  background-color: #ccc;
-  align-items: left;
+  margin: 1%;
+  width: 98%;
+  background-color: #92ADC3;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .nav-item {
   list-style-type: none;
   display: inline;
-  text-align: center;  
-  padding: 10px;
-  margin: 20px 0 0;
-  background-color: #eee
+  text-align: center; 
+  width: 100px; 
+  padding: 15px;
+  background-color: #92ADC3;
 }
 
 .nav-item a {
   color: #000;
-  padding: 10px;
-  margin: 0;
+  padding: 15px;
 }
 
 .nav-link:hover {
-  background-color: hotpink;
+  background-color: #5F8DB0;
 }
 
 .nav-item a, .nav-item a:visited {
@@ -48,7 +57,7 @@ nav {
 }
 
 nav a.selected, nav a:hover {
-  background-color: hotpink;
+  background-color: #5F8DB0;
 }
 
 /*****Results boxes*****/
@@ -90,26 +99,39 @@ nav a.selected, nav a:hover {
   overflow-x: auto;
 }
 
-table, th, td {
-  border: none;
+tr:nth-child(even) {
+  background-color: #92ADC3;
+}
+
+tr:nth-child(odd) {
+  background-color: #5F8DB0;
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: none;
 }
 
 table {
   border-collapse: collapse;
   max-width: 100%;
   vertical-align: center;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 1%;
 }
 
 th {
   height: 50px;
+  padding: 20px;
+  margin: 5px;
+}
+
+td {
+  height: 30px;
+  padding: 20px;
+  text-align: center;
+}
+
+td a {
+  text-decoration: none;  
 }
 
 /***** Player View *****/
