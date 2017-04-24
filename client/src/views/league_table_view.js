@@ -103,6 +103,9 @@ LeagueTableView.prototype = {
     // Add table to page
     this.element.appendChild(table)
 
+    var storedTeams = window.JSON.stringify(teams)
+    localStorage.setItem("storedTeams",storedTeams)
+
 
   },
   getTeamInfo: function(league){

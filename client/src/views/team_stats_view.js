@@ -3,6 +3,7 @@ var PlayerList = require("../models/player_list")
 var PlayerListView = require("./player_list_view")
 var FormList = require("../models/form_list")
 var FormListView = require("./form_list_view")
+var storedTeams = JSON.parse(localStorage.getItem('storedTeams')) || [];
 
 
 
@@ -18,6 +19,7 @@ var TeamStatsView = function(){
 TeamStatsView.prototype = {
 
   render: function(league){
+    console.log(storedTeams)
 
     // Matches elements to variables
     this.teamSelector = document.querySelector("#team-selector")
