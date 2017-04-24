@@ -1,4 +1,8 @@
 /***** Main Layout *****/
+body {
+  background-color: #92ADC3;
+}
+
 #flex-wrap {
   border: 5px solid lightcoral;
   display: flex;
@@ -90,12 +94,17 @@ nav a.selected, nav a:hover {
   overflow-x: auto;
 }
 
-table, th, td {
-  border: none;
+tr:nth-child(even) {
+  background-color: #5F8DB0;
+}
+
+tr:nth-child(odd) {
+  background-color: #49789E;
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: none;
+  text-align: center;
 }
 
 table {
