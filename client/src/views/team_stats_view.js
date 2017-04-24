@@ -3,7 +3,7 @@ var PlayerList = require("../models/player_list")
 var PlayerListView = require("./player_list_view")
 var FormList = require("../models/form_list")
 var FormListView = require("./form_list_view")
-var PieChart = require("../models/pieChart")
+var GraphView = require("./graph_view")
 var storedTeams = JSON.parse(localStorage.getItem('storedTeams')) || [];
 
 
@@ -114,34 +114,10 @@ TeamStatsView.prototype = {
   },
 
   renderGraph: function(team){
-    var graphElement = document.querySelector("#graph-div")
-    var graphTitle = "Results for " + team.teamName
-    console.log(team)
-    var data = [{
-      name: "Results",
-
-      data: [
-        {
-          name: "Won",
-          y: team.wins,
-          color: "#46c645"
-        },
-        {
-          name: "Drawn",
-          y: team.draws,
-          color: "#Fede3b"
-        },
-        {
-          name: "Lost",
-          y: team.losses,
-          color: "#e34a49"
-        }
-      ]
-
-    }]
-
-    new PieChart(graphElement, graphTitle, data)
-  }
+      var graphView = new GraphView(1,1)
+      graphView.render(team)
+    }
+   
 }
 
 module.exports = TeamStatsView
