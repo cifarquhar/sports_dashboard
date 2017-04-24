@@ -3,8 +3,8 @@ var PlayerList = require("../models/player_list")
 var PlayerListView = require("./player_list_view")
 var FormList = require("../models/form_list")
 var FormListView = require("./form_list_view")
-var LeagueTable = require("../models/league_Table")
-var LeagueTableView = require("./league_table_view")
+// var LeagueTable = require("../models/league_table")
+// var LeagueTableView = require("./league_table_view")
 
 
 // Constructor
@@ -13,6 +13,16 @@ var TeamStatsView = function(){
   this.formElement = document.querySelector("#form-div")
   this.matchElement = document.querySelector("#match-div")
   this.formOption = document.querySelector("#form-selector").value
+  // this.leagueTable = new LeagueTable()
+  // this.leagueTableView = new LeagueTableView()
+  // this.leagueTable.getData(function(league){
+  //   // this.leagueStats = league.standing
+  //   // console.log(this.leagueStats)
+  //   this.leagueTableView.standings = league.standing
+  //   console.log(this.leagueTableView)
+  //   console.log(this.leagueTableView.standings)
+  // }.bind(this))
+
 }
 
 TeamStatsView.prototype = {
@@ -27,6 +37,7 @@ TeamStatsView.prototype = {
     var formOption = this.formOption
     
     var teams = league.teams.sort()
+    // console.log(teams)
     var teamName = teams[0].name
 
     // Populate selector
@@ -48,7 +59,6 @@ TeamStatsView.prototype = {
     // Buld form guide
     var teamFormURL = teams[0]._links.fixtures.href
     var teamForm = new FormList(teamFormURL)
-    console.log(teamForm)
     var teamFormView = new FormListView()
     teamForm.getData(function(fixtures){
       teamFormView.render(fixtures,formElement,teamName,formOption)

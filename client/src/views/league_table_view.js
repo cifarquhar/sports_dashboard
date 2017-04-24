@@ -1,5 +1,6 @@
 var LeagueTableView = function(){
   this.element = document.querySelector("#table-div")
+  this.standings = []
 }
 
 LeagueTableView.prototype = {
@@ -97,6 +98,9 @@ LeagueTableView.prototype = {
     this.element.appendChild(table)
 
 
+  },
+  getTeamInfo: function(league){
+    this.standings = league.standing
   }
 
 }
