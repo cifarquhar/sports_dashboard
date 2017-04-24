@@ -8,6 +8,9 @@ var GraphView = function(typeOption,filterOption){
 GraphView.prototype = {
 
   render: function(team,){
+    var wins = team.wins
+    var draws = team.draws
+    var losses = team.losses
     var graphElement = document.querySelector("#graph-div")
     var graphTitle = "Results for " + team.teamName
     console.log(team)
@@ -17,17 +20,17 @@ GraphView.prototype = {
       data: [
         {
           name: "Won",
-          y: team.wins,
+          y: wins,
           color: "#46c645"
         },
         {
           name: "Drawn",
-          y: team.draws,
+          y: draws,
           color: "#Fede3b"
         },
         {
           name: "Lost",
-          y: team.losses,
+          y: losses,
           color: "#e34a49"
         }
       ]

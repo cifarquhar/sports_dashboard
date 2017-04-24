@@ -114,7 +114,7 @@ TeamStatsView.prototype = {
   },
 
   renderGraph: function(team){
-      var graphView = new GraphView(1,1)
+      var graphView = new GraphView(0,0)
       graphView.render(team)
     }
    
