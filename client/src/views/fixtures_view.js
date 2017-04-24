@@ -1,9 +1,12 @@
 var FavouritesQuery
 
-var FixturesView = function(favouritesList) {
+var FixturesView = function(favouritesList, mapWrapper) {
   this.element = document.querySelector('#fixtures')
   this.favouritesList = favouritesList
+  this.mapWrapper = mapWrapper
   this.scheduledFixtures = null
+
+
 }
 
 FixturesView.prototype = {
@@ -11,6 +14,7 @@ FixturesView.prototype = {
   render: function(fixtures) {
     var fixturesArray = fixtures.fixtures
     this.findUpcomingGames(fixturesArray)
+
     for (var i = 0; i < this.scheduledFixtures.length; i++) {
       var li = document.createElement('li')
       this.populateList(this.scheduledFixtures[i], li)
@@ -18,6 +22,9 @@ FixturesView.prototype = {
       li.appendChild(button)
       this.element.appendChild(li)
     }
+
+    this.favouritesList.allCoordinates(this.mapWrapper.render)
+    // console.log(this.findUpcomingGames(fixturesArray))
   },
 
   createPtag: function(id, li, label, text) {
@@ -50,6 +57,7 @@ FixturesView.prototype = {
     this.scheduledFixtures = allFixtures.filter(function(fixture) {
       return (new Date(fixture.date) > dateToday) && (new Date(fixture.date) < nextWeek)
     })
+
   },
 
   createAddButton: function(index) {

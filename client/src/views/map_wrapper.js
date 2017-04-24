@@ -377,9 +377,9 @@ var MapWrapper = function () {
 
 MapWrapper.prototype = {
 
-  addBouncingMarker: function(){
+  addBouncingMarker: function(coords){
     var marker = new google.maps.Marker({
-      position: {lat: 56.0, lng: -4.0},           
+      position: coords,           
       map: this.googleMap
     })
       marker.addListener('click', function(){
@@ -389,7 +389,13 @@ MapWrapper.prototype = {
             marker.setAnimation(google.maps.Animation.BOUNCE);
           }
         }
-    )}
+    )},
+
+    render: function(allCoordinates) {
+        // MAKE MARKERS FOR EACH COORDINATE
+        // PUT MARKER ON MAP
+        console.log('hi bitch')
+    }
 
   // onClickEventInfoBox: function() {
   //   google.maps.event.addListener(this.googleMap, 'click', function(event){

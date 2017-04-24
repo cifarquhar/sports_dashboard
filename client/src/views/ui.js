@@ -28,10 +28,8 @@ var UI = function(link){
     this.objectView = new LeagueTableView()
   } else if (link === "map") {
     this.object = new FixturesList()
-    this.objectView = new FixturesView()
     this.mapWrapper = new MapWrapper()
-    this.mapWrapper.addBouncingMarker();
-    this.objectView = new FixturesView(new FavouritesList)
+    this.objectView = new FixturesView(this.object, this.mapWrapper)
   } else if (link === "team") {
     this.object = new TeamStats()
     this.objectView = new TeamStatsView()

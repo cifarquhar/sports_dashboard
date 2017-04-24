@@ -2,6 +2,7 @@ var Fixture = require('./fixture.js')
 
 var FixturesList = function() {
   this.fixtures = null
+  this.fixturesWithCoords = null
 }
 
 FixturesList.prototype = {
@@ -39,6 +40,7 @@ FixturesList.prototype = {
   populateFixtures: function(results){
     var fixture = results.map(function(result){
       return new Fixture(result);
+
     })
 
     return fixture;
@@ -46,10 +48,30 @@ FixturesList.prototype = {
 
   add: function(newFixture, callback){
     console.log("adding fixture");
-    this.makePostRequest("http://localhost:3000/api/fixture", callback, JSON.stringify(newFixture));
-  }
+    this.makePostRequest("http://localhost:3000/api/fixtures", callback, JSON.stringify(newFixture));
+  },
 
-}
+  allCoordinates: function(callback){
+    //QUERY API DATA IN DATABASE
+    var request = new XMLHttpRequest()
+    request.open('GET', "http://localhost:3000/api/fixtures")
+    
+    request.onload = function(){
+      var jsonString = this.responseText;
+      this.fixturesWithCoords = JSON.parse(jsonString);
+      callback(this.fixturesWithCoords)
+    }
+
+    request.send()
+
+    }
+    // findUpcomingGames: function(allFixtures) {
+    //   var dateToday = new Date()
+    //   var nextWeek = new Date(dateToday.getTime() + 7 * 24 * 60 * 60 * 1000)
+    //   this.scheduledFixtures = allFixtures.filter(function(fixture) {
+    //     return (new Date(fixture.date) > dateToday) && (new Date(fixture.date) < nextWeek)
+    //   })
+  }
 
 
 module.exports = FixturesList
