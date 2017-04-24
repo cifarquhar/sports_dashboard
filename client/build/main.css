@@ -88,28 +88,21 @@ nav a.selected, nav a:hover {
 
 
 /***** Table *****/
+#table-div {
+  overflow-x: auto;
+}
+
+table, th, td {
+  border: none;
+}
+
 table, th, td {
   border: 1px solid black;
-}
-
-th, td {
-  padding: 15px;
-  text-align: center;
-  vertical-align: center;
-}
-
-tr:nth-child(even) {
-  background-color: hotpink;
-}
-
-tr:nth-child(odd) {
-  background-color: deepskyblue;
 }
 
 table {
   border-collapse: collapse;
   max-width: 100%;
-  vertical-align: center;
 }
 
 th {
