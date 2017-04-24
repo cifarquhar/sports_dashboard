@@ -29,6 +29,10 @@ h1 {
   height: 600px;
 }
 
+.fixture-list-item {
+  list-style: none;
+}
+
 /*****Nav bar*****/
 
 nav {
