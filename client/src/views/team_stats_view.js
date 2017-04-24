@@ -3,6 +3,9 @@ var PlayerList = require("../models/player_list")
 var PlayerListView = require("./player_list_view")
 var FormList = require("../models/form_list")
 var FormListView = require("./form_list_view")
+var PieChart = require("../models/pieChart")
+var storedTeams = JSON.parse(localStorage.getItem('storedTeams')) || [];
+
 
 
 // Constructor
@@ -11,11 +14,13 @@ var TeamStatsView = function(){
   this.formElement = document.querySelector("#form-div")
   this.matchElement = document.querySelector("#match-div")
   this.formOption = document.querySelector("#form-selector").value
+
 }
 
 TeamStatsView.prototype = {
 
   render: function(league){
+    console.log(storedTeams)
 
     // Matches elements to variables
     this.teamSelector = document.querySelector("#team-selector")
@@ -39,10 +44,18 @@ TeamStatsView.prototype = {
     
     var teamName = teams[teamIndexLinkedTo].name
 
+    var storedTeamIndex = storedTeams.findIndex(function(team){
+      return team.teamName === teamName
+    })
+    console.log(storedTeamIndex)
+    console.log(storedTeams[storedTeamIndex])
+
+
     this.addChooseTeamText('Select a team:')
     this.generateOptions(teams, teamName)
     this.renderSquadList(teams[teamIndexLinkedTo]._links.players.href, this.playerElement)
     this.renderTeamForm(this.formElement, teams[teamIndexLinkedTo].name, this.formOption, teams[teamIndexLinkedTo]._links.fixtures.href)
+    this.renderGraph(storedTeams[storedTeamIndex])
     
 
     this.teamSelector.addEventListener("change",function(){
@@ -52,6 +65,12 @@ TeamStatsView.prototype = {
       this.renderSquadList(teams[this.teamSelector.value]._links.players.href, this.playerElement)
 
       this.renderTeamForm(this.formElement, teams[this.teamSelector.value].name, this.formOption, teams[this.teamSelector.value]._links.fixtures.href)
+
+      var newStoredIndex = storedTeams.findIndex(function(team){
+      return team.teamName === teams[this.teamSelector.value].name
+    }.bind(this))
+
+      this.renderGraph(storedTeams[newStoredIndex])
 
       while (matchElement.hasChildNodes()) {
         matchElement.removeChild(matchElement.lastChild);
@@ -85,12 +104,43 @@ TeamStatsView.prototype = {
     })
   },
 
+
   renderTeamForm: function(formElement, teamName, formOption, fixtures) {
     var teamForm = new FormList(fixtures)
     var teamFormView = new FormListView()
     teamForm.getData(function(fixtures){
       teamFormView.render(fixtures, formElement, teamName, formOption)
     }.bind(this))
+  },
+
+  renderGraph: function(team){
+    var graphElement = document.querySelector("#graph-div")
+    var graphTitle = "Results for " + team.teamName
+    console.log(team)
+    var data = [{
+      name: "Results",
+
+      data: [
+        {
+          name: "Won",
+          y: team.wins,
+          color: "#46c645"
+        },
+        {
+          name: "Drawn",
+          y: team.draws,
+          color: "#Fede3b"
+        },
+        {
+          name: "Lost",
+          y: team.losses,
+          color: "#e34a49"
+        }
+      ]
+
+    }]
+
+    new PieChart(graphElement, graphTitle, data)
   }
 }
 
