@@ -1,8 +1,11 @@
+// Requirements
 var PlayerList = require("../models/player_list")
 var PlayerListView = require("./player_list_view")
 var FormList = require("../models/form_list")
 var FormListView = require("./form_list_view")
 
+
+// Constructor
 var TeamStatsView = function(){
   this.playerElement = document.querySelector("#player-div")
   this.formElement = document.querySelector("#form-div")
@@ -14,15 +17,26 @@ TeamStatsView.prototype = {
 
   render: function(league){
 
+    // Matches elements to variables
     this.teamSelector = document.querySelector("#team-selector")
     var matchElement = this.matchElement
     var pChooseTeam = document.createElement('p')
     var teams = league.teams.sort()
 
+    var formOption = this.formOption
+    // Gets name of team clicked on league table view
+    var teamNameLinkedFrom = window.name
+
+    var teamIndexLinkedTo = teams.findIndex(function(team){
+      return team.name === teamNameLinkedFrom
+    })
+
+    var teamName = teams[teamIndexLinkedTo].name
+
     this.addChooseTeamText('Select a team:')
-    this.generateOptions(teams)
-    this.renderSquadList(teams[0]._links.players.href, this.playerElement)
-    this.renderTeamForm(this.formElement, teams[0].name, this.formOption, teams[0]._links.fixtures.href)
+    this.generateOptions(teams, teamName)
+    this.renderSquadList(teams[teamIndexLinkedTo]._links.players.href, this.playerElement)
+    this.renderTeamForm(this.formElement, teams[teamIndexLinkedTo].name, this.formOption, teams[teamIndexLinkedTo]._links.fixtures.href)
     
 
     this.teamSelector.addEventListener("change",function(){
@@ -45,11 +59,12 @@ TeamStatsView.prototype = {
     body.appendChild(pChooseTeam)
   },
 
-  generateOptions: function(teams) {
+  generateOptions: function(teams, teamName) {
     teams.forEach(function(team,index){
       var teamOption = document.createElement("option")
       teamOption.innerText = team.name
       teamOption.value = index
+      if (team.name === teamName) teamOption.selected = "selected"
       this.teamSelector.appendChild(teamOption)
     }.bind(this))
   },
@@ -69,7 +84,6 @@ TeamStatsView.prototype = {
       teamFormView.render(fixtures, formElement, teamName, formOption)
     }.bind(this))
   }
-
 }
 
 module.exports = TeamStatsView
