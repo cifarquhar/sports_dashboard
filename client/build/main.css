@@ -81,7 +81,7 @@ nav a.selected, nav a:hover {
   flex-wrap: wrap;
   justify-content: flex-start;
   margin: 10px;
-  margin-left: 0;
+  margin-left: 1%;
 }
 
 .box{
@@ -104,7 +104,7 @@ nav a.selected, nav a:hover {
 }
 
 .unplayed{
-  background: #ddd;
+  background: #FFF;
 }
 
 
