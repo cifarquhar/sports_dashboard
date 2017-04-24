@@ -1,13 +1,8 @@
 #map {
   width: 500px;
-  height: 380px;
+  height: 550px;
   -moz-border-radius: 50%; 
   -webkit-border-radius: 50%; 
-  border-radius: 50%;
+  border-radius: 100%;
   background: #4679BD;
 }
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding

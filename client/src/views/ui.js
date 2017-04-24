@@ -22,6 +22,7 @@ var UI = function(link){
     this.object = new FixturesList()
     this.objectView = new FixturesView()
     this.mapWrapper = new MapWrapper()
+    this.mapWrapper.addBouncingMarker();
   }
 
 
@@ -29,7 +30,7 @@ var UI = function(link){
     this.objectView.render(objectParam)
   }.bind(this))
 
-  this.mapWrapper.setMarker();
+
   // this.mapWrapper.onClickEventInfoBox();
 
 }
