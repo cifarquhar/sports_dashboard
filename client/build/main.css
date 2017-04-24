@@ -1,4 +1,19 @@
-<<<<<<< HEAD
+/***** Main Layout *****/
+#flex-wrap {
+  border: 5px solid lightcoral;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-child {
+  background: deepskyblue;
+  color: #fff;
+  margin: 2.5%;
+  width: 500px;
+}
+
 /*****Nav bar*****/
 
 nav {
@@ -66,8 +81,9 @@ nav a.selected, nav a:hover {
 
 /****Map***/
 #map {
-  width: 500px;
+  max-width: 500px;
   height: 550px;
+  margin: 20px;
   -moz-border-radius: 50%; 
   -webkit-border-radius: 50%; 
   border-radius: 100%;
