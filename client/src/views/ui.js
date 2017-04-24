@@ -29,8 +29,8 @@ var UI = function(link){
     this.objectView.render(objectParam)
   }.bind(this))
 
-  this.mapWrapper.addMarker();
-  this.mapWrapper.onClickEventInfoBox();
+  this.mapWrapper.setMarker();
+  // this.mapWrapper.onClickEventInfoBox();
 
 }
 

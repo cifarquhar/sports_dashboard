@@ -1,0 +1,13 @@
+#map {
+  width: 500px;
+  height: 380px;
+  -moz-border-radius: 50%; 
+  -webkit-border-radius: 50%; 
+  border-radius: 50%;
+  background: #4679BD;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding
