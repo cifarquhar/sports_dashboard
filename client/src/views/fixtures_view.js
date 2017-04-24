@@ -13,6 +13,7 @@ FixturesView.prototype = {
     this.findUpcomingGames(fixturesArray)
     for (var i = 0; i < this.scheduledFixtures.length; i++) {
       var li = document.createElement('li')
+      li.className = 'fixture-list-item'
       this.populateList(this.scheduledFixtures[i], li)
       var button = this.createAddButton(i)
       li.appendChild(button)

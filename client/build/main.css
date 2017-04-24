@@ -1,7 +1,8 @@
-/***** Main Layout *****/
+/***** Map/Fixture Layout *****/
 body {
   background-color: #ddd  ;
   color: #000;
+  font-family: 'Play', sans-serif;
 }
 
 h1 {
@@ -9,18 +10,31 @@ h1 {
 }
 
 #flex-wrap {
-  border: 5px solid lightcoral;
+  border: none;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0;
 }
 
 .flex-child {
-  background: deepskyblue;
+  background-color: #92ADC3;
   color: #fff;
-  margin: 2.5%;
+  margin-left: 2.5%;
   width: 500px;
+}
+
+#map-wrapper {
+  height: 600px;
+}
+
+.fixture-list-item {
+  list-style: none;
+}
+
+.fixture-list-item button {
+  margin: 2%;
 }
 
 /*****Nav bar*****/
@@ -67,7 +81,7 @@ nav a.selected, nav a:hover {
   flex-wrap: wrap;
   justify-content: flex-start;
   margin: 10px;
-  margin-left: 0;
+  margin-left: 1%;
 }
 
 .box{
@@ -90,7 +104,7 @@ nav a.selected, nav a:hover {
 }
 
 .unplayed{
-  background: #ddd;
+  background: #FFF;
 }
 
 
@@ -132,11 +146,23 @@ td {
 
 td a {
   text-decoration: none;  
+  color: #000;
 }
 
-/***** Player View *****/
-#player-view-title {
-  text-align: center;
+tr:nth-child(even) a:hover {
+  background-color: #5F8DB0;
+}
+
+tr:nth-child(odd) a:hover {
+  background-color: #92ADC3;
+}
+
+.nav-item a, .nav-item a:visited {
+  text-decoration: none;
+}
+
+nav a.selected, nav a:hover {
+  background-color: #5F8DB0;
 }
 
 /****Map***/
@@ -149,3 +175,12 @@ td a {
   border-radius: 100%;
   background: #4679BD;
 }
+
+/***** Index *****/
+h2 {
+  margin: 1%;
+}
+p {
+  margin: 1%;
+}
+
