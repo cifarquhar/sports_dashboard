@@ -90,6 +90,9 @@ nav a.selected, nav a:hover {
 /***** Table *****/
 #table-div {
   overflow-x: auto;
+
+table, th, td {
+  border: none;
 }
 
 table, th, td {
