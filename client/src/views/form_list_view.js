@@ -20,13 +20,13 @@ FormListView.prototype = {
       console.log("in if loop")
       var completedFixtures = fixtures.filter(function(fixture){
         console.log(fixture.status)
-        console.log(fixture)
-        fixture.status === "FINISHED"
+        // console.log(fixture)
+        if (fixture.status === "FINISHED") return fixture
       })
       console.log(completedFixtures)
-      var startPoint = fixtures.length - 10
+      var startPoint = completedFixtures.length - 10
       console.log(startPoint)
-      var fixtures = fixtures.slice(startPoint, 10)
+      var fixtures = completedFixtures.slice(startPoint, 10)
       console.log(fixtures)
     }
     else if (formOption == 2){
@@ -35,7 +35,7 @@ FormListView.prototype = {
       fixtures = fixtures.map(function(fixture){
         var fixtureCompetitionURL = fixture._links.competition.href
         var fixtureCompetitionID = path.basename(fixtureCompetitionURL)
-        fixtureCompetitionID === competitionID
+        if (fixtureCompetitionID === competitionID) return fixture
       })
       console.log(fixtures)
     }
