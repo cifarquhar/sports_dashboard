@@ -6,7 +6,7 @@ var FixturesQuery = function(){
 
 FixturesQuery.prototype = {
 
-  nextWeek: function(onQueryFinished){
+  all: function(onQueryFinished){
     MongoClient.connect(this.url, function(err, db){
       if(db) {
         var collection = db.collection('fixtures')
@@ -18,4 +18,4 @@ FixturesQuery.prototype = {
   }
 }
 
-module.exports = UpcomingGamesQuery
+module.exports = FixturesQuery

@@ -51,33 +51,71 @@ nav a.selected, nav a:hover {
   background-color: hotpink;
 }
 
+/*****Results boxes*****/
+#result-box-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 10px;
+  margin-left: 0;
+}
 
-
-/*****Colin's cool results boxes*****/
 .box{
-  width:10px;
-  height:10px;
+  width:20px;
+  height:20px;
   border:1px 
   solid #000;
 }
 
 .win{
-  background: #30AA49
+  background: #46c645;
 }
 
 .draw{
-  background: #E5C100
+  background: #Fede3b;
 }
 
 .loss{
-  background: #C61A10
+  background: #e34a49;
 }
 
 .unplayed{
-  background: #808080
+  background: #ddd;
 }
 
 
+/***** Table *****/
+#table-div {
+  overflow-x: auto;
+}
+
+table, th, td {
+  border: none;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  max-width: 100%;
+  vertical-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+th {
+  height: 50px;
+}
+
+/***** Player View *****/
+#player-view-title {
+  text-align: center;
+}
 
 /****Map***/
 #map {

@@ -6,6 +6,7 @@ PlayerListView.prototype = {
 
   render: function(squadList,element){
     var players = squadList.players
+    var titleTag = this.createTitle('Squad')
     
     while (element.hasChildNodes()) {
       element.removeChild(element.lastChild);
@@ -42,9 +43,16 @@ PlayerListView.prototype = {
       table.appendChild(playerEntry)
     })
 
-
+    element.appendChild(titleTag)
     element.appendChild(table)
 
+  },
+
+  createTitle: function(titleText) {
+    var title = document.createElement('h2')
+    title.innerText = titleText
+    title.id = 'player-view-title'
+    return title
   }
 
 }

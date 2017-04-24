@@ -47,6 +47,8 @@ FormListView.prototype = {
 
     var matchElement = document.querySelector("#match-div")
 
+    var resultWrapper = document.createElement('div')
+    resultWrapper.id = 'result-box-wrapper'
 
     fixtures.forEach(function(fixture){
       var homeGoals = fixture.result.goalsHomeTeam
@@ -72,9 +74,10 @@ FormListView.prototype = {
         matchView.render()
       })
       
-      element.appendChild(resultBox)
+      resultWrapper.appendChild(resultBox)
     })
 
+    element.appendChild(resultWrapper)
 
     var formSelector = document.querySelector("#form-selector")
     formSelector.addEventListener("change",function(){
