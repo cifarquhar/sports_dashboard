@@ -15,6 +15,30 @@ FavouritesQuery.prototype = {
         })
       }
     })
+  },
+
+  add: function(fixture, onQueryFinished) {
+    MongoClient.connect(this.url, function(err, db) {
+      if (db) {
+        var collection = db.collection('favourites')
+        collection.insert(fixture)
+        collection.find().toArray(function(err, data) {
+          onQueryFinished(data)
+        })
+      }
+    })
+  },
+  
+  delete: function(id, onQueryFinished) {
+    MongoClient.connect(this.url, function(err, db) {
+      if (db) {
+        var collection = db.collection('favourites')
+        collection.remove(id)
+        collection.find().toArray(function(err, data) {
+          onQueryFinished(data)
+        })
+      }
+    })
   }
 }
 

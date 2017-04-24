@@ -1,4 +1,6 @@
-var FixturesList = function() {}
+var FixturesList = function() {
+  this.fixtures = null
+}
 
 FixturesList.prototype = {
 
@@ -15,6 +17,7 @@ FixturesList.prototype = {
         if(this.status !== 200) return
         var jsonFavs = this.responseText
         var fixtures = JSON.parse(jsonFavs)
+        this.fixtures = fixtures
         callback(fixtures)
       })
     }

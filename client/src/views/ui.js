@@ -4,17 +4,24 @@ var FavouritesList = require('../models/favourites_list.js')
 var FavouritesView = require('./favourites_view.js')
 var FixturesView = require('./fixtures_view.js')
 var FixturesList = require('../models/fixtures_list.js')
+var TeamStats = require("../models/team_stats")
+var TeamStatsView = require("../views/team_stats_view")
+var NavBar = require("../views/nav_bar")
+var IndexView = require("../views/index_view")
 var MapWrapper = require('./map_wrapper.js')
 
 
 var UI = function(link){
+  this.navBar = new NavBar()
+
   this.object = null
   this.objectView = null
   this.mapWrapper = null
 
+  console.log('this is link: ', link)
   if (link === "favourites") {
     this.object = new FavouritesList()
-    this.objectView = new FixturesView()
+    this.objectView = new FavouritesView(this.object)
   } else if (link === "table"){
     this.object = new LeagueTable()
     this.objectView = new LeagueTableView()
@@ -23,16 +30,21 @@ var UI = function(link){
     this.objectView = new FixturesView()
     this.mapWrapper = new MapWrapper()
     this.mapWrapper.addBouncingMarker();
+    this.objectView = new FixturesView(new FavouritesList)
+  } else if (link === "team") {
+    this.object = new TeamStats()
+    this.objectView = new TeamStatsView()
+  } else if (link === "localhost:3000") {
+    this.objectView = new IndexView()
   }
 
-
-  this.object.getData(function(objectParam){
-    this.objectView.render(objectParam)
-  }.bind(this))
-
+  if (this.object) {
+    this.object.getData(function(objectParam){
+      this.objectView.render(objectParam)
+    }.bind(this))
+  }
 
   // this.mapWrapper.onClickEventInfoBox();
-
 }
 
 module.exports = UI

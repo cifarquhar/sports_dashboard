@@ -1,20 +1,21 @@
-var FixturesView = function() {
+var FavouritesQuery
+
+var FixturesView = function(favouritesList) {
   this.element = document.querySelector('#fixtures')
+  this.favouritesList = favouritesList
+  this.scheduledFixtures = null
 }
 
 FixturesView.prototype = {
 
   render: function(fixtures) {
-    // console.log('fixtures: ', fixtures)
     var fixturesArray = fixtures.fixtures
-    this.findUpcomingGames()
-    var scheduledFixtures = fixturesArray.filter(function(fixture) {
-      return (fixture.status === 'SCHEDULED')
-    })
-    console.log('fixtures: ', scheduledFixtures)
-    for (var fixture of scheduledFixtures) {
+    this.findUpcomingGames(fixturesArray)
+    for (var i = 0; i < this.scheduledFixtures.length; i++) {
       var li = document.createElement('li')
-      this.populateList(fixture, li)
+      this.populateList(this.scheduledFixtures[i], li)
+      var button = this.createAddButton(i)
+      li.appendChild(button)
       this.element.appendChild(li)
     }
   },
@@ -45,8 +46,21 @@ FixturesView.prototype = {
 
   findUpcomingGames: function(allFixtures) {
     var dateToday = new Date()
-    console.log(dateToday)
+    var nextWeek = new Date(dateToday.getTime() + 7 * 24 * 60 * 60 * 1000)
+    this.scheduledFixtures = allFixtures.filter(function(fixture) {
+      return (new Date(fixture.date) > dateToday) && (new Date(fixture.date) < nextWeek)
+    })
+  },
+
+  createAddButton: function(index) {
+    var button = document.createElement('button')
+    button.innerText = 'Add to favourites'
+    button.addEventListener('click', function(e) {
+      this.favouritesList.add(this.scheduledFixtures[index])
+    }.bind(this))
+    return button
   }
+
 }
 
 

@@ -20,4 +20,8 @@ router.get('/map', function(req, res) {
   res.sendFile(path.join(__dirname + "/../client/map.html"))
 })
 
+router.get('/team', function(req, res) {
+  res.sendFile(path.join(__dirname + "/../client/team.html"))
+})
+
 module.exports = router
