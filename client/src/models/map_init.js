@@ -1,17 +1,15 @@
-var MapWrapper = require('../views/map_wrapper.js')
-
-var MapInit = function() {
+// var MapInit = function() {
   
-}
+// }
 
-MapInit.prototype = {
+// MapInit.prototype = {
 
-  renderMap: function() {
-      var coords = {lat: 0, lng: 0};
-      var mainMap = new MapWrapper(coords, 10);
-        // mainMap.addMarker(center);
-        // mainMap.onClickEventInfoBox();
-    }
-}
+//   renderMap: function() {
+//       var coords = {lat: 0, lng: 0};
+//       var mainMap = new MapWrapper(coords, 10);
+//         // mainMap.addMarker(center);
+//         // mainMap.onClickEventInfoBox();
+//     }
+// }
 
-module.exports = MapInit
+// module.exports = MapInit
