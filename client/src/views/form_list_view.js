@@ -11,36 +11,34 @@ FormListView.prototype = {
     
     var fixtures = formList.fixtures
 
-    console.log(fixtures)
-
-
-    console.log(formOption)
+    var matchElement = document.querySelector("#match-div")
 
     if (formOption == 1){
-      console.log("in if loop")
+
+      while (matchElement.hasChildNodes()) {
+        matchElement.removeChild(matchElement.lastChild);
+      }
+
       var completedFixtures = fixtures.filter(function(fixture){
-        console.log(fixture.status)
-        // console.log(fixture)
         if (fixture.status === "FINISHED") return fixture
       })
-      console.log(completedFixtures)
       var startPoint = completedFixtures.length - 10
-      console.log(startPoint)
-      var fixtures = completedFixtures.slice(startPoint, 10)
-      console.log(fixtures)
+      var fixtures = completedFixtures.slice(startPoint)
     }
     else if (formOption == 2){
-      console.log("in if loop")
+
+      while (matchElement.hasChildNodes()) {
+        matchElement.removeChild(matchElement.lastChild);
+      }
+      
       var competitionID = 426
-      fixtures = fixtures.map(function(fixture){
+      fixtures = fixtures.filter(function(fixture){
         var fixtureCompetitionURL = fixture._links.competition.href
         var fixtureCompetitionID = path.basename(fixtureCompetitionURL)
-        if (fixtureCompetitionID === competitionID) return fixture
+        if (fixtureCompetitionID == competitionID) return fixture
       })
-      console.log(fixtures)
     }
 
-    console.log("after if loop")
 
 
     while (element.hasChildNodes()) {
@@ -72,7 +70,6 @@ FormListView.prototype = {
       resultBox.addEventListener("click",function(){
         var matchView = new MatchView(fixture,matchElement)
         matchView.render()
-        // console.log(fixture)
       })
       
       element.appendChild(resultBox)
