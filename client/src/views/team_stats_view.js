@@ -24,19 +24,35 @@ TeamStatsView.prototype = {
     var matchElement = this.matchElement
     var formOption = this.formOption
     
+    
+    // Gets name of team clicked on league table view
+    var teamNameLinkedFrom = window.name
+    console.log(teamNameLinkedFrom)
+
     var teams = league.teams.sort()
-    var teamName = teams[0].name
+
+    console.log(teams)
+
+    var teamIndexLinkedTo = teams.findIndex(function(team){
+      return team.name === teamNameLinkedFrom
+    })
+
+    console.log(teamIndexLinkedTo)
+
+
+    var teamName = teams[teamIndexLinkedTo].name
 
     // Populate selector
     teams.forEach(function(team,index){
       var teamOption = document.createElement("option")
       teamOption.innerText = team.name
       teamOption.value = index
+      if (team.name === teamName) teamOption.selected = "selected"
       this.teamSelector.appendChild(teamOption)
     }.bind(this))
 
     // Build player list
-    var teamPlayerURL = teams[0]._links.players.href
+    var teamPlayerURL = teams[teamIndexLinkedTo]._links.players.href
     var teamPlayers = new PlayerList(teamPlayerURL)
     var teamPlayerView = new PlayerListView()
     teamPlayers.getData(function(squadList){
@@ -44,7 +60,7 @@ TeamStatsView.prototype = {
     })
 
     // Buld form guide
-    var teamFormURL = teams[0]._links.fixtures.href
+    var teamFormURL = teams[teamIndexLinkedTo]._links.fixtures.href
     var teamForm = new FormList(teamFormURL)
     console.log(teamForm)
     var teamFormView = new FormListView()
@@ -55,6 +71,7 @@ TeamStatsView.prototype = {
 
     // Team selector event listener
    this.teamSelector.addEventListener("change",function(){
+    window.name = teams[this.value].name
       var teamPlayerURL = teams[this.value]._links.players.href
       var teamPlayers = new PlayerList(teamPlayerURL)
       teamPlayers.getData(function(squadList){
