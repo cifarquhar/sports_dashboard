@@ -64,22 +64,22 @@ nav a.selected, nav a:hover {
 }
 
 .box{
-  width:10px;
-  height:10px;
+  width:20px;
+  height:20px;
   border:1px 
   solid #000;
 }
 
 .win{
-  background: #30AA49
+  background: #46c645;
 }
 
 .draw{
-  background: #E5C100
+  background: #Fede3b;
 }
 
 .loss{
-  background: #C61A10
+  background: #e34a49;
 }
 
 .unplayed{
