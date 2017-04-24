@@ -8,6 +8,13 @@ var Fixture = function(options) {
   this.awayTeamName = options.awayTeamName
   this.result = options.result
   this.odds = options.odds
+  this.coords = options.coords
+}
+
+Fixture.prototype = {
+  addCoords: function(coords) {
+    this.coords.push(coords);
+  }
 }
 
 module.exports = Fixture
