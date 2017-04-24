@@ -3,6 +3,7 @@ var router = express.Router()
 var path = require('path')
 
 router.use('/api/favourites', require('./favourites_router'))
+router.use('/api/fixtures', require('./fixtures_router'))
 
 router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + "/../client/index.html"))

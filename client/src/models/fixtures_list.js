@@ -1,3 +1,5 @@
+var Fixture = require('./fixture.js')
+
 var FixturesList = function() {
   this.fixtures = null
 }
@@ -20,8 +22,34 @@ FixturesList.prototype = {
         this.fixtures = fixtures
         callback(fixtures)
       })
-    }
+    },
+
+  all: function(callback){
+    var self = this; 
+    this.makeRequest("http://localhost:3000/api/fixtures", function(){
+      if(this.status !== 200) return;
+      var jsonString = this.responseText;
+      var results = JSON.parse(jsonString);
+
+      var fixture = self.populateFixtures(results);
+      callback(fixture);
+    })
+  },
+
+  populateFixtures: function(results){
+    var fixture = results.map(function(result){
+      return new Fixture(result);
+    })
+
+    return fixture;
+  },
+
+  add: function(newFixture, callback){
+    console.log("adding fixture");
+    this.makePostRequest("http://localhost:3000/api/fixture", callback, JSON.stringify(newFixture));
+  }
 
 }
+
 
 module.exports = FixturesList
