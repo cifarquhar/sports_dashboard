@@ -70,7 +70,10 @@ FixturesView.prototype = {
     var button = document.createElement('button')
     button.innerText = 'Add to favourites'
     button.addEventListener('click', function(e) {
-      this.favouritesList.add(this.scheduledFixtures[index])
+      console.log(this.scheduledFixtures[index])
+      this.favouritesList.addData(this.scheduledFixtures[index],function(){
+        // This function doesn't need to do anything, only here because addData needs a callback
+      }.bind(this))
     }.bind(this))
     return button
   }
