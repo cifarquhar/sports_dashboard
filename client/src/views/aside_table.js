@@ -11,13 +11,13 @@ AsideTable.prototype = {
     var table = document.createElement('table')
     var headerRow = document.createElement('tr')
     
-    createHeader(headerRow, 'Position')
-    createHeader(headerRow, 'Team')
-    createHeader(headerRow, 'Points')
+    this.createHeader(headerRow, 'Position')
+    this.createHeader(headerRow, 'Team')
+    this.createHeader(headerRow, 'Points')
     table.appendChild(headerRow)
 
     for (var i = 0; i < 5; i++) {
-      createEntryRow(league.standing[i], table)
+      this.createEntryRow(league.standing[i], table)
     }
     this.asideElement.appendChild(table)
   },
@@ -36,12 +36,12 @@ AsideTable.prototype = {
 
   createEntryRow: function(team, table) {
     var row = document.createElement('tr')
-    createEntryCell(team.position, row)
-    createEntryCell(team.teamName, row)
-    createEntryCell(team.points, row)
+    this.createEntryCell(team.position, row)
+    this.createEntryCell(team.teamName, row)
+    this.createEntryCell(team.points, row)
     table.appendChild(row)
   },
 
-  
-
 }
+
+module.exports = AsideTable

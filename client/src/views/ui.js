@@ -9,7 +9,7 @@ var TeamStatsView = require("../views/team_stats_view")
 var NavBar = require("../views/nav_bar")
 var IndexView = require("../views/index_view")
 var MapWrapper = require('./map_wrapper.js')
-
+var AsideTable = require('./aside_table.js')
 
 var UI = function(link){
   this.navBar = new NavBar()
@@ -20,6 +20,7 @@ var UI = function(link){
 
   console.log('this is link: ', link)
   if (link === "favourites") {
+    this.renderAside()
     this.object = new FavouritesList()
     this.objectView = new FavouritesView(this.object)
     // this.mapWrapper = new MapWrapper()
@@ -27,13 +28,16 @@ var UI = function(link){
     this.object = new LeagueTable()
     this.objectView = new LeagueTableView()
   } else if (link === "map") {
+    this.renderAside()
     this.object = new FixturesList()
     this.mapWrapper = new MapWrapper()
     this.objectView = new FixturesView(this.object, this.mapWrapper)
   } else if (link === "team") {
+    this.renderAside()
     this.object = new TeamStats()
     this.objectView = new TeamStatsView()
   } else if (link === "localhost:3000") {
+    this.renderAside()
     this.objectView = new IndexView()
   }
 
@@ -44,6 +48,18 @@ var UI = function(link){
   }
 
   // this.mapWrapper.onClickEventInfoBox();
+}
+
+UI.prototype = {
+
+  renderAside: function() {
+    var leagueTable = new LeagueTable()
+    var asideTable = new AsideTable()
+    leagueTable.getData(function(league) {
+      asideTable.render(league)
+    })
+  }
+
 }
 
 module.exports = UI
