@@ -199,7 +199,7 @@ p {
 
 /***** Aside *****/
 #aside-table {
-  position:absolute;
+  position: fixed;
   top: 115px;
   right: 20px;
   width: 200px;
