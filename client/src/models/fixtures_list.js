@@ -50,13 +50,6 @@ FixturesList.prototype = {
 
     return fixture;
   },
-
-  // Not sure this is needed
-  add: function(newFixture, callback){
-    console.log("adding fixture");
-    this.makePostRequest("http://localhost:3000/api/fixtures", callback, JSON.stringify(newFixture));
-  },
-
   
   addData: function(newFixture,callback){
     var request = new XMLHttpRequest()
@@ -66,9 +59,6 @@ FixturesList.prototype = {
     request.onload = callback
     
     request.send(JSON.stringify(payload))
-
-
-
   },
 
   allCoordinates: function(callback){
