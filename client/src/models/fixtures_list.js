@@ -53,7 +53,7 @@ FixturesList.prototype = {
 
   add: function(newFixture, callback){
     console.log("adding fixture");
-    this.makePostRequest("http://localhost:3000/api/fixtures", callback, JSON.stringify(newFixture));
+    this.makeRequest('POST', "http://localhost:3000/api/fixtures", callback, JSON.stringify(newFixture));
   },
 
   allCoordinates: function(callback){
