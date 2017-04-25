@@ -9,8 +9,13 @@ AsideTable.prototype = {
     // Make table
     var table = document.createElement('table')
     // Make header row
+    var headerRow = document.createElement('tr')
     // Make headers 
     // Append headers to row
+    createHeader(headerRow, 'Position')
+    createHeader(headerRow, 'Team')
+    createHeader(headerRow, 'Points')
+    
     // Append row to table
     // Make team entry row
     // Add position
@@ -19,8 +24,10 @@ AsideTable.prototype = {
     // Append row to table
   }
 
-  createHeader: function(row) {
-
+  createHeader: function(row, label) {
+    var header = document.createElement('th')
+    header.innerText = label
+    row.appendChild(header)
   }
 
 }
