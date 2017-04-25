@@ -47,7 +47,6 @@ var UI = function(link){
     }.bind(this))
   }
 
-  // this.mapWrapper.onClickEventInfoBox();
 }
 
 UI.prototype = {
