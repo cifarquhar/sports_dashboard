@@ -2,6 +2,7 @@ var AsideTable = function() {
   this.body = document.querySelector('body')
   this.asideElement = document.createElement('aside')
   this.asideElement.id = ('aside-table')
+  this.asideElement.className = ('.flex-child')
   this.body.appendChild(this.asideElement)
 }
 
@@ -25,12 +26,14 @@ AsideTable.prototype = {
   createHeader: function(row, label) {
     var header = document.createElement('th')
     header.innerText = label
+    header.className = 'aside-th'
     row.appendChild(header)
   },
 
   createEntryCell: function(data, row) {
     var cell = document.createElement('td')
     cell.innerText = data
+    cell.className = 'aside-td'
     row.appendChild(cell)
   },
 
