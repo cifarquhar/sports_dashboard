@@ -13,10 +13,24 @@ GraphView.prototype = {
 
     if (this.typeOption == 0){
 
-    var wins = team.wins
-    var draws = team.draws
-    var losses = team.losses
-    var graphTitle = "Results for " + team.teamName
+    if (this.filterOption == 0) {
+      var wins = team.wins
+      var draws = team.draws
+      var losses = team.losses
+      var graphTitle = "All results for " + team.teamName
+    }
+    else if (this.filterOption == 1) {
+      var wins = team.home.wins
+      var draws = team.home.draws
+      var losses = team.home.losses
+      var graphTitle = "Home results for " + team.teamName
+    }
+    else if (this.filterOption == 2) {
+      var wins = team.away.wins
+      var draws = team.away.draws
+      var losses = team.away.losses
+      var graphTitle = "Away results for " + team.teamName
+    }
     
     var data = [{
       name: "Results",
@@ -46,11 +60,25 @@ GraphView.prototype = {
 
   else if (this.typeOption == 1){
 
-    var goalsFor = team.goals
-    var goalsAgainst = team.goalsAgainst
-    var goalDifference = team.goalDifference
+    if (this.filterOption == 0) {
+      var goalsFor = team.goals
+      var goalsAgainst = team.goalsAgainst
+      var goalDifference = team.goalDifference
+      var graphTitle = "Goals For/Against " + team.teamName
+    }
+    else if (this.filterOption == 1) {
+      var goalsFor = team.home.goals
+      var goalsAgainst = team.home.goalsAgainst
+      var goalDifference = team.home.goals - team.home.goalsAgainst
+      var graphTitle = "Home goals for/against " + team.teamName
+    }
+    else if (this.filterOption == 2) {
+      var goalsFor = team.away.goals
+      var goalsAgainst = team.away.goalsAgainst
+      var goalDifference = team.away.goals - team.away.goalsAgainst
+      var graphTitle = "Away goals for/against " + team.teamName
+    }
 
-    var graphTitle = "Goals For/Against " + team.teamName
     var colSeries = [{
       name: "Goals",
       data: [goalsFor,goalsAgainst,goalDifference]
@@ -61,7 +89,6 @@ GraphView.prototype = {
 
   }
 }
-
 }
 
 

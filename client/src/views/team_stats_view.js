@@ -66,11 +66,11 @@ TeamStatsView.prototype = {
 
       this.renderTeamForm(this.formElement, teams[this.teamSelector.value].name, this.formOption, teams[this.teamSelector.value]._links.fixtures.href)
 
-      var newStoredIndex = storedTeams.findIndex(function(team){
+      storedTeamIndex = storedTeams.findIndex(function(team){
       return team.teamName === teams[this.teamSelector.value].name
     }.bind(this))
 
-      this.renderGraph(storedTeams[newStoredIndex])
+      this.renderGraph(storedTeams[storedTeamIndex])
 
       while (matchElement.hasChildNodes()) {
         matchElement.removeChild(matchElement.lastChild);
@@ -80,6 +80,13 @@ TeamStatsView.prototype = {
 
     var typeOptionSelector = document.querySelector("#type-selector")
     typeOptionSelector.addEventListener("change",function(){
+      console.log(storedTeams[storedTeamIndex])
+      this.renderGraph(storedTeams[storedTeamIndex])
+    }.bind(this))
+
+    var filterOptionSelector = document.querySelector("#filter-selector")
+    filterOptionSelector.addEventListener("change",function(){
+      console.log(storedTeams[storedTeamIndex])
       this.renderGraph(storedTeams[storedTeamIndex])
     }.bind(this))
 
@@ -123,8 +130,9 @@ TeamStatsView.prototype = {
 
   renderGraph: function(team){
       var typeOption = document.querySelector("#type-selector").value
+      var filterOption = document.querySelector("#filter-selector").value
       console.log(typeOption)
-      var graphView = new GraphView(typeOption,0)
+      var graphView = new GraphView(typeOption,filterOption)
       graphView.render(team)
     }
    
