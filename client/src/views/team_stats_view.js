@@ -26,7 +26,11 @@ TeamStatsView.prototype = {
     this.teamSelector = document.querySelector("#team-selector")
     var matchElement = this.matchElement
     var pChooseTeam = document.createElement('p')
-    var teams = league.teams.sort()
+    var teams = league.teams.sort(function(a, b){
+        if(a.name < b.name) return -1;
+        if(a.name > b.name) return 1;
+        return 0;
+    })
 
     var formOption = this.formOption
     // Gets name of team clicked on league table view
