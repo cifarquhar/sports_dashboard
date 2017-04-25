@@ -5,24 +5,18 @@ var AsideTable = function() {
 
 AsideTable.prototype = {
 
-  render: function() {
-    // Make table
+  render: function(league) {
     var table = document.createElement('table')
-    // Make header row
     var headerRow = document.createElement('tr')
-    // Make headers 
-    // Append headers to row
+    
     createHeader(headerRow, 'Position')
     createHeader(headerRow, 'Team')
     createHeader(headerRow, 'Points')
-    // Append row to table
     table.appendChild(headerRow)
-    // Make team entry row
 
-    // Add position
-    // Add team name add points
-    // Append position name and points to row
-    // Append row to table
+    for (var i = 0; i < 5; i++) {
+      createEntryRow(league.standing[i], table)
+    }
   },
 
   createHeader: function(row, label) {
