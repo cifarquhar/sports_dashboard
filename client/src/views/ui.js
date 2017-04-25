@@ -43,7 +43,6 @@ var UI = function(link){
     }.bind(this))
   }
 
-  // this.mapWrapper.onClickEventInfoBox();
 }
 
 module.exports = UI
