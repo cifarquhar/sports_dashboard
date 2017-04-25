@@ -65,6 +65,7 @@ FixturesList.prototype = {
     request.send()
 
     }
+
     // findUpcomingGames: function(allFixtures) {
     //   var dateToday = new Date()
     //   var nextWeek = new Date(dateToday.getTime() + 7 * 24 * 60 * 60 * 1000)

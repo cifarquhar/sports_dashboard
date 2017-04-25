@@ -5,8 +5,6 @@ var FixturesView = function(favouritesList, mapWrapper) {
   this.favouritesList = favouritesList
   this.mapWrapper = mapWrapper
   this.scheduledFixtures = null
-
-
 }
 
 FixturesView.prototype = {
@@ -23,8 +21,12 @@ FixturesView.prototype = {
       this.element.appendChild(li)
     }
 
-    this.favouritesList.allCoordinates(this.mapWrapper.render)
-    // console.log(this.findUpcomingGames(fixturesArray))
+    var coordsRetrieval = this.favouritesList.allCoordinates(function(coordinates){
+      this.mapWrapper.render(coordinates)
+      return coordinates
+    }.bind(this))
+    console.log(coordsRetrieval)
+    // this.mapWrapper.render(coordsRetrieval)
   },
 
   createPtag: function(id, li, label, text) {

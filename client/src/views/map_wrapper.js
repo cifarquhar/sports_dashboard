@@ -379,7 +379,7 @@ MapWrapper.prototype = {
 
   addBouncingMarker: function(coords){
     var marker = new google.maps.Marker({
-      position: coords,           
+      position: {lat: 56.0, lng: -4.0},           
       map: this.googleMap
     })
       marker.addListener('click', function(){
@@ -392,11 +392,15 @@ MapWrapper.prototype = {
     )},
 
     render: function(allCoordinates) {
-        // MAKE MARKERS FOR EACH COORDINATE
-        // PUT MARKER ON MAP
-        console.log('hi bitch')
-    }
-
+        console.log(allCoordinates[0])
+        allCoordinates.forEach(function(stadiumCoordinates){
+            var coords = stadiumCoordinates.coords
+            var marker = new google.maps.Marker({
+              position: coords,           
+              map: this.googleMap
+        })
+    }.bind(this))
+}
   // onClickEventInfoBox: function() {
   //   google.maps.event.addListener(this.googleMap, 'click', function(event){
   //     var position =   {

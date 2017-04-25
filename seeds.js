@@ -1,20 +1,13 @@
 use sports_dashboard;
 
+db.fixtures.drop()
 db.fixtures.insert([
   { 
-    date: "2017-04-27",
-    status: "POSTPONED",
-    matchday: 26,
     homeTeamName: "Manchester City FC",
-    awayTeamName: "Manchester United FC",
     coords: {lat:53.474258, lng:-2.26594}
   },
   {   
-    date: "2017-04-29T14:00:00Z",
-    status: "TIMED",
-    matchday: 35,
     homeTeamName: "Southampton FC",
-    awayTeamName: "Hull City FC",
     coords: {lat:50.9014303, lng:-1.4259941}
   },
   {
