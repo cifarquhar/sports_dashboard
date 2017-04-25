@@ -25,12 +25,14 @@ AsideTable.prototype = {
   createHeader: function(row, label) {
     var header = document.createElement('th')
     header.innerText = label
+    header.className = 'aside-th'
     row.appendChild(header)
   },
 
   createEntryCell: function(data, row) {
     var cell = document.createElement('td')
     cell.innerText = data
+    cell.className = 'aside-td'
     row.appendChild(cell)
   },
 
