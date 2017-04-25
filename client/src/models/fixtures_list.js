@@ -68,18 +68,9 @@ FixturesList.prototype = {
       })
       callback(fixtureToRender)
     }
-
     request.send()
-
-    }
-
-    // findUpcomingGames: function(allFixtures) {
-    //   var dateToday = new Date()
-    //   var nextWeek = new Date(dateToday.getTime() + 7 * 24 * 60 * 60 * 1000)
-    //   this.scheduledFixtures = allFixtures.filter(function(fixture) {
-    //     return (new Date(fixture.date) > dateToday) && (new Date(fixture.date) < nextWeek)
-    //   })
   }
+}
 
 
 module.exports = FixturesList
