@@ -47,11 +47,6 @@ FixturesList.prototype = {
   // populateFixtures: function(results){
   //   var fixture = results.map(function(result){
   //     return new Fixture(result);
-
-  //   })
-
-  //   return fixture;
-  // },
   
     ////////////////////////
 
@@ -79,7 +74,6 @@ FixturesList.prototype = {
         return mappedStorage.includes(fixture.homeTeamName) 
       })
       callback(fixtureToRender)
-      console.log(fixtureToRender)
     }
     request.send()
   }

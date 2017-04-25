@@ -11,7 +11,7 @@ var IndexView = require("../views/index_view")
 var MapWrapper = require('./map_wrapper.js')
 var MapWrapperFav = require('./map_wrapper_fav.js')
 var MapInit = require('../models/map_init.js')
-
+var AsideTable = require('./aside_table.js')
 
 var UI = function(link){
   this.navBar = new NavBar()
@@ -25,6 +25,7 @@ var UI = function(link){
   console.log('this is link: ', link)
   if (link === "favourites") {
     this.mapInit = new MapInit()
+    this.renderAside()
     this.object = new FavouritesList()
     this.mapWrapperFav = new MapWrapperFav()
     this.objectView = new FavouritesView(this.object, this.mapWrapperFav)
@@ -32,14 +33,17 @@ var UI = function(link){
     this.object = new LeagueTable()
     this.objectView = new LeagueTableView()
   } else if (link === "map") {
+    this.renderAside()
     this.object = new FixturesList()
     this.mapInit = new MapInit()
     this.mapWrapper = new MapWrapper()
     this.objectView = new FixturesView(this.object, this.mapWrapper)
   } else if (link === "team") {
+    this.renderAside()
     this.object = new TeamStats()
     this.objectView = new TeamStatsView()
   } else if (link === "localhost:3000") {
+    this.renderAside()
     this.objectView = new IndexView()
   }
 
@@ -47,6 +51,18 @@ var UI = function(link){
     this.object.getData(function(objectParam){
       this.objectView.render(objectParam)
     }.bind(this))
+  }
+
+}
+
+UI.prototype = {
+
+  renderAside: function() {
+    var leagueTable = new LeagueTable()
+    var asideTable = new AsideTable()
+    leagueTable.getData(function(league) {
+      asideTable.render(league)
+    })
   }
 
 }

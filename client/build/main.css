@@ -27,7 +27,7 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0;
 }
 
@@ -35,11 +35,11 @@ h1 {
   background-color: #92ADC3;
   color: #fff;
   margin-left: 2.5%;
-  width: 500px;
 }
 
 #map-wrapper {
   height: 600px;
+  width: 500px;
 }
 
 .fixture-list-item {
@@ -197,3 +197,24 @@ p {
   margin: 1%;
 }
 
+/***** Aside *****/
+#aside-table {
+  position: fixed;
+  top: 115px;
+  right: 20px;
+  width: 200px;
+  margin: 2px;
+  margin-right: 20px;
+}
+
+.aside-th {
+  height: 25px;
+  padding: 5px;
+  margin: 2px;
+}
+
+.aside-td {
+  height: 15px;
+  padding: 5px;
+  text-align: center;
+}
