@@ -1,5 +1,6 @@
 var LeagueTable = function(){
   this.url = "http://api.football-data.org/v1/competitions/426/leagueTable"
+  // this.standing = null
 }
 
 LeagueTable.prototype = {
@@ -11,7 +12,6 @@ LeagueTable.prototype = {
         if (request.status === 200){
           var jsonString = request.responseText
           this.table = JSON.parse(jsonString)
-          console.log(this)
           callback(this.table)
         }
       }.bind(this)

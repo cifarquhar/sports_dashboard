@@ -42,9 +42,15 @@ PlayerListView.prototype = {
       table.appendChild(playerEntry)
     })
 
-
     element.appendChild(table)
 
+  },
+
+  createTitle: function(titleText) {
+    var title = document.createElement('h2')
+    title.innerText = titleText
+    title.id = 'player-view-title'
+    return title
   }
 
 }

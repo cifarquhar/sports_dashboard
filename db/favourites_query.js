@@ -13,6 +13,7 @@ FavouritesQuery.prototype = {
         collection.find().toArray(function(err, data) {
           onQueryFinished(data)
         })
+        db.close()
       }
     })
   },
@@ -25,6 +26,7 @@ FavouritesQuery.prototype = {
         collection.find().toArray(function(err, data) {
           onQueryFinished(data)
         })
+      db.close()
       }
     })
   },
@@ -37,6 +39,7 @@ FavouritesQuery.prototype = {
         collection.find().toArray(function(err, data) {
           onQueryFinished(data)
         })
+        db.close()
       }
     })
   }

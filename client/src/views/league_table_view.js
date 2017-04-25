@@ -1,5 +1,6 @@
 var LeagueTableView = function(){
   this.element = document.querySelector("#table-div")
+  this.standings = []
 }
 
 LeagueTableView.prototype = {
@@ -60,7 +61,13 @@ LeagueTableView.prototype = {
       var positionEntry = document.createElement("td")
       positionEntry.innerText = team.position
       var nameEntry = document.createElement("td")
-      nameEntry.innerText = team.teamName
+      var nameLink = document.createElement("a")
+      nameLink.innerText = team.teamName
+      nameLink.href = "http://localhost:3000/team"
+      nameLink.addEventListener("click",function(){
+        window.name = team.teamName
+      })
+      nameEntry.appendChild(nameLink)
       var playedEntry = document.createElement("td")
       playedEntry.innerText = team.playedGames
       var winEntry = document.createElement("td")
@@ -96,7 +103,13 @@ LeagueTableView.prototype = {
     // Add table to page
     this.element.appendChild(table)
 
+    var storedTeams = window.JSON.stringify(teams)
+    localStorage.setItem("storedTeams",storedTeams)
 
+
+  },
+  getTeamInfo: function(league){
+    this.standings = league.standing
   }
 
 }
