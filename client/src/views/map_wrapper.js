@@ -5,7 +5,6 @@ var MapWrapper = function(coords, map) {
   this.map = map
 }
 
-
 MapWrapper.prototype = {
 
     render: function(allCoordinates) {

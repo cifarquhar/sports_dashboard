@@ -30,27 +30,33 @@ FixturesList.prototype = {
       })
     },
 
-  all: function(callback){
-    var self = this; 
-    this.makeRequest("http://localhost:3000/api/fixtures", function(){
-      if(this.status !== 200) return;
-      var jsonString = this.responseText;
-      var results = JSON.parse(jsonString);
+    // THESE ARE MOST LIKELY NOR REQUIRED //
 
-      var fixture = self.populateFixtures(results);
-      callback(fixture);
-    })
-  },
+  // all: function(callback){
+  //   var self = this; 
+  //   this.makeRequest("http://localhost:3000/api/fixtures", function(){
+  //     if(this.status !== 200) return;
+  //     var jsonString = this.responseText;
+  //     var results = JSON.parse(jsonString);
 
-  populateFixtures: function(results){
-    var fixture = results.map(function(result){
-      return new Fixture(result);
+  //     var fixture = self.populateFixtures(results);
+  //     callback(fixture);
+  //   })
+  // },
 
-    })
+  // populateFixtures: function(results){
+  //   var fixture = results.map(function(result){
+  //     return new Fixture(result);
 
-    return fixture;
-  },
+  //   })
+
+  //   return fixture;
+  // },
   
+    ////////////////////////
+
+
+
   addData: function(newFixture,callback){
     var request = new XMLHttpRequest()
     var payload = newFixture
@@ -73,6 +79,7 @@ FixturesList.prototype = {
         return mappedStorage.includes(fixture.homeTeamName) 
       })
       callback(fixtureToRender)
+      console.log(fixtureToRender)
     }
     request.send()
   }

@@ -9,6 +9,7 @@ var TeamStatsView = require("../views/team_stats_view")
 var NavBar = require("../views/nav_bar")
 var IndexView = require("../views/index_view")
 var MapWrapper = require('./map_wrapper.js')
+var MapWrapperFav = require('./map_wrapper_fav.js')
 var MapInit = require('../models/map_init.js')
 
 
@@ -18,13 +19,15 @@ var UI = function(link){
   this.object = null
   this.objectView = null
   this.mapWrapper = null
+  this.mapWrapperFav = null
   this.mapInit = null
 
   console.log('this is link: ', link)
   if (link === "favourites") {
-    this.object = new FavouritesList()
-    this.objectView = new FavouritesView(this.object)
     this.mapInit = new MapInit()
+    this.object = new FavouritesList()
+    this.mapWrapperFav = new MapWrapperFav()
+    this.objectView = new FavouritesView(this.object, this.mapWrapperFav)
   } else if (link === "table"){
     this.object = new LeagueTable()
     this.objectView = new LeagueTableView()
