@@ -1,6 +1,8 @@
 var AsideTable = function() {
+  this.body = document.querySelector('body')
   this.asideElement = document.createElement('aside')
   this.asideElement.id = ('aside-table')
+  this.body.appendChild(this.asideElement)
 }
 
 AsideTable.prototype = {
@@ -17,6 +19,7 @@ AsideTable.prototype = {
     for (var i = 0; i < 5; i++) {
       createEntryRow(league.standing[i], table)
     }
+    this.asideElement.appendChild(table)
   },
 
   createHeader: function(row, label) {
