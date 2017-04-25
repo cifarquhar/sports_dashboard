@@ -25,8 +25,7 @@ FixturesView.prototype = {
       this.mapWrapper.render(coordinates)
       return coordinates
     }.bind(this))
-    console.log(coordsRetrieval)
-    // this.mapWrapper.render(coordsRetrieval)
+    console.log(coordsRetrieval)  // undefined
   },
 
   createPtag: function(id, li, label, text) {
@@ -59,7 +58,11 @@ FixturesView.prototype = {
     this.scheduledFixtures = allFixtures.filter(function(fixture) {
       return (new Date(fixture.date) > dateToday) && (new Date(fixture.date) < nextWeek)
     })
+    var upcomingGamesStorage = window.JSON.stringify(this.scheduledFixtures)
+    localStorage.setItem("storedUpcomingGames", upcomingGamesStorage)
 
+    var visibleUpcomingGamesStorage = JSON.parse(localStorage.getItem('storedUpcomingGames')) || []
+    // console.log(visibleUpcomingGamesStorage)
   },
 
   createAddButton: function(index) {

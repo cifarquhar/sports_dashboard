@@ -1,4 +1,8 @@
 var Fixture = require('./fixture.js')
+var visibleUpcomingGamesStorage = JSON.parse(localStorage.getItem('storedUpcomingGames')).map(function(fixture){
+  return fixture.homeTeamName 
+}) || []
+
 
 var FixturesList = function() {
   this.fixtures = null
@@ -52,14 +56,17 @@ FixturesList.prototype = {
   },
 
   allCoordinates: function(callback){
-    //QUERY API DATA IN DATABASE
     var request = new XMLHttpRequest()
     request.open('GET', "http://localhost:3000/api/fixtures")
     
     request.onload = function(){
       var jsonString = this.responseText;
       this.fixturesWithCoords = JSON.parse(jsonString);
-      callback(this.fixturesWithCoords)
+
+      var fixtureToRender = this.fixturesWithCoords.filter(function(fixture){
+        return visibleUpcomingGamesStorage.includes(fixture.homeTeamName) 
+      })
+      callback(fixtureToRender)
     }
 
     request.send()

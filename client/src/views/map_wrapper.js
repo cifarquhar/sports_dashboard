@@ -1,10 +1,10 @@
 var MapWrapper = function () {
 
-  var coords = {lat: 56.0, lng: -4.0}; 
+  var coords = {lat: 53.5, lng: -3.8}; 
   var container = document.getElementById('map');
   this.googleMap = new google.maps.Map(container, {
     center: coords, 
-    zoom: 6,
+    zoom: 5,
     disableDefaultUI: true,
     styles: [
        {
