@@ -1,5 +1,3 @@
-var FavouritesQuery
-
 var FixturesView = function(favouritesList, mapWrapper) {
   this.element = document.querySelector('#fixtures')
   this.favouritesList = favouritesList
