@@ -1,3 +1,16 @@
+/***** Stats Layout *****/
+#team-flex-parent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.team-flex-child {
+  margin: 2.5%;
+  width: 400px;
+}
+
 /***** Map/Fixture Layout *****/
 body {
   background-color: #ddd  ;

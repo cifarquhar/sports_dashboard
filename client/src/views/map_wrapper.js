@@ -1,10 +1,10 @@
 var MapWrapper = function () {
 
-  var coords = {lat: 56.0, lng: -4.0}; 
+  var coords = {lat: 53.5, lng: -3.8}; 
   var container = document.getElementById('map');
   this.googleMap = new google.maps.Map(container, {
     center: coords, 
-    zoom: 6,
+    zoom: 5,
     disableDefaultUI: true,
     styles: [
        {
@@ -377,7 +377,7 @@ var MapWrapper = function () {
 
 MapWrapper.prototype = {
 
-  addBouncingMarker: function(){
+  addBouncingMarker: function(coords){
     var marker = new google.maps.Marker({
       position: {lat: 56.0, lng: -4.0},           
       map: this.googleMap
@@ -389,8 +389,19 @@ MapWrapper.prototype = {
             marker.setAnimation(google.maps.Animation.BOUNCE);
           }
         }
-    )}
+    )},
 
+    render: function(allCoordinates) {
+        // console.log(allCoordinates[0])
+        
+        allCoordinates.forEach(function(stadiumCoordinates){
+            var coords = stadiumCoordinates.coords
+            var marker = new google.maps.Marker({
+              position: coords,           
+              map: this.googleMap
+        })
+    }.bind(this))
+}
   // onClickEventInfoBox: function() {
   //   google.maps.event.addListener(this.googleMap, 'click', function(event){
   //     var position =   {

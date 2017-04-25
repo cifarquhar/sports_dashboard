@@ -1,7 +1,13 @@
 var Fixture = require('./fixture.js')
+var visibleUpcomingGamesStorage = JSON.parse(localStorage.getItem('storedUpcomingGames')) || []
+
+var mappedStorage = visibleUpcomingGamesStorage.map(function(fixture){
+  return fixture.homeTeamName
+}) 
 
 var FixturesList = function() {
   this.fixtures = null
+  this.fixturesWithCoords = null
 }
 
 FixturesList.prototype = {
@@ -39,6 +45,7 @@ FixturesList.prototype = {
   populateFixtures: function(results){
     var fixture = results.map(function(result){
       return new Fixture(result);
+
     })
 
     return fixture;
@@ -46,9 +53,24 @@ FixturesList.prototype = {
 
   add: function(newFixture, callback){
     console.log("adding fixture");
-    this.makePostRequest("http://localhost:3000/api/fixture", callback, JSON.stringify(newFixture));
-  }
+    this.makePostRequest("http://localhost:3000/api/fixtures", callback, JSON.stringify(newFixture));
+  },
 
+  allCoordinates: function(callback){
+    var request = new XMLHttpRequest()
+    request.open('GET', "http://localhost:3000/api/fixtures")
+    
+    request.onload = function(){
+      var jsonString = this.responseText;
+      this.fixturesWithCoords = JSON.parse(jsonString);
+
+      var fixtureToRender = this.fixturesWithCoords.filter(function(fixture){
+        return mappedStorage.includes(fixture.homeTeamName) 
+      })
+      callback(fixtureToRender)
+    }
+    request.send()
+  }
 }
 
 

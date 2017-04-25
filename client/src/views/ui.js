@@ -22,15 +22,14 @@ var UI = function(link){
   if (link === "favourites") {
     this.object = new FavouritesList()
     this.objectView = new FavouritesView(this.object)
+    // this.mapWrapper = new MapWrapper()
   } else if (link === "table"){
     this.object = new LeagueTable()
     this.objectView = new LeagueTableView()
   } else if (link === "map") {
     this.object = new FixturesList()
-    this.objectView = new FixturesView()
     this.mapWrapper = new MapWrapper()
-    this.mapWrapper.addBouncingMarker();
-    this.objectView = new FixturesView(new FavouritesList)
+    this.objectView = new FixturesView(this.object, this.mapWrapper)
   } else if (link === "team") {
     this.object = new TeamStats()
     this.objectView = new TeamStatsView()

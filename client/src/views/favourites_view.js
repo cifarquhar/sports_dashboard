@@ -11,6 +11,7 @@ FavouritesView.prototype = {
     this.favourites = fixtures
     for (var i = 0; i < this.favourites.length; i++) {
       var li = document.createElement('li')
+      li.className = ('fixture-list-item')
       this.populateList(this.favourites[i], li)
       var button = this.createDeleteButton(i)
       li.appendChild(button)

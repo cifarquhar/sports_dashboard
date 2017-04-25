@@ -1,8 +1,9 @@
 var FavouritesQuery
 
-var FixturesView = function(favouritesList) {
+var FixturesView = function(favouritesList, mapWrapper) {
   this.element = document.querySelector('#fixtures')
   this.favouritesList = favouritesList
+  this.mapWrapper = mapWrapper
   this.scheduledFixtures = null
 }
 
@@ -11,6 +12,7 @@ FixturesView.prototype = {
   render: function(fixtures) {
     var fixturesArray = fixtures.fixtures
     this.findUpcomingGames(fixturesArray)
+
     for (var i = 0; i < this.scheduledFixtures.length; i++) {
       var li = document.createElement('li')
       li.className = 'fixture-list-item'
@@ -19,6 +21,12 @@ FixturesView.prototype = {
       li.appendChild(button)
       this.element.appendChild(li)
     }
+
+    var coordsRetrieval = this.favouritesList.allCoordinates(function(coordinates){
+      this.mapWrapper.render(coordinates)
+      return coordinates
+    }.bind(this))
+    console.log(coordsRetrieval)  // undefined
   },
 
   createPtag: function(id, li, label, text) {
@@ -51,6 +59,11 @@ FixturesView.prototype = {
     this.scheduledFixtures = allFixtures.filter(function(fixture) {
       return (new Date(fixture.date) > dateToday) && (new Date(fixture.date) < nextWeek)
     })
+    var upcomingGamesStorage = window.JSON.stringify(this.scheduledFixtures)
+    localStorage.setItem("storedUpcomingGames", upcomingGamesStorage)
+
+    var visibleUpcomingGamesStorage = JSON.parse(localStorage.getItem('storedUpcomingGames')) || []
+    // console.log(visibleUpcomingGamesStorage)
   },
 
   createAddButton: function(index) {
