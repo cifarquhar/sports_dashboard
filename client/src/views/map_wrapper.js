@@ -392,7 +392,8 @@ MapWrapper.prototype = {
     )},
 
     render: function(allCoordinates) {
-        console.log(allCoordinates[0])
+        // console.log(allCoordinates[0])
+        
         allCoordinates.forEach(function(stadiumCoordinates){
             var coords = stadiumCoordinates.coords
             var marker = new google.maps.Marker({
