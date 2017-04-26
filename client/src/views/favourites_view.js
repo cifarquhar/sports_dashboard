@@ -14,6 +14,13 @@ FavouritesView.prototype = {
 
     this.addFavouritesToLocalStorage(this.favourites)
 
+    if (this.favourites.length === 0) {
+      var li = document.createElement('li')
+      li.className = ('fixture-list-item')
+      li.innerText = 'You don\'t have anything in your WatchList!'
+      this.element.appendChild(li)
+    }
+
     for (var i = 0; i < this.favourites.length; i++) {
       var li = document.createElement('li')
       li.className = ('fixture-list-item')

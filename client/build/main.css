@@ -296,4 +296,5 @@ select {
   background: url(./selector_icon.svg) 96% / 15% no-repeat #eee;
   background-size: 25px;
   font-family: "Play", sans-serif;
+  margin-left: 2.5%;
 }
