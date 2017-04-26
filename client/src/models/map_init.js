@@ -1,10 +1,18 @@
 var MapInit = function () {
     
-    var coords = {lat: 53.5, lng: -3.8}; 
+    var coords = {lat: 53.5, lng: -3}; 
     map = new google.maps.Map(document.getElementById('map'), {
         center: coords, 
         zoom: 5,
         disableDefaultUI: true,
+        zoomControl: true,
+        zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.SMALL,
+            position: google.maps.ControlPosition.RIGHT_CENTER
+        },
+        disableDoubleClickZoom: true,
+        scrollwheel: false,
+
         styles:
               [{"featureType": "all",
               "elementType": "all",
