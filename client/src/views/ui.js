@@ -26,8 +26,9 @@ var UI = function(link){
   if (link === "favourites") {
     this.renderAside()
     this.mapInit = new MapInit()
-    var favouritesList= new FavouritesList()
-    var favouritesView = new FavouritesView(favouritesList, new MapWrapperFav())
+    var mapWrapperFav = new MapWrapperFav()
+    var favouritesList= new FavouritesList(mapWrapperFav)
+    var favouritesView = new FavouritesView(favouritesList, mapWrapperFav)
     this.renderLayout(favouritesList, favouritesView)
   } else if (link === "table"){
     this.renderLayout(new LeagueTable(), new LeagueTableView())
