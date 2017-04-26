@@ -404,6 +404,7 @@ var MapInit = function () {
 
       controlUI.addEventListener('click', function() {
           map.setCenter(coords);
+          map.setZoom(5)
         });
     }
 
