@@ -12,7 +12,7 @@ FavouritesView.prototype = {
     this.clearList()
     this.favourites = fixtures
 
-    this.storeFavourites(this.favourites)
+    this.addFavouritesToLocalStorage(this.favourites)
 
     for (var i = 0; i < this.favourites.length; i++) {
       var li = document.createElement('li')
@@ -70,7 +70,7 @@ FavouritesView.prototype = {
     }
   },
 
-  storeFavourites: function(favouriteFixture){
+  addFavouritesToLocalStorage: function(favouriteFixture){
     this.favouriteObjects = favouriteFixture.map(function(fixture) {
       return (fixture.homeTeamName)
     })
