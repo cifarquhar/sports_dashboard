@@ -25,6 +25,7 @@ button {
   border: none;
   border-style: none;
   outline: 0;
+  width: 80%;
 }
 
 button:hover {
@@ -86,10 +87,6 @@ h1 {
 #empty-message {
   font-size: 15px;
   padding-top: 50px;
-}
-
-#fixtures {
-  align-content: left;
 }
 
 hr {
