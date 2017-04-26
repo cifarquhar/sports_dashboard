@@ -15,7 +15,6 @@
 button {
   background-color: #5F8DB0;
   color: #fff;
-  border: none;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -23,11 +22,25 @@ button {
   font-size: 16px;
   font-family: 'Play', sans-serif;
   border-radius: 4px;
+  border: none;
+  border-style: none;
+  outline: 0;
 }
 
 button:hover {
     background-color: #DDD;
     color: #000;
+    border: none;
+    border-style: none;
+    outline: 0;
+}
+
+button:active {
+  background-color: #CCC;
+  transform: translateY(4px);
+  border: none;
+  border-style: none;
+  outline: 0;
 }
 
 /***** Map/Fixture Layout *****/
