@@ -30,14 +30,13 @@ var UI = function(link){
     this.mapWrapperFav = new MapWrapperFav()
     this.objectView = new FavouritesView(this.object, this.mapWrapperFav)
   } else if (link === "table"){
-    this.object = new LeagueTable()
-    this.objectView = new LeagueTableView()
+    this.renderLayout(new LeagueTable(), new LeagueTableView())
   } else if (link === "map") {
     this.renderAside()
-    this.object = new FixturesList()
+    var fixturesList = new FixturesList()
     this.mapInit = new MapInit()
-    this.mapWrapper = new MapWrapper()
-    this.objectView = new FixturesView(this.object, this.mapWrapper)
+    var fixturesView = new FixturesView(fixturesList, new MapWrapper())
+    this.renderLayout(fixturesList, fixturesView)
   } else if (link === "team") {
     this.renderAside()
     this.object = new TeamStats()
@@ -63,7 +62,13 @@ UI.prototype = {
     leagueTable.getData(function(league) {
       asideTable.render(league)
     })
-  }
+  },
+
+  renderLayout: function(object, view) {
+      object.getData(function(objectParam){
+        view.render(objectParam)
+      })
+    }
 
 }
 
