@@ -30,7 +30,9 @@ FavouritesView.prototype = {
       this.populateList(this.favourites[i], li)
       var button = this.createDeleteButton(i)
       li.appendChild(button)
+      var hr = document.createElement('hr')
       this.element.appendChild(li)
+      this.element.appendChild(hr)
     }
 
     var favouritesCoordsRetrieval = this.favouritesList.favouritesCoordinates(function(coordinates){
