@@ -17,7 +17,9 @@ FixturesView.prototype = {
       this.populateList(this.scheduledFixtures[i], li)
       var button = this.createAddButton(i)
       li.appendChild(button)
+      var hr = document.createElement('hr')
       this.element.appendChild(li)
+      this.element.appendChild(hr)
     }
 
     var coordsRetrieval = this.favouritesList.allCoordinates(function(coordinates){

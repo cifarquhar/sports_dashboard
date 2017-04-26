@@ -88,6 +88,18 @@ h1 {
   padding-top: 50px;
 }
 
+#fixtures {
+  align-content: left;
+}
+
+hr {
+  vertical-align: center;
+  margin: 0;
+  width: 82%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 /*****Nav bar*****/
 
 nav {
