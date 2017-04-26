@@ -92,6 +92,7 @@ FavouritesView.prototype = {
     localStorage.setItem("storedFavouriteGames", favouriteGamesStorage)
 
     var visibleFavouritesStorage = JSON.parse(localStorage.getItem('storedFavouriteGames')) || []
+    console.log(visibleFavouritesStorage)
   }
 }
 
