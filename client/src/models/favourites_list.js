@@ -1,6 +1,8 @@
 var Fixture = require('./fixture.js')
 
-var visibleFavouritesStorage = JSON.parse(localStorage.getItem('storedFavouriteGames')) || []
+var visibleFavouritesHomeTeamNamesStorage = JSON.parse(localStorage.getItem('storedFavouriteGames')) || []
+
+console.log(visibleFavouritesHomeTeamNamesStorage)
 
 var FavouritesList = function(mapWrapperFav) {
   this.favouritesFixtures = [],
@@ -56,7 +58,7 @@ FavouritesList.prototype = {
       this.fixturesWithCoords = JSON.parse(jsonString);
 
       var favouritesToRender = this.fixturesWithCoords.filter(function(fixture){
-        return visibleFavouritesStorage.includes(fixture.homeTeamName) 
+        return visibleFavouritesHomeTeamNamesStorage.includes(fixture.homeTeamName) 
       })
     callback(favouritesToRender)
 

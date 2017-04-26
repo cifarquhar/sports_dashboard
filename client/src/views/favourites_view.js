@@ -12,7 +12,7 @@ FavouritesView.prototype = {
     this.clearList()
     this.favourites = fixtures
 
-    this.addFavouritesToLocalStorage(this.favourites)
+    this.addFavouritesHomeTeamNameToLocalStorage(this.favourites)
 
     if (this.favourites.length === 0) {
       var li = document.createElement('li')
@@ -70,7 +70,6 @@ FavouritesView.prototype = {
     button.innerText = 'Delete from WatchList'
     button.addEventListener('click', function(e) {
       this.favouritesList.delete(this.favourites[index], function(results) {
-        
         this.render(results)
       }.bind(this))
     }.bind(this))
@@ -83,7 +82,7 @@ FavouritesView.prototype = {
     }
   },
 
-  addFavouritesToLocalStorage: function(favouriteFixture){
+  addFavouritesHomeTeamNameToLocalStorage: function(favouriteFixture){
     this.favouriteObjects = favouriteFixture.map(function(fixture) {
       return (fixture.homeTeamName)
     })
@@ -91,8 +90,7 @@ FavouritesView.prototype = {
     var favouriteGamesStorage = window.JSON.stringify(this.favouriteObjects)
     localStorage.setItem("storedFavouriteGames", favouriteGamesStorage)
 
-    var visibleFavouritesStorage = JSON.parse(localStorage.getItem('storedFavouriteGames')) || []
-    console.log(visibleFavouritesStorage)
+    var visibleFavouritesHomeTeamNamesStorage = JSON.parse(localStorage.getItem('storedFavouriteGames')) || []
   }
 }
 
