@@ -39,10 +39,10 @@ FavouritesView.prototype = {
 
   populateList: function(fixture, li) {
     var result = this.formatResult(fixture)
-    this.createPtag('date', li, 'Date: ', fixture.date)
+    var date = new Date(fixture.date)
+    this.createPtag('date', li, 'Date: ', date.toDateString())
     this.createPtag('home-team', li, 'Home: ', fixture.homeTeamName)
     this.createPtag('away-team', li, 'Away: ', fixture.awayTeamName)
-    this.createPtag('result', li, 'Result: ', result)
   },
 
   formatResult: function(fixture) {
