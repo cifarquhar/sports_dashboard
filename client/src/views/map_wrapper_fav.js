@@ -13,16 +13,28 @@ MapWrapperFav.prototype = {
           var coords = stadiumCoordinates.coords
           var marker = new google.maps.Marker({
             position: coords,           
-            map: map
+            map: map,
+            animation: google.maps.Animation.DROP
       })
-          marker.addListener('click', function(){
-            if (marker.getAnimation() !== null) {
-                marker.setAnimation(null);
-            } else { 
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-              }
-            })
-    }.bind(this))
+
+      marker.setMap(map);
+      
+      // marker.setMap(null);    
+          
+      marker.addListener('click', function(){
+          if (marker.getAnimation() !== null) {
+              marker.setAnimation(null);
+          } else { 
+              marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+          })
+      }.bind(this))
+
+      map.addListener('center_changed', function() {
+        window.setTimeout(function() {
+          map.panTo({lat: 53.5, lng: -3});
+        }, 2000);
+      })
   }
 }
 

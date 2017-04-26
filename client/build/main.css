@@ -185,7 +185,7 @@ nav a.selected, nav a:hover {
   margin: 20px;
   -moz-border-radius: 50%; 
   -webkit-border-radius: 50%; 
-  border-radius: 100%;
+  border-radius: 50%;
   background: #4679BD;
 }
 

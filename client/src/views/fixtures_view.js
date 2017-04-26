@@ -24,7 +24,6 @@ FixturesView.prototype = {
       this.mapWrapper.render(coordinates)
       return coordinates
     }.bind(this))
-
   },
 
   createPtag: function(id, li, label, text) {

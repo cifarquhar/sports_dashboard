@@ -74,6 +74,7 @@ FixturesList.prototype = {
         return mappedStorage.includes(fixture.homeTeamName) 
       })
       callback(fixtureToRender)
+      console.log(fixtureToRender)
     }
     request.send()
   }
