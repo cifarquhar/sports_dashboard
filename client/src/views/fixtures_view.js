@@ -1,6 +1,7 @@
-var FixturesView = function(favouritesList, mapWrapper) {
+var FixturesView = function(favouritesList, fixturesList, mapWrapper) {
   this.element = document.querySelector('#fixtures')
   this.favouritesList = favouritesList
+  this.fixturesList = fixturesList
   this.mapWrapper = mapWrapper
   this.scheduledFixtures = null
 }
@@ -22,7 +23,7 @@ FixturesView.prototype = {
       this.element.appendChild(hr)
     }
 
-    var coordsRetrieval = this.favouritesList.allCoordinates(function(coordinates){
+    var coordsRetrieval = this.fixturesList.allCoordinates(function(coordinates){
       this.mapWrapper.render(coordinates)
       return coordinates
     }.bind(this))
@@ -69,7 +70,6 @@ FixturesView.prototype = {
     var button = document.createElement('button')
     button.innerText = 'Add to WatchList'
     button.addEventListener('click', function(e) {
-      console.log(this.scheduledFixtures[index])
       this.favouritesList.addData(this.scheduledFixtures[index],function(){
         // This function doesn't need to do anything, only here because addData needs a callback
       }.bind(this))

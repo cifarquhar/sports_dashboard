@@ -16,27 +16,22 @@ var AsideTable = require('./aside_table.js')
 var UI = function(link){
   this.navBar = new NavBar()
 
-  this.object = null
-  this.objectView = null
-  this.mapWrapper = null
-  this.mapWrapperFav = null
-  this.mapInit = null
-
   console.log('this is link: ', link)
   if (link === "favourites") {
     this.renderAside()
-    this.mapInit = new MapInit()
+     var mapInit = new MapInit()
     var mapWrapperFav = new MapWrapperFav()
-    var favouritesList= new FavouritesList(mapWrapperFav)
+    var favouritesList= new FavouritesList()
     var favouritesView = new FavouritesView(favouritesList, mapWrapperFav)
     this.renderLayout(favouritesList, favouritesView)
   } else if (link === "table"){
     this.renderLayout(new LeagueTable(), new LeagueTableView())
   } else if (link === "map") {
     this.renderAside()
-    this.mapInit = new MapInit()
+    var mapInit = new MapInit()
     var fixturesList = new FixturesList()
-    var fixturesView = new FixturesView(fixturesList, new MapWrapper())
+    var favouritesList = new FavouritesList()
+    var fixturesView = new FixturesView(favouritesList, fixturesList, new MapWrapper())
     this.renderLayout(fixturesList, fixturesView)
   } else if (link === "team") {
     this.renderAside()

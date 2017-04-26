@@ -6,6 +6,7 @@ var FavouritesList = function(mapWrapperFav) {
   this.favouritesFixtures = [],
   this.favouritesWithoutCoords = []
   this.mapWrapperFav = mapWrapperFav
+  this.getData(function(){})
 }
 
 FavouritesList.prototype = {
@@ -24,11 +25,12 @@ FavouritesList.prototype = {
   },
 
   getData: function(callback) {
+    var self = this
     this.makeRequest('GET', 'http://localhost:3000/api/favourites', function(){
       if(this.status !== 200) return
       var jsonFavs = this.responseText
-      var favourites = JSON.parse(jsonFavs)
-      callback(favourites)
+      self.favouritesFixtures = JSON.parse(jsonFavs)
+      callback(self.favouritesFixtures)
     })
   },
 
@@ -59,11 +61,17 @@ FavouritesList.prototype = {
         return visibleFavouritesStorage.includes(fixture.homeTeamName) 
       })
     callback(favouritesToRender)
-
-    console.log(favouritesToRender)
-
     }
     request.send()
+  },
+
+  addData: function(fixture, callback) {
+    console.log(this.favouritesFixtures)
+    for (var i = 0; i < this.favouritesFixtures.length; i++) {
+      if ((this.favouritesFixtures[i].homeTeamName === fixture.homeTeamName) && (this.favouritesFixtures[i].awayTeamName === fixture.awayTeamName)) return
+    }
+    this.favouritesFixtures.push(fixture)
+    this.makeRequest('POST', 'http://localhost:3000/api/favourites', callback, JSON.stringify(fixture))
   }
 }
 
