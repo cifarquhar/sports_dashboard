@@ -25,6 +25,11 @@ button {
   border-radius: 4px;
 }
 
+button:hover {
+    background-color: #DDD;
+    color: #000;
+}
+
 /***** Map/Fixture Layout *****/
 body {
   background-color: #ddd  ;
