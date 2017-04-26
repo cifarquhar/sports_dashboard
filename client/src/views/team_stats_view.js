@@ -56,7 +56,6 @@ TeamStatsView.prototype = {
     console.log(storedTeams[storedTeamIndex])
 
 
-    this.addChooseTeamText('Select a team:')
     this.generateOptions(teams, teamName)
     this.renderSquadList(teams[teamIndexLinkedTo]._links.players.href, this.playerElement)
     this.renderTeamForm(this.formElement, teams[teamIndexLinkedTo].name, this.formOption, teams[teamIndexLinkedTo]._links.fixtures.href)
