@@ -66,6 +66,16 @@ h1 {
   margin: 0;
 }
 
+.flex-parent {
+  width: calc(100% - 250px);
+  border: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0;
+}
+
 .flex-child {
   background-color: #92ADC3;
   color: #fff;
