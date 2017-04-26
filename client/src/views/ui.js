@@ -9,7 +9,9 @@ var TeamStatsView = require("../views/team_stats_view")
 var NavBar = require("../views/nav_bar")
 var IndexView = require("../views/index_view")
 var MapWrapper = require('./map_wrapper.js')
-
+var MapWrapperFav = require('./map_wrapper_fav.js')
+var MapInit = require('../models/map_init.js')
+var AsideTable = require('./aside_table.js')
 
 var UI = function(link){
   this.navBar = new NavBar()
@@ -17,31 +19,49 @@ var UI = function(link){
   this.object = null
   this.objectView = null
   this.mapWrapper = null
+  this.mapWrapperFav = null
+  this.mapInit = null
 
   console.log('this is link: ', link)
   if (link === "favourites") {
-    this.object = new FavouritesList()
-    this.objectView = new FavouritesView(this.object)
-    // this.mapWrapper = new MapWrapper()
+    this.renderAside()
+    this.mapInit = new MapInit()
+    var favouritesList= new FavouritesList()
+    var favouritesView = new FavouritesView(favouritesList, new MapWrapperFav())
+    this.renderLayout(favouritesList, favouritesView)
   } else if (link === "table"){
-    this.object = new LeagueTable()
-    this.objectView = new LeagueTableView()
+    this.renderLayout(new LeagueTable(), new LeagueTableView())
   } else if (link === "map") {
-    this.object = new FixturesList()
-    this.mapWrapper = new MapWrapper()
-    this.objectView = new FixturesView(this.object, this.mapWrapper)
+    this.renderAside()
+    this.mapInit = new MapInit()
+    var fixturesList = new FixturesList()
+    var fixturesView = new FixturesView(fixturesList, new MapWrapper())
+    this.renderLayout(fixturesList, fixturesView)
   } else if (link === "team") {
-    this.object = new TeamStats()
-    this.objectView = new TeamStatsView()
+    this.renderAside()
+    this.renderLayout(new TeamStats(), new TeamStatsView())
   } else if (link === "localhost:3000") {
-    this.objectView = new IndexView()
+    this.renderAside()
+    new IndexView()
   }
 
-  if (this.object) {
-    this.object.getData(function(objectParam){
-      this.objectView.render(objectParam)
-    }.bind(this))
-  }
+}
+
+UI.prototype = {
+
+  renderAside: function() {
+    var leagueTable = new LeagueTable()
+    var asideTable = new AsideTable()
+    leagueTable.getData(function(league) {
+      asideTable.render(league)
+    })
+  },
+
+  renderLayout: function(object, view) {
+      object.getData(function(objectParam){
+        view.render(objectParam)
+      })
+    }
 
 }
 

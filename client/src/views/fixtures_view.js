@@ -1,5 +1,3 @@
-var FavouritesQuery
-
 var FixturesView = function(favouritesList, mapWrapper) {
   this.element = document.querySelector('#fixtures')
   this.favouritesList = favouritesList
@@ -26,7 +24,6 @@ FixturesView.prototype = {
       this.mapWrapper.render(coordinates)
       return coordinates
     }.bind(this))
-    console.log(coordsRetrieval)  // undefined
   },
 
   createPtag: function(id, li, label, text) {
@@ -59,11 +56,11 @@ FixturesView.prototype = {
     this.scheduledFixtures = allFixtures.filter(function(fixture) {
       return (new Date(fixture.date) > dateToday) && (new Date(fixture.date) < nextWeek)
     })
+
     var upcomingGamesStorage = window.JSON.stringify(this.scheduledFixtures)
     localStorage.setItem("storedUpcomingGames", upcomingGamesStorage)
 
     var visibleUpcomingGamesStorage = JSON.parse(localStorage.getItem('storedUpcomingGames')) || []
-    // console.log(visibleUpcomingGamesStorage)
   },
 
   createAddButton: function(index) {

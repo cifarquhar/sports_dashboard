@@ -27,7 +27,7 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0;
 }
 
@@ -35,11 +35,11 @@ h1 {
   background-color: #92ADC3;
   color: #fff;
   margin-left: 2.5%;
-  width: 500px;
 }
 
 #map-wrapper {
   height: 600px;
+  width: 500px;
 }
 
 .fixture-list-item {
@@ -120,6 +120,10 @@ nav a.selected, nav a:hover {
   background: #FFF;
 }
 
+.selected{
+  background: #325EFF;
+}
+
 
 /***** Table *****/
 #table-div {
@@ -185,7 +189,7 @@ nav a.selected, nav a:hover {
   margin: 20px;
   -moz-border-radius: 50%; 
   -webkit-border-radius: 50%; 
-  border-radius: 100%;
+  border-radius: 50%;
   background: #4679BD;
 }
 
@@ -197,3 +201,42 @@ p {
   margin: 1%;
 }
 
+/***** Aside *****/
+#aside-table {
+  position: fixed;
+  top: 115px;
+  right: 20px;
+  width: 200px;
+  margin: 2px;
+  margin-right: 20px;
+}
+
+.aside-th {
+  height: 25px;
+  padding: 5px;
+  margin: 2px;
+}
+
+.aside-td {
+  height: 15px;
+  padding: 5px;
+  text-align: center;
+}
+
+
+select {
+  /*margin: 50px;*/
+  border: 1px solid #111;
+  background: transparent;
+  width: 250px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(./selector_icon.svg) 96% / 15% no-repeat #eee;
+  background-size: 25px;
+  font-family: "Play", sans-serif;
+}

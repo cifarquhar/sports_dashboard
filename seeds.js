@@ -49,24 +49,15 @@ db.fixtures.insert([
   {
     homeTeamName: "Watford FC",
     coords: {lat:51.6499828, lng:-0.4038763}
-  }
-  // },
-  // {
-  //   date: "2017-05-05T19:00:00Z",
-  //   status: "TIMED",
-  //   matchday: 36,
-  //   homeTeamName: "West Ham United FC",
-  //   awayTeamName: "Tottenham Hotspur FC",
-  //   coords:
-  // },
-  // {
-  //   date: "2017-05-06T11:30:00Z",
-  //   status: "TIMED",
-  //   matchday: 36,
-  //   homeTeamName: "Manchester City FC",
-  //   awayTeamName: "Crystal Palace FC",
-  //   coords:
-  // },
+  },
+  {
+    homeTeamName: "West Ham United FC",
+    coords: {lat: 51.5386466, lng:-0.0187137,17}
+  },
+  {
+    homeTeamName: "Manchester City FC",
+    coords: {lat: 53.4831381, lng:-2.202584,17}
+  },
   // {
   //   date: "2017-05-06T14:00:00Z",
   //   status: "TIMED",

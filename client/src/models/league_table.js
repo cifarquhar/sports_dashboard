@@ -1,5 +1,5 @@
 var LeagueTable = function(){
-  this.url = "http://api.football-data.org/v1/competitions/426/leagueTable"
+  this.url = "http://api.football-data.org/v1/competitions/426/leagueTable/?matchday=38"
   // this.standing = null
 }
 

@@ -30,34 +30,28 @@ FixturesList.prototype = {
       })
     },
 
-  all: function(callback){
-    var self = this; 
-    this.makeRequest("http://localhost:3000/api/fixtures", function(){
-      if(this.status !== 200) return;
-      var jsonString = this.responseText;
-      var results = JSON.parse(jsonString);
+    // THESE ARE MOST LIKELY NOR REQUIRED //
 
-      var fixture = self.populateFixtures(results);
-      callback(fixture);
-    })
-  },
+  // all: function(callback){
+  //   var self = this; 
+  //   this.makeRequest("http://localhost:3000/api/fixtures", function(){
+  //     if(this.status !== 200) return;
+  //     var jsonString = this.responseText;
+  //     var results = JSON.parse(jsonString);
 
-  populateFixtures: function(results){
-    var fixture = results.map(function(result){
-      return new Fixture(result);
+  //     var fixture = self.populateFixtures(results);
+  //     callback(fixture);
+  //   })
+  // },
 
-    })
-
-    return fixture;
-  },
-
-  // Not sure this is needed
-  add: function(newFixture, callback){
-    console.log("adding fixture");
-    this.makePostRequest("http://localhost:3000/api/fixtures", callback, JSON.stringify(newFixture));
-  },
-
+  // populateFixtures: function(results){
+  //   var fixture = results.map(function(result){
+  //     return new Fixture(result);
   
+    ////////////////////////
+
+
+
   addData: function(newFixture,callback){
     var request = new XMLHttpRequest()
     var payload = newFixture
@@ -66,9 +60,6 @@ FixturesList.prototype = {
     request.onload = callback
     
     request.send(JSON.stringify(payload))
-
-
-
   },
 
   allCoordinates: function(callback){
@@ -83,6 +74,7 @@ FixturesList.prototype = {
         return mappedStorage.includes(fixture.homeTeamName) 
       })
       callback(fixtureToRender)
+      console.log(fixtureToRender)
     }
     request.send()
   }
