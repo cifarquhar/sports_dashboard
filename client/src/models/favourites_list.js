@@ -62,6 +62,10 @@ FavouritesList.prototype = {
     callback(favouritesToRender)
     }
     request.send()
+  },
+
+  addData: function(fixture, callback) {
+    this.makeRequest('POST', 'http://localhost:3000/api/favourites', callback, JSON.stringify(fixture))
   }
 }
 
