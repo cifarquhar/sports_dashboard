@@ -55,9 +55,7 @@ MapWrapper.prototype = {
 
   addMarkerListeners: function(callback) {
     for (var i = 0; i < this.markers.length; i++) {
-      this.markers[i].addListener('click', function(callback) {
-        callback()
-      })
+      this.markers[i].addListener('click', callback)
     }
   }
 

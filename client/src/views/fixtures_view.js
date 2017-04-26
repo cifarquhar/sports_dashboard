@@ -26,8 +26,13 @@ FixturesView.prototype = {
 
     var coordsRetrieval = this.fixturesList.allCoordinates(function(coordinates){
       this.mapWrapper.render(coordinates)
+      this.mapWrapper.addMarkerListeners(function() {
+        
+      })
       return coordinates
     }.bind(this))
+
+
   },
 
   createPtag: function(id, li, label, text) {
