@@ -12,7 +12,17 @@ FavouritesView.prototype = {
     this.clearList()
     this.favourites = fixtures
 
-    this.storeFavourites(this.favourites)
+    this.addFavouritesToLocalStorage(this.favourites)
+
+    if (this.favourites.length === 0) {
+      var li = document.createElement('li')
+      li.className = ('fixture-list-item')
+      var p = document.createElement('p')
+      p.innerText = 'You don\'t have anything in your WatchList!'
+      p.id = 'empty-message'
+      li.appendChild(p)
+      this.element.appendChild(li)
+    }
 
     for (var i = 0; i < this.favourites.length; i++) {
       var li = document.createElement('li')
@@ -20,7 +30,9 @@ FavouritesView.prototype = {
       this.populateList(this.favourites[i], li)
       var button = this.createDeleteButton(i)
       li.appendChild(button)
+      var hr = document.createElement('hr')
       this.element.appendChild(li)
+      this.element.appendChild(hr)
     }
 
     var favouritesCoordsRetrieval = this.favouritesList.favouritesCoordinates(function(coordinates){
@@ -39,10 +51,10 @@ FavouritesView.prototype = {
 
   populateList: function(fixture, li) {
     var result = this.formatResult(fixture)
-    this.createPtag('date', li, 'Date: ', fixture.date)
+    var date = new Date(fixture.date)
+    this.createPtag('date', li, 'Date: ', date.toDateString())
     this.createPtag('home-team', li, 'Home: ', fixture.homeTeamName)
     this.createPtag('away-team', li, 'Away: ', fixture.awayTeamName)
-    this.createPtag('result', li, 'Result: ', result)
   },
 
   formatResult: function(fixture) {
@@ -55,7 +67,7 @@ FavouritesView.prototype = {
 
   createDeleteButton: function(index) {
     var button = document.createElement('button')
-    button.innerText = 'Delete favourite'
+    button.innerText = 'Delete from WatchList'
     button.addEventListener('click', function(e) {
       this.favouritesList.delete(this.favourites[index], function(results) {
         
@@ -71,7 +83,7 @@ FavouritesView.prototype = {
     }
   },
 
-  storeFavourites: function(favouriteFixture){
+  addFavouritesToLocalStorage: function(favouriteFixture){
     this.favouriteObjects = favouriteFixture.map(function(fixture) {
       return (fixture.homeTeamName)
     })

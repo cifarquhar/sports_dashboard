@@ -65,7 +65,8 @@ LeagueTableView.prototype = {
       nameLink.innerText = team.teamName
       nameLink.href = "http://localhost:3000/team"
       nameLink.addEventListener("click",function(){
-        window.name = team.teamName
+        var storedTeamName = window.JSON.stringify(team.teamName)
+        localStorage.setItem("storedTeamName",storedTeamName)
       })
       nameEntry.appendChild(nameLink)
       var playedEntry = document.createElement("td")

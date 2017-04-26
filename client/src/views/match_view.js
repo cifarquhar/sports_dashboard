@@ -28,7 +28,9 @@ MatchView.prototype = {
     var fixtureDate = this.fixture.date
     var formattedDate = new Date(fixtureDate)
     dateP.innerText = formattedDate.toDateString()
+    this.element.style.padding = '5px'
     this.element.appendChild(dateP)
+
 
   }
 

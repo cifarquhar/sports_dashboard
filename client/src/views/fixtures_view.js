@@ -17,7 +17,9 @@ FixturesView.prototype = {
       this.populateList(this.scheduledFixtures[i], li)
       var button = this.createAddButton(i)
       li.appendChild(button)
+      var hr = document.createElement('hr')
       this.element.appendChild(li)
+      this.element.appendChild(hr)
     }
 
     var coordsRetrieval = this.favouritesList.allCoordinates(function(coordinates){
@@ -36,10 +38,10 @@ FixturesView.prototype = {
 
   populateList: function(fixture, li) {
     var result = this.formatResult(fixture)
-    this.createPtag('date', li, 'Date: ', fixture.date)
+    var date = new Date(fixture.date)
+    this.createPtag('date', li, 'Date: ', date.toDateString())
     this.createPtag('home-team', li, 'Home: ', fixture.homeTeamName)
     this.createPtag('away-team', li, 'Away: ', fixture.awayTeamName)
-    this.createPtag('result', li, 'Result: ', result)
   },
 
   formatResult: function(fixture) {
@@ -65,7 +67,7 @@ FixturesView.prototype = {
 
   createAddButton: function(index) {
     var button = document.createElement('button')
-    button.innerText = 'Add to favourites'
+    button.innerText = 'Add to WatchList'
     button.addEventListener('click', function(e) {
       console.log(this.scheduledFixtures[index])
       this.favouritesList.addData(this.scheduledFixtures[index],function(){
