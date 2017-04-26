@@ -19,7 +19,27 @@ AsideTable.prototype = {
     for (var i = 0; i < 5; i++) {
       this.createEntryRow(league.standing[i], table)
     }
+
+
+    this.createEntryRow({
+      position: "",
+      teamName: "Click here for full table",
+      points: ""
+    },table)
+
+
+    var fullTableLink = table.lastChild
+    fullTableLink.classList.add("full-table-link")
+
+
+    fullTableLink.addEventListener("click",function(){
+      window.location.href = "http://localhost:3000/table"
+    })
+
     this.asideElement.appendChild(table)
+
+
+    
   },
 
   createHeader: function(row, label) {
@@ -42,8 +62,7 @@ AsideTable.prototype = {
     this.createEntryCell(team.teamName, row)
     this.createEntryCell(team.points, row)
     table.appendChild(row)
-  },
-
+  }
 }
 
 module.exports = AsideTable

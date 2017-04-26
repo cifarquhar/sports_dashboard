@@ -307,6 +307,12 @@ p {
   text-align: center;
 }
 
+.aside-link-td {
+  height: 15px;
+  padding: 5px;
+  width: 200px;
+}
+
 
 select {
   /*margin: 50px;*/
@@ -324,4 +330,24 @@ select {
   background-size: 25px;
   font-family: "Play", sans-serif;
   margin-left: 2.5%;
+}
+
+.full-table-link{
+
+}
+
+.full-table-link:hover {
+    background-color: #39639C;
+    color: #000;
+    border: none;
+    border-style: none;
+    outline: 0;
+}
+
+.full-table-link:active {
+  background-color: #CCC;
+  transform: translateY(4px);
+  border: none;
+  border-style: none;
+  outline: 0;
 }
