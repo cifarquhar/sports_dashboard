@@ -17,7 +17,10 @@ FavouritesView.prototype = {
     if (this.favourites.length === 0) {
       var li = document.createElement('li')
       li.className = ('fixture-list-item')
-      li.innerText = 'You don\'t have anything in your WatchList!'
+      var p = document.createElement('p')
+      p.innerText = 'You don\'t have anything in your WatchList!'
+      p.id = 'empty-message'
+      li.appendChild(p)
       this.element.appendChild(li)
     }
 

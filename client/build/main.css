@@ -83,6 +83,11 @@ h1 {
   margin: 2%;
 }
 
+#empty-message {
+  font-size: 15px;
+  padding-top: 50px;
+}
+
 /*****Nav bar*****/
 
 nav {
