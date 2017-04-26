@@ -24,33 +24,25 @@ var UI = function(link){
 
   console.log('this is link: ', link)
   if (link === "favourites") {
-    this.mapInit = new MapInit()
     this.renderAside()
-    this.object = new FavouritesList()
-    this.mapWrapperFav = new MapWrapperFav()
-    this.objectView = new FavouritesView(this.object, this.mapWrapperFav)
+    this.mapInit = new MapInit()
+    var favouritesList= new FavouritesList()
+    var favouritesView = new FavouritesView(favouritesList, new MapWrapperFav())
+    this.renderLayout(favouritesList, favouritesView)
   } else if (link === "table"){
-    this.object = new LeagueTable()
-    this.objectView = new LeagueTableView()
+    this.renderLayout(new LeagueTable(), new LeagueTableView())
   } else if (link === "map") {
     this.renderAside()
-    this.object = new FixturesList()
     this.mapInit = new MapInit()
-    this.mapWrapper = new MapWrapper()
-    this.objectView = new FixturesView(this.object, this.mapWrapper)
+    var fixturesList = new FixturesList()
+    var fixturesView = new FixturesView(fixturesList, new MapWrapper())
+    this.renderLayout(fixturesList, fixturesView)
   } else if (link === "team") {
     this.renderAside()
-    this.object = new TeamStats()
-    this.objectView = new TeamStatsView()
+    this.renderLayout(new TeamStats(), new TeamStatsView())
   } else if (link === "localhost:3000") {
     this.renderAside()
-    this.objectView = new IndexView()
-  }
-
-  if (this.object) {
-    this.object.getData(function(objectParam){
-      this.objectView.render(objectParam)
-    }.bind(this))
+    new IndexView()
   }
 
 }
@@ -63,7 +55,13 @@ UI.prototype = {
     leagueTable.getData(function(league) {
       asideTable.render(league)
     })
-  }
+  },
+
+  renderLayout: function(object, view) {
+      object.getData(function(objectParam){
+        view.render(objectParam)
+      })
+    }
 
 }
 
