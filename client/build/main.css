@@ -162,6 +162,7 @@ nav a.selected, nav a:hover {
   text-align: center;
   margin:2.5%;
   border-radius: 4px;
+}
 
 .selected{
   background: #325EFF;
