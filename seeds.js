@@ -2,6 +2,10 @@ use sports_dashboard;
 
 db.fixtures.drop()
 db.fixtures.insert([
+  {
+    homeTeamName: "Arsenal FC",
+    coords: {lat: 51.5548885, lng:-0.108438}
+  },
   { 
     homeTeamName: "Chelsea FC",
     coords: {lat: 51.4817, lng: 0.1910}
@@ -52,12 +56,12 @@ db.fixtures.insert([
   },
   {
     homeTeamName: "West Ham United FC",
-    coords: {lat: 51.5386466, lng:-0.0187137,17}
+    coords: {lat: 51.5386466, lng:-0.0187137}
   },
   {
     homeTeamName: "Manchester City FC",
-    coords: {lat: 53.4831381, lng:-2.202584,17}
-  },
+    coords: {lat: 53.4831381, lng:-2.202584}
+  }
   // {
   //   date: "2017-05-06T14:00:00Z",
   //   status: "TIMED",
@@ -329,4 +333,4 @@ db.fixtures.insert([
   //   awayTeamName: "Crystal Palace FC",
   //   coords:
   // }
-  ]);
+  ])

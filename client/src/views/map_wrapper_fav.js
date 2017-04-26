@@ -8,19 +8,20 @@ var MapWrapperFav = function(coords, map) {
 MapWrapperFav.prototype = {
 
     render: function(favouritesCoordinates) {
-        
+      
+
       favouritesCoordinates.forEach(function(stadiumCoordinates){
           var coords = stadiumCoordinates.coords
           var marker = new google.maps.Marker({
             position: coords,           
             map: map,
             animation: google.maps.Animation.DROP
-      })
-
-      marker.setMap(map);
-      
-      // marker.setMap(null);    
+          })
           
+      marker.setMap(null)
+      marker.setMap(map)       
+      
+
       marker.addListener('click', function(){
           if (marker.getAnimation() !== null) {
               marker.setAnimation(null);
@@ -35,7 +36,10 @@ MapWrapperFav.prototype = {
           map.panTo({lat: 53.5, lng: -3});
         }, 2000);
       })
-  }
+  },
+
+
+
 }
 
 module.exports = MapWrapperFav
