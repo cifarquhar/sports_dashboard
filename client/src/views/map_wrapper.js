@@ -11,7 +11,9 @@ MapWrapper.prototype = {
 
     allCoordinates.forEach(function(stadiumCoordinates){
       var coords = stadiumCoordinates.coords
-      var name = stadiumCoordinates.stadium
+      var name = stadiumCoordinates.homeTeamName
+      var stadium = stadiumCoordinates.stadium
+
 
       var marker = new google.maps.Marker({
         position: coords,           
@@ -20,9 +22,7 @@ MapWrapper.prototype = {
       })
 
 
-      var contentString = 
-         '<h3 style="color:black;">Team:</h3>' +
-         '<h3 style="color:black;">'+name+'</h3>'
+      var contentString = '<p style="color: black">Home Team: ' + name + '</p><p style="color: black">Stadium: ' + stadium + '</p>' 
         
 
       marker.addListener('click', function(){

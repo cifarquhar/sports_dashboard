@@ -5,7 +5,7 @@ var IndexView = function() {
 IndexView.prototype = {
 
   render: function() {
-    var body = document.querySelector('body')
+    var body = document.querySelector('#content-div')
     var h2 = document.createElement('h2')
     var pTag1 = document.createElement('p')
     var pTag2 = document.createElement('p')
