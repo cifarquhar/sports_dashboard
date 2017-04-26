@@ -70,7 +70,10 @@ FormListView.prototype = {
 
 
       resultBox.addEventListener("click",function(){
+        var previousBox = document.querySelector(".selected")
+        if (previousBox) previousBox.classList.remove("selected")
         var matchView = new MatchView(fixture,matchElement)
+        resultBox.classList.add("selected")
         matchView.render()
       })
       

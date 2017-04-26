@@ -155,12 +155,16 @@ nav a.selected, nav a:hover {
   background: #FFF;
 }
 
+
 #match-div {
   background-color: #92ADC3;
   width: 250px;
   text-align: center;
   margin:2.5%;
   border-radius: 4px;
+
+.selected{
+  background: #325EFF;
 }
 
 
@@ -273,4 +277,22 @@ p {
   height: 15px;
   padding: 5px;
   text-align: center;
+}
+
+
+select {
+  /*margin: 50px;*/
+  border: 1px solid #111;
+  background: transparent;
+  width: 250px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(./selector_icon.svg) 96% / 15% no-repeat #eee;
+  background-size: 25px;
+  font-family: "Play", sans-serif;
 }
