@@ -15,6 +15,7 @@ FixturesView.prototype = {
     for (var i = 0; i < this.scheduledFixtures.length; i++) {
       var li = document.createElement('li')
       li.className = 'fixture-list-item'
+      li.id = 'fixture-' + i
       this.populateList(this.scheduledFixtures[i], li)
       var button = this.createAddButton(i)
       li.appendChild(button)

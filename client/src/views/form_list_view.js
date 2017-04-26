@@ -79,7 +79,7 @@ FormListView.prototype = {
       
       resultWrapper.appendChild(resultBox)
     })
-
+    
     element.appendChild(resultWrapper)
 
     var formSelector = document.querySelector("#form-selector")

@@ -3,6 +3,7 @@ var MapInit = require('../models/map_init.js')
 var MapWrapper = function(coords, map) {
   this.coords = coords
   this.map = map
+  this.markers = []
 }
 
 MapWrapper.prototype = {
@@ -20,6 +21,8 @@ MapWrapper.prototype = {
         map: map,
         animation: google.maps.Animation.DROP
       })
+
+      this.markers.push(marker)
 
 
       var contentString = '<p style="color: black">Home Team: ' + name + '</p><p style="color: black">Stadium: ' + stadium + '</p>' 
@@ -46,9 +49,18 @@ MapWrapper.prototype = {
                 }, 1500);
           }
         })
-    }.bind(this))
 
+    }.bind(this))
+  },
+
+  addMarkerListeners: function(callback) {
+    for (var i = 0; i < this.markers.length; i++) {
+      this.markers[i].addListener('click', function(callback) {
+        callback()
+      })
+    }
   }
+
 }
 
 module.exports = MapWrapper
