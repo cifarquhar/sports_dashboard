@@ -1,5 +1,6 @@
 /***** Stats Layout *****/
 #team-flex-parent {
+  width: calc(100% - 250px);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -55,6 +56,7 @@ h1 {
 }
 
 #flex-wrap {
+  width: calc(100% - 250px);
   border: none;
   display: flex;
   flex-direction: row;
@@ -124,6 +126,7 @@ nav a.selected, nav a:hover {
 
 /*****Results boxes*****/
 #result-box-wrapper {
+  width: calc(100% - 250px);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
