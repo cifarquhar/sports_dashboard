@@ -377,6 +377,7 @@ var MapInit = function () {
                   ]
           }]
     })
+  
 }
 
 module.exports = MapInit
