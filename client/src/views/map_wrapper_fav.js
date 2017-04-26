@@ -8,24 +8,43 @@ var MapWrapperFav = function(coords, map) {
 MapWrapperFav.prototype = {
 
     render: function(favouritesCoordinates) {
-        
+      
+
       favouritesCoordinates.forEach(function(stadiumCoordinates){
           var coords = stadiumCoordinates.coords
+          var name = stadiumCoordinates.homeTeamName
+
           var marker = new google.maps.Marker({
             position: coords,           
             map: map,
             animation: google.maps.Animation.DROP
-      })
-
-      marker.setMap(map);
-      
-      // marker.setMap(null);    
+          })
           
+      marker.setMap(null)
+      marker.setMap(map)
+
+      var contentString = 
+         '<h3 style="color:black;">Team:</h3>' +
+         '<h3 style="color:black;">'+name+'</h3>'       
+      
+
       marker.addListener('click', function(){
+
+        var infowindow = new google.maps.InfoWindow({
+              content: contentString
+          })
+
+          infowindow.open(map, marker)
+          setTimeout(function() {infowindow.close(map,marker)}, 2000)
+
+
           if (marker.getAnimation() !== null) {
               marker.setAnimation(null);
           } else { 
               marker.setAnimation(google.maps.Animation.BOUNCE);
+              setTimeout(function() {
+                      marker.setAnimation(null)
+                  }, 1500);
             }
           })
       }.bind(this))
@@ -35,7 +54,10 @@ MapWrapperFav.prototype = {
           map.panTo({lat: 53.5, lng: -3});
         }, 2000);
       })
-  }
+  },
+
+
+
 }
 
 module.exports = MapWrapperFav
