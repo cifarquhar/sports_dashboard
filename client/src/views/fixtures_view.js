@@ -26,12 +26,10 @@ FixturesView.prototype = {
 
     var coordsRetrieval = this.fixturesList.allCoordinates(function(coordinates){
       this.mapWrapper.render(coordinates)
-      this.mapWrapper.addMarkerListeners(function() {
-        
-      })
+      var callback = this.changeFixtureOnMarkerClick(coordinates).bind(this)
+      this.mapWrapper.addMarkerListeners(callback)
       return coordinates
     }.bind(this))
-
 
   },
 
@@ -81,6 +79,16 @@ FixturesView.prototype = {
       }.bind(this))
     }.bind(this))
     return button
+  },
+
+  changeFixtureOnMarkerClick: function(dbCoords, fixtures) {
+    return function(markerPositionLat) {
+      for (var i = 0; i < dbCoords.length; i++) {
+        if (dbCoords[i].coords.lat === markerPositionLat) {
+          
+        }
+      }
+    }
   }
 
 }
