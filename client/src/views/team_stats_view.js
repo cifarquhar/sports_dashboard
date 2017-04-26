@@ -5,6 +5,7 @@ var FormList = require("../models/form_list")
 var FormListView = require("./form_list_view")
 var GraphView = require("./graph_view")
 var storedTeams = JSON.parse(localStorage.getItem('storedTeams')) || [];
+var storedTeamName = JSON.parse(localStorage.getItem('storedTeamName')) || "";
 
 
 
@@ -34,9 +35,9 @@ TeamStatsView.prototype = {
 
     var formOption = this.formOption
     // Gets name of team clicked on league table view
-    var teamNameLinkedFrom = window.name
+    var teamNameLinkedFrom = storedTeamName
 
-    console.log('window name', window.name)
+    console.log('stored team name', storedTeamName)
 
     var teamIndexLinkedTo = teams.findIndex(function(team){
       return team.name === teamNameLinkedFrom
@@ -64,7 +65,9 @@ TeamStatsView.prototype = {
 
     this.teamSelector.addEventListener("change",function(){
 
-      window.name = teams[this.teamSelector.value].name
+      storedTeamName = teams[this.teamSelector.value].name
+      var newStoredTeamName = window.JSON.stringify(storedTeamName)
+      localStorage.setItem("storedTeamName",newStoredTeamName)
       
       this.renderSquadList(teams[this.teamSelector.value]._links.players.href, this.playerElement)
 
