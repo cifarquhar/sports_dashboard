@@ -70,6 +70,8 @@ FixturesView.prototype = {
     var button = document.createElement('button')
     button.innerText = 'Add to WatchList'
     button.addEventListener('click', function(e) {
+      console.log('Scheduled fixture add button',this.scheduledFixtures)
+      
       this.favouritesList.addData(this.scheduledFixtures[index],function(){
         // This function doesn't need to do anything, only here because addData needs a callback
       }.bind(this))

@@ -20,9 +20,6 @@ MapWrapperFav.prototype = {
             animation: google.maps.Animation.DROP
           })
           
-      // marker.setMap(null)
-      // marker.setMap(map)
-
       var contentString = 
          '<h3 style="color:black;">Team:</h3>' +
          '<h3 style="color:black;">'+name+'</h3>'       
@@ -53,9 +50,6 @@ MapWrapperFav.prototype = {
           })
       }.bind(this))
   },
-
-
-
 }
 
 module.exports = MapWrapperFav

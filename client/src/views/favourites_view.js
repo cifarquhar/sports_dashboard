@@ -9,6 +9,8 @@ var FavouritesView = function(favouritesList, mapWrapperFav) {
 FavouritesView.prototype = {
 
   render: function(fixtures) {
+    console.log("Is render being called?")
+
     this.clearList()
     this.favourites = fixtures
 
@@ -35,7 +37,7 @@ FavouritesView.prototype = {
       this.element.appendChild(hr)
     }
 
-    var favouritesCoordsRetrieval = this.favouritesList.favouritesCoordinates(function(coordinates){
+    this.favouritesList.favouritesCoordinates(function(coordinates){
       this.mapWrapperFav.render(coordinates)
       return coordinates
     }.bind(this))
@@ -83,6 +85,7 @@ FavouritesView.prototype = {
   },
 
   addFavouritesHomeTeamNameToLocalStorage: function(favouriteFixture){
+    // console.log(favouriteFixture) // OBJECT
     this.favouriteObjects = favouriteFixture.map(function(fixture) {
       return (fixture.homeTeamName)
     })
@@ -91,6 +94,8 @@ FavouritesView.prototype = {
     localStorage.setItem("storedFavouriteGames", favouriteGamesStorage)
 
     var visibleFavouritesHomeTeamNamesStorage = JSON.parse(localStorage.getItem('storedFavouriteGames')) || []
+
+    console.log('Local storage home team names',visibleFavouritesHomeTeamNamesStorage)
   }
 }
 
