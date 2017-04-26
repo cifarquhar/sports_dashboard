@@ -60,9 +60,6 @@ FavouritesList.prototype = {
         return visibleFavouritesStorage.includes(fixture.homeTeamName) 
       })
     callback(favouritesToRender)
-
-    console.log(favouritesToRender)
-
     }
     request.send()
   }
