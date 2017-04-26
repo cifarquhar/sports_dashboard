@@ -12,7 +12,7 @@ NavBar.prototype = {
     var fixturesDiv = this.createNavLink('Fixtures', 'http://localhost:3000/map')
     var favouritesDiv = this.createNavLink('WatchList', 'http://localhost:3000/favourites')
     var tableDiv = this.createNavLink('Table', 'http://localhost:3000/table')
-    var teamDiv = this.createNavLink('Team', 'http://localhost:3000/team')
+    var teamDiv = this.createNavLink('Team Stats', 'http://localhost:3000/team')
     nav.appendChild(homeDiv)
     nav.appendChild(fixturesDiv)
     nav.appendChild(favouritesDiv)  

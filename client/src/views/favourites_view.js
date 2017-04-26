@@ -55,7 +55,7 @@ FavouritesView.prototype = {
 
   createDeleteButton: function(index) {
     var button = document.createElement('button')
-    button.innerText = 'Delete favourite'
+    button.innerText = 'Delete from WatchList'
     button.addEventListener('click', function(e) {
       this.favouritesList.delete(this.favourites[index], function(results) {
         this.render(results)
