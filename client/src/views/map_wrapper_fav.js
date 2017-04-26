@@ -20,8 +20,8 @@ MapWrapperFav.prototype = {
             animation: google.maps.Animation.DROP
           })
           
-      marker.setMap(null)
-      marker.setMap(map)
+      // marker.setMap(null)
+      // marker.setMap(map)
 
       var contentString = 
          '<h3 style="color:black;">Team:</h3>' +
@@ -29,6 +29,10 @@ MapWrapperFav.prototype = {
       
 
       marker.addListener('click', function(){
+
+        map.setCenter(marker.getPosition());
+        map.setZoom(7);
+
 
         var infowindow = new google.maps.InfoWindow({
               content: contentString
@@ -48,12 +52,6 @@ MapWrapperFav.prototype = {
             }
           })
       }.bind(this))
-
-      map.addListener('center_changed', function() {
-        window.setTimeout(function() {
-          map.panTo({lat: 53.5, lng: -3});
-        }, 2000);
-      })
   },
 
 
