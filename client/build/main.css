@@ -11,6 +11,38 @@
   width: 400px;
 }
 
+/***** Buttons *****/
+button {
+  background-color: #5F8DB0;
+  color: #fff;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'Play', sans-serif;
+  border-radius: 4px;
+  border: none;
+  border-style: none;
+  outline: 0;
+}
+
+button:hover {
+    background-color: #DDD;
+    color: #000;
+    border: none;
+    border-style: none;
+    outline: 0;
+}
+
+button:active {
+  background-color: #CCC;
+  transform: translateY(4px);
+  border: none;
+  border-style: none;
+  outline: 0;
+}
+
 /***** Map/Fixture Layout *****/
 body {
   background-color: #ddd  ;
@@ -35,6 +67,7 @@ h1 {
   background-color: #92ADC3;
   color: #fff;
   margin-left: 2.5%;
+  border-radius: 4px;
 }
 
 #map-wrapper {
@@ -59,9 +92,11 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  border-radius: 4px;
 }
 
 .nav-item {
+  border-radius: 4px;
   list-style-type: none;
   display: inline;
   text-align: center; 
@@ -120,6 +155,14 @@ nav a.selected, nav a:hover {
   background: #FFF;
 }
 
+
+#match-div {
+  background-color: #92ADC3;
+  width: 250px;
+  text-align: center;
+  margin:2.5%;
+  border-radius: 4px;
+
 .selected{
   background: #325EFF;
 }
@@ -142,17 +185,36 @@ table, th, td {
   border: none;
 }
 
+
 table {
   border-collapse: collapse;
   max-width: 100%;
   vertical-align: center;
   margin: 1%;
+  border-radius: 4px;
+  -moz-border-radius:4px;
 }
 
 th {
   height: 50px;
   padding: 20px;
   margin: 5px;
+}
+
+tr:first-child th:first-child {
+    border-radius: 4px 0 0 0;
+}
+
+tr:first-child th:last-child {
+    border-radius: 0 4px 0 0;
+}
+
+tr:last-child td:first-child {
+    border-radius: 0 0 0 4px;
+}
+
+tr:last-child td:last-child {
+    border-radius: 0 0 4px 0;
 }
 
 td {
@@ -174,13 +236,7 @@ tr:nth-child(odd) a:hover {
   background-color: #92ADC3;
 }
 
-.nav-item a, .nav-item a:visited {
-  text-decoration: none;
-}
 
-nav a.selected, nav a:hover {
-  background-color: #5F8DB0;
-}
 
 /****Map***/
 #map {
