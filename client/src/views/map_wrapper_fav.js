@@ -12,9 +12,9 @@ MapWrapperFav.prototype = {
       
 
       favouritesCoordinates.forEach(function(stadiumCoordinates){
-
-      var coords = stadiumCoordinates.coords
-      var name = stadiumCoordinates.homeTeamName
+        var coords = stadiumCoordinates.coords
+        var name = stadiumCoordinates.homeTeamName
+        var stadium = stadiumCoordinates.stadium
 
       var marker = new google.maps.Marker({
         position: coords,           
@@ -26,16 +26,12 @@ MapWrapperFav.prototype = {
 
       console.log(this.markers.length)
       
-
-      var contentString = 
-         '<h3 style="color:black;">Team:</h3>' +
-         '<h3 style="color:black;">'+name+'</h3>'       
-      
+      var contentString = '<p style="color: black">Home Team: ' + name + '</p><p style="color: black">Stadium: ' + stadium + '</p>' 
 
       marker.addListener('click', function(){
 
         map.setCenter(marker.getPosition());
-        map.setZoom(7);
+        map.setZoom(10);
 
 
         var infowindow = new google.maps.InfoWindow({

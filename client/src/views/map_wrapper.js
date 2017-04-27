@@ -31,7 +31,7 @@ MapWrapper.prototype = {
       marker.addListener('click', function(){
 
         map.setCenter(marker.getPosition());
-        map.setZoom(7);
+        map.setZoom(10);
 
         var infowindow = new google.maps.InfoWindow({
             content: contentString
