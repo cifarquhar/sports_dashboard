@@ -31,7 +31,7 @@ MapWrapper.prototype = {
       marker.addListener('click', function(){
 
         map.setCenter(marker.getPosition());
-        map.setZoom(7);
+        map.setZoom(10);
 
         var infowindow = new google.maps.InfoWindow({
             content: contentString
@@ -51,18 +51,7 @@ MapWrapper.prototype = {
         })
 
     }.bind(this))
-  },
-
-  addMarkerListeners: function(callback) {
-    console.log('callback', callback)
-    for (var i = 0; i < this.markers.length; i++) {
-      var marker = this.markers[i]
-      marker.addListener('click', function(){
-        callback(this.getPosition().lat())
-      })
-    }
   }
-
 }
 
 module.exports = MapWrapper
