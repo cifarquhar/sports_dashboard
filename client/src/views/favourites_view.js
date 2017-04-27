@@ -72,6 +72,8 @@ FavouritesView.prototype = {
     button.innerText = 'Delete from WatchList'
     button.addEventListener('click', function(e) {
       this.favouritesList.delete(this.favourites[index], function(results) {
+        console.log('results' , results)
+        this.mapWrapperFav.clearMarkers()
         this.render(results)
       }.bind(this))
     }.bind(this))

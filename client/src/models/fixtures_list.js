@@ -30,26 +30,6 @@ FixturesList.prototype = {
       })
     },
 
-    // THESE ARE MOST LIKELY NOR REQUIRED //
-
-  // all: function(callback){
-  //   var self = this; 
-  //   this.makeRequest("http://localhost:3000/api/fixtures", function(){
-  //     if(this.status !== 200) return;
-  //     var jsonString = this.responseText;
-  //     var results = JSON.parse(jsonString);
-
-  //     var fixture = self.populateFixtures(results);
-  //     callback(fixture);
-  //   })
-  // },
-
-  // populateFixtures: function(results){
-  //   var fixture = results.map(function(result){
-  //     return new Fixture(result);
-  
-    ////////////////////////
-
   allCoordinates: function(callback){
     var request = new XMLHttpRequest()
     request.open('GET', "http://localhost:3000/api/fixtures")

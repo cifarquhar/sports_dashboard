@@ -45,12 +45,10 @@ FavouritesList.prototype = {
       console.log('Delete method',favourites)
       callback(favourites)
     }, JSON.stringify(fixture))
-
-    
   },
 
   favouritesCoordinates: function(callback) {
-    
+
     var visibleFavouritesHomeTeamNamesStorage = JSON.parse(localStorage.getItem('storedFavouriteGames')) || []
 
     console.log(visibleFavouritesHomeTeamNamesStorage)
