@@ -15,6 +15,7 @@ FixturesView.prototype = {
     for (var i = 0; i < this.scheduledFixtures.length; i++) {
       var li = document.createElement('li')
       li.className = 'fixture-list-item'
+      li.id = 'fixture-' + i
       this.populateList(this.scheduledFixtures[i], li)
       var button = this.createAddButton(i)
       li.appendChild(button)
@@ -25,8 +26,11 @@ FixturesView.prototype = {
 
     var coordsRetrieval = this.fixturesList.allCoordinates(function(coordinates){
       this.mapWrapper.render(coordinates)
+      var callback = this.changeFixtureOnMarkerClick(coordinates).bind(this)
+      this.mapWrapper.addMarkerListeners(callback)
       return coordinates
     }.bind(this))
+
   },
 
   createPtag: function(id, li, label, text) {
@@ -77,6 +81,16 @@ FixturesView.prototype = {
       }.bind(this))
     }.bind(this))
     return button
+  },
+
+  changeFixtureOnMarkerClick: function(dbCoords, fixtures) {
+    return function(markerPositionLat) {
+      for (var i = 0; i < dbCoords.length; i++) {
+        if (dbCoords[i].coords.lat === markerPositionLat) {
+          
+        }
+      }
+    }
   }
 
 }
