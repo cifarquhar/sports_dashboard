@@ -27,7 +27,6 @@ FixturesView.prototype = {
     var coordsRetrieval = this.fixturesList.allCoordinates(function(coordinates){
       this.mapWrapper.render(coordinates)
       var callback = this.changeFixtureOnMarkerClick(coordinates).bind(this)
-      this.mapWrapper.addMarkerListeners(callback)
       return coordinates
     }.bind(this))
 

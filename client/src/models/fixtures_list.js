@@ -38,6 +38,8 @@ FixturesList.prototype = {
       var jsonString = this.responseText;
       this.fixturesWithCoords = JSON.parse(jsonString);
 
+      console.log(this.fixturesWithCoords)
+
       var fixtureToRender = this.fixturesWithCoords.filter(function(fixture){
         return mappedStorage.includes(fixture.homeTeamName) 
       })

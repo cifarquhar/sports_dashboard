@@ -51,18 +51,7 @@ MapWrapper.prototype = {
         })
 
     }.bind(this))
-  },
-
-  addMarkerListeners: function(callback) {
-    console.log('callback', callback)
-    for (var i = 0; i < this.markers.length; i++) {
-      var marker = this.markers[i]
-      marker.addListener('click', function(){
-        callback(this.getPosition().lat())
-      })
-    }
   }
-
 }
 
 module.exports = MapWrapper
